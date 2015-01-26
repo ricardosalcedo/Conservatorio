@@ -1,0 +1,133 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'ios', '-sim' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'ios', null ]
+5 verbose cache add name=undefined spec="ios" args=["ios",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'ios',
+6 verbose parsed url   path: 'ios',
+6 verbose parsed url   href: 'ios' }
+7 silly lockFile 0f8d2573-ios ios
+8 verbose lock ios /Users/Ricardo/.npm/0f8d2573-ios.lock
+9 silly lockFile 0f8d2573-ios ios
+10 silly lockFile 0f8d2573-ios ios
+11 verbose addNamed [ 'ios', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 615198a1-ios ios@
+14 verbose lock ios@ /Users/Ricardo/.npm/615198a1-ios.lock
+15 silly addNameRange { name: 'ios', range: '*', hasData: false }
+16 verbose request where is /ios
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 596c3f81b0e0aabe
+19 verbose url raw /ios
+20 verbose url resolving [ 'https://registry.npmjs.org/', './ios' ]
+21 verbose url resolved https://registry.npmjs.org/ios
+22 verbose request where is https://registry.npmjs.org/ios
+23 info trying registry request attempt 1 at 07:36:16
+24 http GET https://registry.npmjs.org/ios
+25 http 200 https://registry.npmjs.org/ios
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Wed, 07 Jan 2015 12:36:17 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"3WVVIEDJHYVRQ58MDRHYFYGZC"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '1060',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-iad2149-IAD',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1420634177.095471,VS0,VE11',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'ios', range: '*', hasData: true }
+28 silly addNameRange versions [ 'ios', [ '0.0.1' ] ]
+29 verbose addNamed [ 'ios', '0.0.1' ]
+30 verbose addNamed [ '0.0.1', '0.0.1' ]
+31 silly lockFile 64abac1a-ios-0-0-1 ios@0.0.1
+32 verbose lock ios@0.0.1 /Users/Ricardo/.npm/64abac1a-ios-0-0-1.lock
+33 silly lockFile 1170b31d-stry-npmjs-org-ios-ios-0-0-1-tgz https://registry.npmjs.org/ios/-/ios-0.0.1.tgz
+34 verbose lock https://registry.npmjs.org/ios/-/ios-0.0.1.tgz /Users/Ricardo/.npm/1170b31d-stry-npmjs-org-ios-ios-0-0-1-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/ios/-/ios-0.0.1.tgz',
+35 verbose addRemoteTarball   '4c6f774d8b0c2e9bb53c3411a6cdf00ac51dd92d' ]
+36 info retry fetch attempt 1 at 07:36:16
+37 verbose fetch to= /var/folders/7p/r5xywjq94475m7wv1pkh52c00000gp/T/npm-30073-Sia2aa0G/registry.npmjs.org/ios/-/ios-0.0.1.tgz
+38 http GET https://registry.npmjs.org/ios/-/ios-0.0.1.tgz
+39 http 200 https://registry.npmjs.org/ios/-/ios-0.0.1.tgz
+40 silly lockFile 1170b31d-stry-npmjs-org-ios-ios-0-0-1-tgz https://registry.npmjs.org/ios/-/ios-0.0.1.tgz
+41 silly lockFile 1170b31d-stry-npmjs-org-ios-ios-0-0-1-tgz https://registry.npmjs.org/ios/-/ios-0.0.1.tgz
+42 silly lockFile 64abac1a-ios-0-0-1 ios@0.0.1
+43 silly lockFile 64abac1a-ios-0-0-1 ios@0.0.1
+44 silly lockFile 615198a1-ios ios@
+45 silly lockFile 615198a1-ios ios@
+46 silly resolved [ { name: 'ios',
+46 silly resolved     version: '0.0.1',
+46 silly resolved     description: 'test',
+46 silly resolved     main: 'server.js',
+46 silly resolved     scripts:
+46 silly resolved      { test: 'echo "Error: no test specified" && exit 1',
+46 silly resolved        start: 'node server.js' },
+46 silly resolved     keywords: [ 'hello world' ],
+46 silly resolved     author: { name: 'xs' },
+46 silly resolved     license: 'mit',
+46 silly resolved     _id: 'ios@0.0.1',
+46 silly resolved     _shasum: '4c6f774d8b0c2e9bb53c3411a6cdf00ac51dd92d',
+46 silly resolved     _from: 'ios@',
+46 silly resolved     _npmVersion: '1.4.9',
+46 silly resolved     _npmUser: { name: 'xiaosheng', email: 'xs.cctv@163.com' },
+46 silly resolved     maintainers: [ [Object] ],
+46 silly resolved     dist:
+46 silly resolved      { shasum: '4c6f774d8b0c2e9bb53c3411a6cdf00ac51dd92d',
+46 silly resolved        tarball: 'http://registry.npmjs.org/ios/-/ios-0.0.1.tgz' },
+46 silly resolved     directories: {},
+46 silly resolved     _resolved: 'https://registry.npmjs.org/ios/-/ios-0.0.1.tgz' } ]
+47 info install ios@0.0.1 into /usr/local/lib
+48 info installOne ios@0.0.1
+49 verbose lib/node_modules/ios unbuild
+50 verbose tar unpack /Users/Ricardo/.npm/ios/0.0.1/package.tgz
+51 silly lockFile f270d4e2-r-usr-local-lib-node-modules-ios tar:///usr/local/lib/node_modules/ios
+52 verbose lock tar:///usr/local/lib/node_modules/ios /Users/Ricardo/.npm/f270d4e2-r-usr-local-lib-node-modules-ios.lock
+53 silly lockFile 76b6e04e-icardo-npm-ios-0-0-1-package-tgz tar:///Users/Ricardo/.npm/ios/0.0.1/package.tgz
+54 verbose lock tar:///Users/Ricardo/.npm/ios/0.0.1/package.tgz /Users/Ricardo/.npm/76b6e04e-icardo-npm-ios-0-0-1-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/ios'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/ios']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/ios',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/ios',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:108:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Darwin 14.0.0
+59 error command "node" "/usr/local/bin/npm" "install" "-g" "ios" "-sim"
+60 error cwd /Users/Ricardo/Documents/workspace/Conservatorio_mob
+61 error node -v v0.10.35
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/ios
+64 error fstream_path /usr/local/lib/node_modules/ios
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/ios'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:108:15)
+71 verbose exit [ 3, true ]
