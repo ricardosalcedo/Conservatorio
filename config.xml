@@ -1,14 +1,16 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.conservatorio" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>conservatorio</name>
+    <name>Conservatorio</name>
     <description>
         Aplicacion mobil para el conservatorio del tolima
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="ricardo.salcedo@gmail.com" href="http://cordova.io">
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="Orientation" value="portrait" />
+	<preference name="DisallowOverscroll" value="true"/>
     <icon src="res/icon/icon.png" />
     <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
