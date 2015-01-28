@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var output = $('#contents');
 
 	$.ajax({
-		url: 'http://127.0.0.1:8888/Conservatorio/connect.php',
+		url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
 		dataType: 'jsonp',
 		jsonp: 'jsoncallback',
 		timeout: 5000,
