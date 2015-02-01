@@ -1,0 +1,214 @@
+@font-face {
+    font-family: FlamaCondensed;
+    src: url(../Fonts/FlamaCondensed-Light.otf);
+}
+
+@font-face {
+    font-family: BrandonGrotesque;
+    src: url(../Fonts/Brandon_thin.otf);
+}
+
+@font-face {
+    font-family: GothamHTF Black;
+    src: url(../Fonts/Gotham-Black.otf);
+}
+
+
+
+/************Landing Screen********************/
+
+div#page1 {
+	background-image: url(../img/ui-conservatorio-tolima-01.jpg) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+
+div#loginbar {
+height: 39pt;
+border: none;
+}
+
+a#login-text {
+font-size: 15pt;
+color: white;
+font-weight: 100;
+letter-spacing: 1pt;
+float: left;
+width: 50%;
+margin-bottom: 100%;
+}
+
+a#sign-text {
+font-size: 15pt;
+color: white;
+font-weight: 100;
+letter-spacing: 1pt;
+float: right;
+width: 50%;
+margin-bottom: 100%;
+}
+
+table {
+width: 100%;
+}
+td {
+width: 50%;
+}
+
+/**************End Landing**********************/
+
+
+/************Login Screen********************/
+
+div#page2 {
+	background-image: url(../img/Login.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+header {
+text-align: center;
+}
+
+a#facebook {
+background-image: url(../img/facebook.png) !important;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 101%;
+box-sizing: border-box;
+border: none;
+width: 100%;
+height: 37px;
+border-radius: 12px;
+}
+
+.container {
+      margin: auto;
+      max-width: 800px;
+}
+
+#login {
+      padding: 20px 5%;
+    }
+
+#login #blurb {
+float: left;
+font-weight: 100;
+width: 100%;
+font-size: 13px;
+letter-spacing: 2pt;
+box-sizing: border-box;
+padding-right: 10px;
+text-align: -webkit-center;
+color: white;
+}
+
+#sepa {
+font-weight: 100;
+width: 100%;
+font-size: 13px;
+letter-spacing: 2pt;
+box-sizing: border-box;
+padding-right: 10px;
+text-align: -webkit-center;
+color: white;
+margin: auto;
+margin-top: 8em;
+
+}
+
+#login #register {
+  float:right;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: 300;
+  text-align: -webkit-center;
+}
+
+#login br {
+      clear: both;
+    }
+    
+hr#logindash1 {
+width: 45%;
+float: left;
+}
+hr#logindash2 {
+width: 45%;
+float: right;
+}
+
+input#EMAIL {
+text-align: center;
+padding-top: 1em;
+}
+
+input#PASS {
+text-align: center;
+padding-top: 1em;
+}
+
+a#register {
+text-shadow: none;
+}
+
+.ui-field-contain {
+width: 100%;
+}
+
+.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
+height: 44px;
+border-radius: 12px;
+}
+
+.ui-btn.ui-input-btn.ui-corner-all.ui-shadow {
+width: 13em;
+margin-top: 1.5em;
+background-color: #A71835;
+color: white;
+text-shadow: none;
+border: none;
+}
+
+/************End Login********************/
+
+/************Regitry Screen********************/
+
+div#page10 {
+	background-image: url(../img/Login.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+form#regform {
+width: 17em;
+margin: 5em auto;
+text-align: -webkit-center;
+}
+
+input#NOMBREREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#EMAILREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#PASSREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#PASSCREG {
+text-align: center;
+padding-top: 1em;
+}
+
+
+/************End Registry********************/
