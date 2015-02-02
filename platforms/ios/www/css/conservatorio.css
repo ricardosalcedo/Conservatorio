@@ -223,9 +223,13 @@ padding-top: 1em;
 /************Home Screen********************/
 
 div#page3 {
-	background-image: url(../img/home.png) !important;
+	background-image: url(../img/home.jpg) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.homer {
+text-align: center;
 }
 
 a#notpanelhome {
@@ -240,64 +244,207 @@ letter-spacing: 4pt;
 font-weight: 100;
 }
 
+div#homebuttons {
+width: 18em;
+margin: auto;
+}
+
 a#Noticias {
 	background-image: url(../img/Noticiasbutton.png) !important;
 	background-repeat: no-repeat;
-	background-size: 90%;
-	height: 5.5em;
+	height: 3em;
 	background-position: center;
+	border: none;
 }
 
 a#Eventos {
 	background-image: url(../img/Eventosbutton.png) !important;
 	background-repeat: no-repeat;
-	background-size: 90%;
-	height: 5.5em;
+	height: 3em;
 	background-position: center;
+	border: none;
 }
 
 a#Fotos {
 	background-image: url(../img/Fotosbutton.png) !important;
 	background-repeat: no-repeat;
-	background-size: 90%;
-	height: 5.5em;
+	height: 3em;
 	background-position: center;
+	border: none;
+}
+
+.bottom {
+text-align: center;
 }
 
 /************End Home********************/
 
+/************Noticias Screen********************/
+
+div#page5 {
+	background-image: url(../img/back-noticias.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a#notpanel {
+border-radius: 0px;
+margin-top: -8px;
+border: none;
+font-family: FlamaCondensed;
+font-size: 8pt;
+background-color: #C9AA69;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+}
+
+div#notitle {
+background-image: url(../img/top-title.png);
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+
+img#notitle {
+position: absolute;
+}
+
+hr#hline {
+height: 6px;
+border: 0;
+box-shadow: inset 0 6px 6px -6px black;
+}
+
+
+
+li#contents {
+width: 100%;
+height: 400px;
+border-radius: 20px;
+margin-top: -22px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+}
+
+hr#shad {
+position: relative;
+height: 12px;
+border: 0;
+box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}
+
+a#not-but {
+background-image: url(../img/not-cloud.png);
+background-repeat: no-repeat;
+height: 52px;
+width: 245px;
+border: none;
+background-color: transparent;
+margin-left: 4px;
+}
+
+label.date {
+font-family: BrandonGrotesque;
+color: rgb(154,106,10);
+font-size: 0.5em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+div#imgnot {
+width: 164px;
+height: 75px;
+margin-left: 91px;
+border-radius: 0 21px 21px 0;
+background-repeat: no-repeat;
+background-size: cover;
+position: absolute;
+bottom: 0;
+-webkit-clip-path: polygon(45% 0, 0% 100%, 100% 100%, 100% 0);
+}
+
+span.ttl {
+color: white;
+font-size: 0.8em;
+letter-spacing: 0px;
+display: inline-block;
+text-shadow: none;
+text-align: left;
+float: left;
+font-weight: 100;
+white-space: normal;
+width: 106px;
+height: 50px;
+}
+
+
+
+/************End Noticias Screen********************/
+
 /************Bottom Menu********************/
 
-li#icon-main {
+.ui-icon-icon-main {
 background-image: url(../img/nota.png);
 background-repeat: no-repeat;
 background-color: transparent;
-height: 48px;
 }
 
-li#icon-not {
+.ui-icon-icon-not {
 background-image: url(../img/trompeta.png);
 background-repeat: no-repeat;
 background-color: transparent;
-height: 48px;
 }
 
-li#icon-event {
+.ui-icon-icon-event {
 background-image: url(../img/violin.png);
 background-repeat: no-repeat;
 background-color: transparent;
-height: 48px;
 }
 
-li#icon-foto {
+.ui-icon-icon-foto {
 background-image: url(../img/piano.png);
 background-repeat: no-repeat;
 background-color: transparent;
-height: 48px;
 }
 
 div#tabbar {
 background-color: transparent;
 }
 
+ul {
+list-style-type: none;
+}
+
+div#foot {
+background-color: transparent;
+}
+
+a.ui-link.ui-btn {
+background-color: transparent;
+}
+
+.ui-btn-icon-top:after {
+background-color: transparent;
+}
+
+.ui-btn-icon-left:after {
+background-color: transparent;
+}
+
+.ui-header .ui-navbar .ui-btn, .ui-footer .ui-navbar .ui-btn {
+background-position: center;
+}
+
+a#notnot {
+background-color: lightslategrey;
+}
+
 /************End Bottom Menu********************/
+
+
