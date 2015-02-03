@@ -31,7 +31,7 @@
       	 </header>
       	 <div id="blurb">
       	  <p>INGRESA CON</p>
-      	   <a data-role="button" id="facebook" href="#page3"></a>
+      	   <a data-role="button" id="facebook" href="#page3" data-transition="slide"></a>
       	 </div> 
       	 <div id="sepa">
       	  <hr id="logindash1">O<hr id="logindash2">
@@ -50,38 +50,44 @@
       </div>
   </div>
   <div data-role="page" data-control-title="main" id="page3" class="back">
+     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
+          <ul data-role="listview" data-divider-theme="b" data-inset="false">
+              <li data-theme="b">
+                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+                      Logoff
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page3" data-transition="slide">
+                  	<img src="img/nota.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Inicio
+                  </a>
+              </li>              
+              <li data-theme="b">
+                  <a href="#page6" data-transition="slide">
+                  	<img src="img/violin.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Eventos
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page5" data-transition="slide">
+                  	<img src="img/trompeta.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Noticias
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page7" data-transition="slide">
+                  	<img src="img/piano.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Fotos
+                  </a>
+              </li>
+          </ul>
+      </div>
       <div class="container">
-	      <div data-role="panel" id="panel4" data-position="left" data-display="reveal" data-theme="b">
-	          <ul data-role="listview" data-divider-theme="b" data-inset="false">
-	              <li data-role="list-divider" role="heading">
-	                  Menu
-	              </li>
-	              <li data-theme="b">
-	                  <a href="#page2" data-transition="slide">
-	                      Logoff
-	                  </a>
-	              </li>
-	              <li data-theme="b">
-	                  <a href="#page6" data-transition="slide">
-	                      Eventos
-	                  </a>
-	              </li>
-	              <li data-theme="b">
-	                  <a href="#page5" data-transition="slide">
-	                      Noticias
-	                  </a>
-	              </li>
-	              <li data-theme="b">
-	                  <a href="#page7" data-transition="slide">
-	                      Fotos
-	                  </a>
-	              </li>
-	          </ul>
-	      </div>
 	      <div data-role="content" id="not-content">
 		     <a data-controltype="panelbutton" id="notpanelhome" data-role="button" data-theme="a" href="#panel4"
 		          data-icon="bars" data-iconpos="left">
-		          CONSERVATORIO DE TOLIMA
+		          CONSERVATORIO DEL TOLIMA
 		     </a>
 		  </div>
 		  <div class="homer">
@@ -93,40 +99,46 @@
 		  	</div>
 		  </div>
 		  <div data-role="content" id="homebuttons">
-		  	 <a href="#page5" data-role="button" id="Noticias"></a>
-		     <a href="#page6" data-role="button" id="Eventos"></a>
-		     <a href="#page7" data-role="button" id="Fotos"></a>
+		  	 <a href="#page5" data-role="button" id="Noticias" data-transition="slide"></a>
+		     <a href="#page6" data-role="button" id="Eventos" data-transition="slide"></a>
+		     <a href="#page7" data-role="button" id="Fotos" data-transition="slide"></a>
 		  </div>
 		  <div class="bottom">
 		  		<img alt="" id="homebottom" src="img/homebottom.png">
 		  </div>
 		</div>
  </div>
-   <div data-role="page" data-control-title="main" id="page5" class="back">
+ <div data-role="page" data-control-title="main" id="page5" class="back">
      <div class="container">
-      <div data-role="panel" id="panel4" data-position="left" data-display="reveal"
+      <div data-role="panel" id="panel6" data-position="left" data-display="reveal"
       data-theme="b">
           <ul data-role="listview" data-divider-theme="b" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Menu
-              </li>
               <li data-theme="b">
-                  <a href="#page2" data-transition="slide">
+                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
                       Logoff
                   </a>
               </li>
               <li data-theme="b">
+                  <a href="#page3" data-transition="slide">
+                  	<img src="img/nota.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Inicio
+                  </a>
+              </li>              
+              <li data-theme="b">
                   <a href="#page6" data-transition="slide">
+                  	<img src="img/violin.png" alt="" class="ui-li-icon ui-li-thumb">
                       Eventos
                   </a>
               </li>
               <li data-theme="b">
                   <a href="#page5" data-transition="slide">
+                  	<img src="img/trompeta.png" alt="" class="ui-li-icon ui-li-thumb">
                       Noticias
                   </a>
               </li>
               <li data-theme="b">
                   <a href="#page7" data-transition="slide">
+                  	<img src="img/piano.png" alt="" class="ui-li-icon ui-li-thumb">
                       Fotos
                   </a>
               </li>
@@ -134,9 +146,9 @@
       </div>
 
       <div data-role="content" id="not-content">
-	     <a data-controltype="panelbutton" id="notpanel" data-role="button" data-theme="a" href="#panel4"
+	     <a data-controltype="panelbutton" id="notpanel" data-role="button" data-theme="a" href="#panel6"
 	          data-icon="bars" data-iconpos="left">
-	          CONSERVATORIO DE TOLIMA
+	          CONSERVATORIO DEL TOLIMA
 	     </a>
 	     <div id="titlediv">
 	     	<img alt="" id="notitle" src="img/top-title.png">
@@ -144,8 +156,7 @@
 	     <hr id="hline">
 	     <li id="contents">
 	     </li>
-	    </div>
-	    
+	  </div>   
 	  <div data-role="footer" id="foot">  
 	  	  <div data-role="navbar" data-iconpos="top" data-theme="a" id="tabbar">
 	          <ul>
@@ -154,7 +165,7 @@
 	                  </a>
 	              </li>
 	              <li>
-	                  <a href="#page5" id="notnot" data-icon="icon-not" data-iconpos="notext" data-transition="fade" data-theme="">
+	                  <a href="#page5" id="notnot" style="background-color: lightslategrey;" data-icon="icon-not" data-iconpos="notext" data-transition="fade" data-theme="">
 	                  </a>
 	              </li>
 	              <li>
@@ -170,34 +181,121 @@
 	  </div> 
 	</div>
   </div>
-  <div data-role="page" data-control-title="Register" id="page10" class="back">
-     <div data-role="panel" id="panel4" data-position="left" data-display="reveal" data-theme="b">
+  
+  <div data-role="page" data-control-title="main" id="page6" class="back">
+     <div class="container">
+      <div data-role="panel" id="panel7" data-position="left" data-display="reveal"
+      data-theme="b">
           <ul data-role="listview" data-divider-theme="b" data-inset="false">
-              <li data-role="list-divider" role="heading">
-                  Menu
-              </li>
               <li data-theme="b">
-                  <a href="#page2" data-transition="slide">
+                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
                       Logoff
                   </a>
               </li>
               <li data-theme="b">
+                  <a href="#page3" data-transition="slide">
+                  	<img src="img/nota.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Inicio
+                  </a>
+              </li>              
+              <li data-theme="b">
                   <a href="#page6" data-transition="slide">
+                  	<img src="img/violin.png" alt="" class="ui-li-icon ui-li-thumb">
                       Eventos
                   </a>
               </li>
               <li data-theme="b">
                   <a href="#page5" data-transition="slide">
+                  	<img src="img/trompeta.png" alt="" class="ui-li-icon ui-li-thumb">
                       Noticias
                   </a>
               </li>
               <li data-theme="b">
                   <a href="#page7" data-transition="slide">
+                  	<img src="img/piano.png" alt="" class="ui-li-icon ui-li-thumb">
                       Fotos
                   </a>
               </li>
           </ul>
       </div>
+
+      <div data-role="content" id="not-content">
+	     <a data-controltype="panelbutton" id="evpanel" data-role="button" data-theme="a" href="#panel7"
+	          data-icon="bars" data-iconpos="left">
+	          CONSERVATORIO DEL TOLIMA
+	     </a>
+	     <div id="titlediv">
+	     	<img alt="" id="evtitle" src="img/top-titlev.png">
+	     </div>
+	     <hr id="hline">
+	     <li id="contents">
+	     </li>
+	  </div>   
+	  <div data-role="footer" id="foot">  
+	  	  <div data-role="navbar" data-iconpos="top" data-theme="a" id="tabbar">
+	          <ul>
+	              <li>
+	                  <a href="#page3" id="notmain" data-icon="icon-main" data-iconpos="notext" data-transition="fade" data-theme="">
+	                  </a>
+	              </li>
+	              <li>
+	                  <a href="#page5" id="notnot" data-icon="icon-not" data-iconpos="notext" data-transition="fade" data-theme="">
+	                  </a>
+	              </li>
+	              <li>
+	                  <a href="#page6" id="notevent" style="background-color: lightslategrey;" data-icon="icon-event" data-iconpos="notext" data-transition="fade" data-theme="">
+	                  </a>
+	              </li>
+	              <li>
+	                  <a href="#page7" id="notfot" data-icon="icon-foto" data-iconpos="notext" data-transition="fade" data-theme="">
+	                  </a>
+	              </li>
+	          </ul>
+	      </div>
+	  </div> 
+	</div>
+  </div>
+  
+  
+  <div data-role="page" data-control-title="Register" id="page10" class="back">
+     <div data-role="panel" id="panel5" data-position="left" data-display="reveal" data-theme="b">
+          <ul data-role="listview" data-divider-theme="b" data-inset="false">
+              <li data-theme="b">
+                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+                      Logoff
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page3" data-transition="slide">
+                  	<img src="img/nota.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Inicio
+                  </a>
+              </li>              
+              <li data-theme="b">
+                  <a href="#page6" data-transition="slide">
+                  	<img src="img/violin.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Eventos
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page5" data-transition="slide">
+                  	<img src="img/trompeta.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Noticias
+                  </a>
+              </li>
+              <li data-theme="b">
+                  <a href="#page7" data-transition="slide">
+                  	<img src="img/piano.png" alt="" class="ui-li-icon ui-li-thumb">
+                      Fotos
+                  </a>
+              </li>
+
+          </ul>
+      </div>
+   	  <a data-controltype="panelbutton" id="regpanel" data-role="button" data-theme="a" href="#panel5"
+	          data-icon="bars" data-iconpos="left">
+	          CONSERVATORIO DEL TOLIMA
+	  </a>
       <div id="Register">
       		<form action="" id="regform">
       			<input name="nombreerg" id="NOMBREREG" placeholder="NOMBRE" required autocomplete="nombre" maxlength="50">

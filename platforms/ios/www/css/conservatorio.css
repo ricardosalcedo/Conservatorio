@@ -300,7 +300,6 @@ font-weight: 100;
 }
 
 div#notitle {
-background-image: url(../img/top-title.png);
 background-repeat: no-repeat;
 height: 40px;
 width: 147px;
@@ -389,6 +388,38 @@ height: 50px;
 
 /************End Noticias Screen********************/
 
+/************Eventos Screen********************/
+
+div#page6 {
+	background-image: url(../img/back-eventos.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a#evpanel {
+border-radius: 0px;
+margin-top: 7px;
+border: none;
+font-family: FlamaCondensed;
+font-size: 8pt;
+background-color: #524976;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+}
+
+div#evtitle {
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+
+
+/************End Eventos Screen********************/
+
 /************Bottom Menu********************/
 
 .ui-icon-icon-main {
@@ -441,10 +472,6 @@ background-color: transparent;
 
 .ui-header .ui-navbar .ui-btn, .ui-footer .ui-navbar .ui-btn {
 background-position: center;
-}
-
-a#notnot {
-background-color: lightslategrey;
 }
 
 /************End Bottom Menu********************/
