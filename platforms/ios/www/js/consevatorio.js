@@ -8,10 +8,10 @@ $(document).bind("mobileinit", function(){
     $.mobile.pushStateEnabled = false;  
   });
 
-//$(document).on("pageinit","#page1",function(){
+$(document).on("pageinit","#page1",function(){
     $("#page1").on("swipeleft",function(){
         $.mobile.navigate( "#page2", { transition : "slide"} );
-  //  });
+});
     
 window.fbAsyncInit = function() {
         FB.init({
