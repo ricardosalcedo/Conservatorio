@@ -61,9 +61,10 @@ function checkLoginState() {
 function logIn(){
     FB.login(function(response) {
         if (response.status === 'connected') {
-          // Logged into your app and Facebook.
+            console.log("Conectado!!!");
+            $.mobile.navigate( "#page3", { transition : "slide"} );
         } else if (response.status === 'not_authorized') {
-          // The person is logged into Facebook, but not your app.
+           alert("Usuario no autorizado");
         } else {
           // The person is not logged into Facebook, so we're not sure if
           // they are logged into this app or not.
