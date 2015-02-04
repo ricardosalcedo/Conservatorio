@@ -11,7 +11,7 @@ $(document).ready(function(){
 		    //if(data != undefined && data.post != undefined){
     			$.each(data, function(i,item){
     				var landmark = '<br><br><a href="#page7" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
-    				+item.Nombre+'</span></div><div id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/protected/banner/'+item.Foto+'"></div>';
+    				+item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img>';
     				
     				output.append(landmark);
     			});
