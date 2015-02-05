@@ -59,6 +59,7 @@ function checkLoginState() {
 }
 
 function logIn(){
+    alert("Processing Login with FB!");
     FB.login(function(response) {
         if (response.status === 'connected') {
             console.log("Conectado!!!");
