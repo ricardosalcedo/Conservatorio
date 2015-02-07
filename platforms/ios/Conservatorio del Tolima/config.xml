@@ -20,7 +20,7 @@
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
     <splash height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
-    <splash height="960" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <splash height="1136" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
     <splash height="320" src="www/res/screen/ios/screen-iphone-landscape.png" width="480" />
     <splash height="640" src="www/res/screen/ios/screen-iphone-landscape-2x.png" width="960" />
     <splash height="1004" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />

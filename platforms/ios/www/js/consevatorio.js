@@ -107,13 +107,13 @@ $(document).on("pageinit","#page2",function(){
         var emailVal = $("#EMAIL").val();
         var passwordVal = $("#PASS").val();
         if (emailVal == '') {
-            $("#popuptitle").text("INGRESE EMAIL");
-            $("#popupDialog").popup("open", { y: $("#EMAIL").offset().top - 10 });
+            $("#popuptitlel").text("INGRESE EMAIL");
+            $("#popupDialogl").popup("open", { y: $("#EMAIL").offset().top - 10 });
             hasError = true;
         }else if (passwordVal == '') {      
-            $("#popuptitle").text("INGRESE CLAVE");
-            $("#popupDialog").height(50);
-            $("#popupDialog").popup("open", { y: $("#PASS").offset().top - 0 });
+            $("#popuptitlel").text("INGRESE CLAVE");
+            $("#popupDialogl").height(50);
+            $("#popupDialogl").popup("open", { y: $("#PASS").offset().top - 0 });
             hasError = true;
         }
         if(hasError == true) {
@@ -130,9 +130,9 @@ $(document).on("pageinit","#page2",function(){
                     success: function(data, status){
                         $.each(data, function(i,item){
                             if (item == "empty"){
-                                $("#popuptitle").text("USUARIO O CLAVE INVALIDA");
-                                $("#popupDialog").width(204);
-                                $("#popupDialog").popup("open");
+                                $("#popuptitlel").text("USUARIO O CLAVE INVALIDA");
+                                $("#popupDialogl").width(204);
+                                $("#popupDialogl").popup("open");
                             } else {
                                 $.mobile.navigate( "#page3", { transition : "slide"} );
                             }                             
@@ -140,9 +140,9 @@ $(document).on("pageinit","#page2",function(){
                         
                     },
                     error: function(){
-                        $("#popuptitle").text("ERROR DE CONEXION");
-                        $("#popupDialog").width(204);
-                        $("#popupDialog").popup("open");
+                        $("#popuptitlel").text("ERROR DE CONEXION");
+                        $("#popupDialogl").width(204);
+                        $("#popupDialogl").popup("open");
                     }
                 });
                 return false;

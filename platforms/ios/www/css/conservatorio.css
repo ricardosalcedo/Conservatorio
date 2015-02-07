@@ -232,6 +232,13 @@ bottom: -29px;
 left: 19%;
 }
 
+p#popuptitle {
+font-family: FlamaCondensed;
+font-size: 16pt;
+margin-top: -8px;
+color: #E6A726;
+}
+
 
 /************End Login********************/
 
