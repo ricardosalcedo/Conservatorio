@@ -20,7 +20,7 @@
   <script src="js/fastclick.js"></script>
   <script src="js/jquery.finger.min.js"></script>
   <script src="js/jquery.liquid-slider.min.js"></script>
-  <script src="http://debug.build.phonegap.com/target/target-script-min.js#anonymous"></script>
+  
 </head>
 <body>
   <div data-role="page" data-control-title="landing" id="page1"></div>
@@ -46,8 +46,13 @@
                   <input name="password" id="PASS" required placeholder="CONTRASEÑA" type="password" maxlength="32">
               </div>
               <input id="loginbtn" type="submit" value="LOG IN">
-       		<a href="#page10" id="register">Regístrese</a>
+       		<a href="#page10" id="register" data-transition="slide">Regístrese</a>
+       		<a href="#" id="register" data-transition="slide">Olvido su Contraseña?</a>
           </form>
+       	   	<div data-role="popup" id="popupDialog" data-dismissible="false" data-overlay-theme="a" data-theme="c" class="ui-content">
+				<a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+	    		<p id="popuptitle"></p>
+			</div>
       	</div>   	
       </div>
   </div>
@@ -55,7 +60,7 @@
      <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
           <ul data-role="listview" data-divider-theme="b" data-inset="false">
               <li data-theme="b">
-                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+                  <a href="#page2" onclick="logOut()" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
                       Salir
                   </a>
               </li>
@@ -116,7 +121,7 @@
       data-theme="b">
           <ul data-role="listview" data-divider-theme="b" data-inset="false">
               <li data-theme="b">
-                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+                  <a href="#page2" onclick="logOut()" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
                       Salir
                   </a>
               </li>
@@ -190,7 +195,7 @@
       data-theme="b">
           <ul data-role="listview" data-divider-theme="b" data-inset="false">
               <li data-theme="b">
-                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+                  <a href="#page2" onclick="logOut()" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
                       Salir
                   </a>
               </li>
@@ -260,55 +265,23 @@
   
   
   <div data-role="page" data-control-title="Register" id="page10" class="back">
-     <div data-role="panel" id="panel5" data-position="left" data-display="reveal" data-theme="b">
-          <ul data-role="listview" data-divider-theme="b" data-inset="false">
-              <li data-theme="b">
-                  <a href="#page2" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
-                      Logoff
-                  </a>
-              </li>
-              <li data-theme="b">
-                  <a href="#page3" data-transition="slide">
-                  	<img src="img/nota.png" alt="" class="ui-li-icon ui-li-thumb">
-                      Inicio
-                  </a>
-              </li>              
-              <li data-theme="b">
-                  <a href="#page6" data-transition="slide">
-                  	<img src="img/violin.png" alt="" class="ui-li-icon ui-li-thumb">
-                      Eventos
-                  </a>
-              </li>
-              <li data-theme="b">
-                  <a href="#page5" data-transition="slide">
-                  	<img src="img/trompeta.png" alt="" class="ui-li-icon ui-li-thumb">
-                      Noticias
-                  </a>
-              </li>
-              <li data-theme="b">
-                  <a href="#page7" data-transition="slide">
-                  	<img src="img/piano.png" alt="" class="ui-li-icon ui-li-thumb">
-                      Fotos
-                  </a>
-              </li>
-
-          </ul>
-      </div>
-   	  <a data-controltype="panelbutton" id="regpanel" data-role="button" data-theme="a" href="#panel5"
-	          data-icon="bars" data-iconpos="left">
+   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
 	          CONSERVATORIO DEL TOLIMA
 	  </a>
       <div id="Register">
-      		<form action="" id="regform">
-      			<input name="nombreerg" id="NOMBREREG" placeholder="NOMBRE" required autocomplete="nombre" maxlength="50">
+      		<form action="" method="post" id="regform">
+      			<input name="nombreerg" id="NOMBREREG" placeholder="NOMBRE" required autocomplete="nombre" maxlength="50" type="text">
       			<input name="emailreg" id="EMAILREG" placeholder="EMAIL" required autocomplete="email" maxlength="50" type="email">      			
-      			<input name="password" id="PASSREG" required placeholder="CONTRASEÑA" type="password" maxlength="32">
-      			<input name="passwordconf" id="PASSCREG" class="regbutton" required placeholder="CONFIRMAR CONTRASEÑA" type="password" maxlength="32">
+      			<input name="password" id="PASSREG" required placeholder="CLAVE" type="password" maxlength="32">
+      			<input name="passwordconf" id="PASSCREG" class="regbutton" required placeholder="CONFIRMAR CLAVE" type="password" maxlength="32">
      			<input id="loginbtnreg" type="submit" value="REGISTRESE">
       		</form>
+      		   	<div data-role="popup" id="popupDialog" data-dismissible="false" data-overlay-theme="a" data-theme="c" class="ui-content">
+					<a data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			    	<p id="popuptitle"></p>
+	  			</div>
       </div>
+
   </div>
-
-
 </body>
 </html>

@@ -59,7 +59,6 @@ function checkLoginState() {
 }
 
 function logIn(){
-    alert("Processing Login with FB!");
     FB.login(function(response) {
         if (response.status === 'connected') {
             console.log("Conectado!!!");
@@ -69,6 +68,7 @@ function logIn(){
         } else {
           // The person is not logged into Facebook, so we're not sure if
           // they are logged into this app or not.
+           alert(response.status);
         }
       });
 }
@@ -98,3 +98,142 @@ function testAPI() {
       'Thanks for logging in, ' + response.name + '!';
   });
 }
+
+
+$(document).on("pageinit","#page2",function(){
+    
+    $("#loginbtn").click(function(){
+        var hasError = false;
+        var emailVal = $("#EMAIL").val();
+        var passwordVal = $("#PASS").val();
+        if (emailVal == '') {
+            $("#popuptitle").text("INGRESE EMAIL");
+            $("#popupDialog").popup("open", { y: $("#EMAIL").offset().top - 10 });
+            hasError = true;
+        }else if (passwordVal == '') {      
+            $("#popuptitle").text("INGRESE CLAVE");
+            $("#popupDialog").height(50);
+            $("#popupDialog").popup("open", { y: $("#PASS").offset().top - 0 });
+            hasError = true;
+        }
+        if(hasError == true) {
+            $("#register")[0].checkValidity(); 
+            return false;
+            } else {
+                $.ajax({
+                    url: 'http://smdevelopers.co/smdev/Conservatorio/valu.php',
+                    //url: 'http://localhost:8888/Conservatorio/valu.php',
+                    dataType: 'jsonp',
+                    data:  "email="+emailVal+"&password="+passwordVal,
+                    jsonp: 'jsoncallback',
+                    timeout: 5000,
+                    success: function(data, status){
+                        $.each(data, function(i,item){
+                            if (item == "empty"){
+                                $("#popuptitle").text("USUARIO O CLAVE INVALIDA");
+                                $("#popupDialog").width(204);
+                                $("#popupDialog").popup("open");
+                            } else {
+                                $.mobile.navigate( "#page3", { transition : "slide"} );
+                            }                             
+                        });
+                        
+                    },
+                    error: function(){
+                        $("#popuptitle").text("ERROR DE CONEXION");
+                        $("#popupDialog").width(204);
+                        $("#popupDialog").popup("open");
+                    }
+                });
+                return false;
+            }
+        
+    });
+});
+
+$(document).on("pageinit","#page10",function(){
+    
+    $("#loginbtnreg").click(function(){
+        var hasError = false;
+        var userVal = $("#NOMBREREG").val();
+        var emailVal = $("#EMAILREG").val();
+        var passwordVal = $("#PASSREG").val();
+        var checkVal = $("#PASSCREG").val();
+        if (userVal == '') {
+            $("#popuptitle").text("INGRESE NOMBRE");
+            $("#popupDialog").popup("open", { y: $("#NOMBREREG").offset().top - 10 });
+            hasError = true;
+        }else if (emailVal == '') {
+            $("#popuptitle").text("INGRESE EMAIL");
+            $("#popupDialog").popup("open", { y: $("#EMAILREG").offset().top - 10 });
+            hasError = true;
+        }else if (passwordVal == '') {      
+            $("#popuptitle").text("INGRESE CLAVE");
+            $("#popupDialog").height(50);
+            $("#popupDialog").popup("open", { y: $("#PASSREG").offset().top - 0 });
+            hasError = true;
+        } else if (checkVal == '') {
+            $("#popuptitle").text("CONFIRME CLAVE");
+            $("#popupDialog").height(50);
+            $("#popupDialog").popup("open", { y: $("#PASSCREG").offset().top - 10 });
+            hasError = true;
+        } else if (passwordVal != checkVal) {
+            $("#popuptitle").text("CLAVE NO CONCUERDA");
+            $("#popupDialog").height(50);
+            $("#popupDialog").popup("open", { y: $("#PASSCREG").offset().top - 10 });
+            hasError = true;
+        }
+        if(hasError == true) {
+            $("#regform")[0].checkValidity(); 
+            return false;
+            } else {
+                $.ajax({
+                    url: 'http://smdevelopers.co/smdev/Conservatorio/register.php',
+                    //url: 'http://localhost:8888/Conservatorio/register.php',
+                    dataType: 'jsonp',
+                    data:  "nombre="+$("#NOMBREREG").val()+"&email="+$("#EMAILREG").val()+"&password="+$("#PASSREG").val(),
+                    jsonp: 'jsoncallback',
+                    timeout: 5000,
+                    success: function(data, status){
+                        $("#popuptitle").text("GRACIAS! USUARIO CREADO");
+                        $("#popupDialog").width(204);
+                        $("#popupDialog").popup("open");
+                    },
+                    error: function(){
+                        $("#popuptitle").text("ERROR AL CREAR USUARIO");
+                        $("#popupDialog").width(204);
+                        $("#popupDialog").popup("open");
+                    }
+                });
+                return false;
+            }
+        
+    });
+});
+
+$(document).on("pageinit","#page5",function(){
+    var output = $('#contents');
+
+    $.ajax({
+        url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        timeout: 5000,
+        success: function(data, status){
+            //console.log(status);
+            //if(data != undefined && data.post != undefined){
+                $.each(data, function(i,item){
+                    var landmark = '<br><br><a href="#page7" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img>';
+                    
+                    output.append(landmark);
+                });
+            //}
+        },
+        error: function(){
+            alert('Hubo un error al cargar los datos');
+        }
+    });
+});
+
+
