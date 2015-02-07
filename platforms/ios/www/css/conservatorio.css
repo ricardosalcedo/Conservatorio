@@ -188,6 +188,51 @@ text-shadow: none;
 border: none;
 }
 
+div#popupDialogl 
+{
+position: relative;
+width: 175px;
+height: 46px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: #7F7F7F solid 6px;
+text-align: center;
+}
+
+div#popupDialogl:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 18px 13px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -13px;
+bottom: -18px;
+left: 19%;
+}
+
+div#popupDialogl:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 23px 18px 0;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -18px;
+bottom: -29px;
+left: 19%;
+}
+
+
 /************End Login********************/
 
 /************Regitry Screen********************/
