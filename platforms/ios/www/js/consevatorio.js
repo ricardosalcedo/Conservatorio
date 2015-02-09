@@ -36,7 +36,7 @@ function statusChangeCallback(response) {
   // for FB.getLoginStatus().
   if (response.status === 'connected') {
     // Logged into your app and Facebook.
-    testAPI();
+      console.log("Usuario conectado a Facebook");
   } else if (response.status === 'not_authorized') {
     // The person is logged into Facebook, but not your app.
     document.getElementById('status').innerHTML = 'Please log ' +
@@ -74,9 +74,15 @@ function logIn(){
 }
 
 function logOut(){
-    FB.logout(function(response) {
-        $.mobile.navigate( "#page2" );
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected'){
+            console.log("Desconectando Usuario");
+            FB.logout();
+        }
     });
+    
+    $.mobile.navigate( "#page2" );
+    
 }
 
 // Load the SDK asynchronously
@@ -88,20 +94,8 @@ function logOut(){
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function testAPI() {
-  console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me', function(response) {  
-    console.log('Successful login for: ' + response.name);
-    document.getElementById('status').innerHTML =
-      'Thanks for logging in, ' + response.name + '!';
-  });
-}
-
 
 $(document).on("pageinit","#page2",function(){
-    
     $("#loginbtn").click(function(){
         var hasError = false;
         var emailVal = $("#EMAIL").val();
@@ -134,6 +128,7 @@ $(document).on("pageinit","#page2",function(){
                                 $("#popupDialogl").width(204);
                                 $("#popupDialogl").popup("open");
                             } else {
+                                $("#register")[0].reset();
                                 $.mobile.navigate( "#page3", { transition : "slide"} );
                             }                             
                         });
@@ -217,13 +212,85 @@ $(document).on("pageinit","#page5",function(){
     $.ajax({
         url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
         dataType: 'jsonp',
+        data:  "tipo=noticia",
+        type: 'POST',
         jsonp: 'jsoncallback',
+        timeout: 5000,
+        success: function(data, status){
+            //console.log(status);
+            //if(data != undefined && data.post != undefined){            
+                $.each(data, function(i,item){
+                    var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img>';
+                    
+                    output.append(landmark);
+                });
+            //}
+        },
+        error: function(){
+            alert('Hubo un error al cargar los datos');
+        }
+    });    
+});
+
+function notClick(value){
+    
+    $(document).on("pageinit","#page8",function(){
+        var output = $('#notcontainer');
+
+        $.ajax({
+            url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+            dataType: 'jsonp',
+            jsonp: 'jsoncallback',
+            type: 'POST',
+            data:  "tipo=noticia&"+"id="+value,
+            timeout: 5000,
+            success: function(data, status){
+                //console.log(status);
+                //if(data != undefined && data.post != undefined){
+                    $.each(data, function(i,item){
+                        var landmark = '<button id="backbtn" onclick="backClick('+value+')" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-state-disabled ui-first-child">Previous</button><button id="nextbtn" onclick="nextClick("'+ value + '",data)" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</button><img id="imgnotdet" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"><hr id="hline"><h4 class="detitle">'+item.Nombre+'</h4><p class="notdetails">'+item.Descripcion+'</p>'
+                        
+                        output.append(landmark);
+                    });
+                //}
+            },
+            error: function(){
+                alert('Hubo un error al cargar los datos');
+            }
+        });
+       });
+};
+
+function nextClick(value, data){
+        alert("Next Click");
+        var output = $('#notcontainer');
+         $.each(data, function(i,item){
+             if (item.ID == value) {
+                 alert(data[i+1][ID]);
+                // var landmark = '<button id="backbtn" onclick="nextclick('+data[i+1][ID]+')" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-state-disabled ui-first-child">Previous</button><button id="nextbtn" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</button><img id="imgnotdet" src="http://smdevelopers.co/smdev/Conservatorio/images/'+data[i+1][Foto]+'"><hr id="hline"><h4 class="detitle">'+data[i+1][Foto]+'</h4><p class="notdetails">'+data[i+1][Descripcion]+'</p>'
+                 output.html("");
+                 //output.append(landmark);    
+             }
+         });
+};
+
+
+$(document).on("pageinit","#page6",function(){
+    var output = $('#evcontents');
+
+    $.ajax({
+        url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        type: 'POST',
+        data:  "tipo=evento",
         timeout: 5000,
         success: function(data, status){
             //console.log(status);
             //if(data != undefined && data.post != undefined){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page7" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<br><br><a href="#page9" class="ui-btn ui-btn-inline" id="ev-but"><div class="info"><label class="datev">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img>';
                     
                     output.append(landmark);
@@ -235,5 +302,27 @@ $(document).on("pageinit","#page5",function(){
         }
     });
 });
+$(document).on("pageinit","#page7",function(){
+    var output = $('#fotcontents');
 
+    $.ajax({
+        url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data:  "tipo=foto",
+        type: 'POST',
+        timeout: 5000,
+        success: function(data, status){
+                $.each(data, function(i,item){
+                    var landmark = '<br><br><ul data-role="listview" id="fotolist"><li><a href="#page11" class="ui-btn ui-btn-inline" id="fot-but"><div class="info"><label class="datef">'+item.Fecha+'</label><span class="ttlf">'
+                    +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></li></ul>';
+                    
+                    output.append(landmark);
+                });
+        },
+        error: function(){
+            alert('Hubo un error al cargar los datos');
+        }
+    });
+});
 

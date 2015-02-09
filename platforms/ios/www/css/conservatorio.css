@@ -18,8 +18,26 @@
     src: url(../Fonts/Gotham-Black.otf);
 }
 
+@font-face {
+    font-family: GothamHTF Book;
+    src: url(../Fonts/Gotham-Book.ttf);
+}
+
+
+
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
 background-color: transparent;
+}
+
+div.ui-focus {
+-moz-box-shadow: none !important;
+ -webkit-box-shadow: none !important;
+ box-shadow: none !important;
+ background-color: white;
+}
+
+input#EMAIL:focus {
+	background: white;
 }
 
 /************Landing Screen********************/
@@ -458,6 +476,7 @@ margin-top: -46px;
 background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
+margin-bottom: 2em;
 }
 
 hr#shad {
@@ -480,7 +499,7 @@ margin-left: 4px;
 label.date {
 font-family: BrandonGrotesqueBold;
 color: rgb(154,106,10);
-font-size: 0.5em;
+font-size: 0.7em;
 letter-spacing: 2px;
 width: 0px;
 text-shadow: none;
@@ -516,6 +535,70 @@ height: 50px;
 
 /************End Noticias Screen********************/
 
+/************Noticias Detail Screen********************/
+
+div#page8 {
+	background-image: url(../img/back-noticias.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+div#notcontainer {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+}
+
+img#imgnotdet {
+width: 50%;
+margin: 9px auto;
+padding-top: 47px;
+height: 11em;
+margin-left: 25%;
+}
+
+button#backbtn {
+position: absolute;
+margin: 57px auto;
+height: 27%;
+background: transparent;
+border: none;
+}
+
+button#nextbtn {
+position: absolute;
+margin: 57px auto;
+right: 5%;
+height: 27%;
+background: transparent;
+border: none;
+}
+
+h4.detitle {
+font-family: GothamHTF Black;
+font-size: 10pt;
+text-align: center;
+color: #9A6A0A;
+}
+
+p.notdetails {
+font-family: BrandonGrotesque;
+font-size: 7pt;
+text-align: justify;
+width: 90%;
+margin: auto;
+color: #939598;
+font-weight: bolder;
+height: 4em;
+}
+
+/************End Noticias Details Screen********************/
+
 
 /************Eventos Screen********************/
 
@@ -547,9 +630,119 @@ margin: 0px auto;
 margin-top: -8px;
 position: relative;
 }
+label.datev {
+font-family: BrandonGrotesqueBold;
+color: #39204E;
+font-size: 0.7em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+a#ev-but {
+background-image: url(../img/ev-cloud.png);
+background-repeat: no-repeat;
+height: 52px;
+width: 245px;
+border: none;
+background-color: transparent;
+margin-left: 4px;
+}
+
+li#evcontents {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+}
 
 
 /************End Eventos Screen********************/
+
+/************Fotos Screen********************/
+
+div#page7 {
+	background-image: url(../img/back-fotos.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+ul#fotolist {
+padding-left: 0px;
+}
+
+a#fotpanel {
+border-radius: 0px;
+margin-top: 7px;
+border: none;
+padding-top: 11px;
+height: 1.5em;
+font-family: FlamaCondensed;
+font-size: 8pt;
+background-color: #78323F;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+}
+
+label.datef {
+font-family: BrandonGrotesqueBold;
+color: #5B0615;
+font-size: 0.7em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+div#fotitle {
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+
+a#fot-but {
+background-image: url(../img/fot-cloud.png);
+background-repeat: no-repeat;
+height: 52px;
+width: 245px;
+border: none;
+background-color: transparent;
+margin-left: 4px;
+}
+
+li#fotcontents {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+}
+
+span.ttlf {
+color: #A71835;
+font-size: 0.8em;
+letter-spacing: 0px;
+display: inline-block;
+text-shadow: none;
+text-align: left;
+float: left;
+font-weight: 100;
+white-space: normal;
+width: 106px;
+height: 50px;
+}
+
+/************End Fotos Screen********************/
 
 /************Bottom Menu********************/
 
