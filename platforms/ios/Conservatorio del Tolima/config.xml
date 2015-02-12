@@ -19,6 +19,10 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="NativeTransitions">
+        <param name="ios-package" value="NativeTransitions" />
+        <param name="onload" value="true" />
+    </feature>
     <splash height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
     <splash height="1136" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
     <splash height="320" src="www/res/screen/ios/screen-iphone-landscape.png" width="480" />

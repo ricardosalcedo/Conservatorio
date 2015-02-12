@@ -506,15 +506,17 @@ text-shadow: none;
 }
 
 img#imgnot {
-width: 164px;
+min-height: 10%;
+min-width: 10%;
+width: 121px;
 height: 75px;
-margin-left: -32px;
+margin-left: 11px;
 border-radius: 0 21px 21px 0;
 background-repeat: no-repeat;
 background-size: cover;
 position: absolute;
 bottom: 0;
--webkit-clip-path: polygon(45% 0, 0% 100%, 100% 100%, 100% 0);
+-webkit-clip-path: polygon(62% 0, 0% 100%, 100% 100%, 100% 0);
 }
 
 span.ttl {

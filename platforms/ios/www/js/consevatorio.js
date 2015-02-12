@@ -59,6 +59,7 @@ function checkLoginState() {
 }
 
 function logIn(){
+    alert("Login Button Invoked...");
     FB.login(function(response) {
         if (response.status === 'connected') {
             console.log("Conectado!!!");
@@ -235,9 +236,9 @@ $(document).on("pageinit","#page5",function(){
 
 function notClick(value){
     
-    $(document).on("pageinit","#page8",function(){
+    //$(document).on("pageinit","#page8",function(){
         var output = $('#notcontainer');
-
+        alert(value);
         $.ajax({
             url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
             dataType: 'jsonp',
@@ -259,13 +260,13 @@ function notClick(value){
                 alert('Hubo un error al cargar los datos');
             }
         });
-       });
+       //});
 };
 
-function nextClick(value, data){
+function nextClick(value, dataitem){
         alert("Next Click");
         var output = $('#notcontainer');
-         $.each(data, function(i,item){
+         $.each(dataitem, function(i,item){
              if (item.ID == value) {
                  alert(data[i+1][ID]);
                 // var landmark = '<button id="backbtn" onclick="nextclick('+data[i+1][ID]+')" class="prev ui-btn ui-btn-icon-notext ui-icon-carat-l ui-state-disabled ui-first-child">Previous</button><button id="nextbtn" class="next ui-btn ui-btn-icon-notext ui-icon-carat-r ui-last-child">Next</button><img id="imgnotdet" src="http://smdevelopers.co/smdev/Conservatorio/images/'+data[i+1][Foto]+'"><hr id="hline"><h4 class="detitle">'+data[i+1][Foto]+'</h4><p class="notdetails">'+data[i+1][Descripcion]+'</p>'
