@@ -3,16 +3,21 @@ $('body').on('tap', 'a', function(e) {
     e.preventDefault();
 });
 
+
 $(document).bind("mobileinit", function(){
     $.mobile.defaultPageTransition = 'none'; 
     $.mobile.pushStateEnabled = false;  
   });
 
+$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+
 $(document).on("pageinit","#page1",function(){
-    $("#page1").on("swipeleft",function(){
+    $("#page1").on("swipeleft",function(){ 
+        $.blockUI({message: 'Cargando'}); 
+        setTimeout($.unblockUI, 2000);
         $.mobile.navigate( "#page2", { transition : "slide"} );
 });
-    
+
 window.fbAsyncInit = function() {
         FB.init({
           appId      : '707742835999981',
@@ -58,21 +63,30 @@ function checkLoginState() {
   });
 }
 
-function logIn(){
-    alert("Login Button Invoked...");
-    FB.login(function(response) {
-        if (response.status === 'connected') {
-            console.log("Conectado!!!");
-            $.mobile.navigate( "#page3", { transition : "slide"} );
-        } else if (response.status === 'not_authorized') {
-           alert("Usuario no autorizado");
-        } else {
-          // The person is not logged into Facebook, so we're not sure if
-          // they are logged into this app or not.
-           alert(response.status);
-        }
-      });
-}
+$(document).on("pageinit","#page2",function(){
+$("#facebook").click(function () {
+            FB.getLoginStatus(function (response) {
+                if (response.status === 'connected') {
+                    var uid = response.authResponse.userID;
+                    var accessToken = response.authResponse.accessToken;
+                    $.mobile.navigate( "#page3" );
+                } else if (response.status === 'not_authorized') {
+                    console.log("the user is logged in into facebook but didn't authorize the app");
+                } else {
+                    FB.login(function (response) {
+                        if (response.authResponse) {
+                            console.log('Welcome!  Fetching your information.... ');
+                            FB.api('/me', function (response) {
+                                console.log('Good to see you, ' + response.name + ',' + response.authResponse.userID);
+                            });
+                        } else {
+                            console.log('User cancelled login or did not fully authorize.');
+                        }
+                    });
+                }
+            });
+});
+});
 
 function logOut(){
     FB.getLoginStatus(function(response) {
