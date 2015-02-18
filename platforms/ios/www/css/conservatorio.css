@@ -127,7 +127,7 @@ border-radius: 12px;
 float: left;
 font-weight: 100;
 width: 100%;
-font-size: 10px;
+font-size: 90%;
 letter-spacing: 2pt;
 box-sizing: border-box;
 padding-right: 10px;
@@ -155,7 +155,7 @@ margin-top: 7em;
   width: 100%;
   box-sizing: border-box;
   font-weight: 300;
-  font-size: 10pt;
+  font-size: 90%;
   text-align: -webkit-center;
   text-decoration: blink;
 }
@@ -189,16 +189,14 @@ text-shadow: none;
 
 .ui-field-contain {
 width: 100%;
-height: 2.5em;
+height: 3em;
 }
 
 .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
-height: 44px;
 border-radius: 12px;
 }
 
 .ui-btn.ui-input-btn.ui-corner-all.ui-shadow {
-width: 13em;
 margin-top: 1.5em;
 background-color: #A71835;
 color: white;
@@ -372,6 +370,7 @@ div#page3 {
 
 .homer {
 text-align: center;
+margin-top: 15%;
 }
 
 a#notpanelhome {
@@ -386,10 +385,10 @@ color: white;
 background-color: #084d0e;
 letter-spacing: 4pt;
 font-weight: 100;
+width: 90%;
 }
 
 div#homebuttons {
-width: 18em;
 margin: auto;
 }
 
@@ -398,6 +397,7 @@ a#Noticias {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
+	background-size: 80%;
 	border: none;
 }
 
@@ -406,6 +406,7 @@ a#Eventos {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
+	background-size: 80%;
 	border: none;
 }
 
@@ -414,6 +415,7 @@ a#Fotos {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
+	background-size: 80%;
 	border: none;
 }
 
@@ -436,9 +438,8 @@ border-radius: 0px;
 margin-top: 7px;
 border: none;
 padding-top: 11px;
-height: 1.5em;
 font-family: FlamaCondensed;
-font-size: 8pt;
+font-size: 80%;
 background-color: #C9AA69;
 color: white;
 letter-spacing: 4pt;
@@ -477,6 +478,7 @@ background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
 margin-bottom: 2em;
+text-align: center;
 }
 
 hr#shad {
@@ -671,10 +673,6 @@ div#page7 {
 	background-image: url(../img/back-fotos.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
-}
-
-ul#fotolist {
-padding-left: 0px;
 }
 
 a#fotpanel {
