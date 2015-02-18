@@ -18,7 +18,10 @@ $(document).on("pageinit","#page1",function(){
         $.mobile.navigate( "#page2", { transition : "slide"} );
 });
 
-window.fbAsyncInit = function() {
+
+$(document).on("pageinit","#page2",function(){
+    
+    window.fbAsyncInit = function() {
         FB.init({
           appId      : '707742835999981',
           cookie     : true,  // enable cookies to allow the server to access 
@@ -30,9 +33,7 @@ window.fbAsyncInit = function() {
         };
     
 });
-
-
-$(document).on("pageinit","#page2",function(){
+    
     
  // Load the SDK asynchronously
     (function(d, s, id) {
