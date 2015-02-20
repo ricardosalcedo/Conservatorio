@@ -16,57 +16,25 @@ $(document).on("pageinit","#page1",function(){
         $.blockUI({message: 'Cargando'}); 
         setTimeout($.unblockUI, 2000);
         $.mobile.navigate( "#page2", { transition : "slide"} );
+    });
 });
-
+ 
 
 $(document).on("pageinit","#page2",function(){
-    
-    window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '707742835999981',
-          cookie     : true,  // enable cookies to allow the server to access 
-                              // the session
-          xfbml      : true,  // parse social plugins on this page
-          version    : 'v2.1' // use version 2.1
-        });
-
-        };
-    
-});
-    
-    
- // Load the SDK asynchronously
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    
-$("#facebook").click(function () {
-            FB.getLoginStatus(function (response) {
-                if (response.status === 'connected') {
-                    var uid = response.authResponse.userID;
-                    var accessToken = response.authResponse.accessToken;
-                    $.mobile.navigate( "#page3" );
-                } else if (response.status === 'not_authorized') {
-                    console.log("the user is logged in into facebook but didn't authorize the app");
-                } else {
-                    FB.login(function (response) {
-                        if (response.authResponse) {
-                            console.log('Welcome!  Fetching your information.... ');
-                            $.mobile.navigate( "#page3" );
-                            FB.api('/me', function (response) {
-                                console.log('Good to see you, ' + response.name + ',' + response.authResponse.userID);
-                            });
-                        } else {
-                            console.log('User cancelled login or did not fully authorize.');
-                        }
-                    });
-                }
-            });
-});
+    $("#facebook").click(function () {    
+        FB.login(function(response) {
+            if (response.authResponse) {
+              alert("Ingreso a FB!");
+              $.mobile.navigate( "#page3", { transition : "slide"} );
+              console.log('Welcome!  Fetching your information.... ');
+              FB.api('/me', function(response) {
+                console.log('Good to see you, ' + response.name + '.');
+              });
+            } else {
+              console.log('User cancelled login or did not fully authorize.');
+            }
+          });
+    });
 });
 
 function logOut(){

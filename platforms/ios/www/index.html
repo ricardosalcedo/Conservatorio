@@ -21,7 +21,7 @@
   <script src="js/jquery.finger.min.js"></script>
   <script src="js/jquery.liquid-slider.min.js"></script>
   <script src="js/jquery.blockUI.js"></script>
-  
+  <script src="js/cordova.js"></script>
 </head>
 <body>
 <div data-role="page" data-control-title="landing" id="page1"></div>
@@ -398,4 +398,21 @@
 
   </div>
 </body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '707742835999981',
+          xfbml      : true,
+          version    : 'v2.1'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 </html>
