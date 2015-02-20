@@ -399,20 +399,12 @@
   </div>
 </body>
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '707742835999981',
-          xfbml      : true,
-          version    : 'v2.1'
-        });
-      };
-
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+          $.ajaxSetup({ cache: true });
+          $.getScript('http://connect.facebook.net/en_UK/all.js', function () {
+              FB.init({
+                  appId: '707742835999981',
+              });
+              $('#facebook,#feedbutton').removeAttr('disabled');
+          });
     </script>
 </html>

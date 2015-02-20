@@ -91,6 +91,7 @@ div#page2 {
 	background-image: url(../img/login.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
+	height: 100%;
 }
 
 img#logo {
@@ -120,7 +121,7 @@ border-radius: 12px;
 }
 
 #login {
-      padding: 20px 5%;
+      padding: 0px 5%;
     }
 
 #login #blurb {
@@ -176,11 +177,13 @@ float: right;
 input#EMAIL {
 text-align: center;
 padding-top: 1em;
+padding-left: 10%;
 }
 
 input#PASS {
 text-align: center;
 padding-top: 1em;
+padding-left: 10%;
 }
 
 a#register {

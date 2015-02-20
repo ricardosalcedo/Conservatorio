@@ -13,7 +13,7 @@ $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).on("pageinit","#page1",function(){
     $("#page1").on("swipeleft",function(){ 
-        $.blockUI({message: 'Cargando'}); 
+        $.blockUI({message: 'Cargando...', css: { color: 'white', border: 'none', backgroundColor: 'transparent' }}); 
         setTimeout($.unblockUI, 2000);
         $.mobile.navigate( "#page2", { transition : "slide"} );
     });
