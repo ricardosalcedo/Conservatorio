@@ -360,6 +360,21 @@ bottom: -29px;
 left: 19%;
 }
 
+div.growlUI h1, div.growlUI h2 {
+    color: white; 
+    padding: 5px 5px 5px 75px; 
+    text-align: center;
+    left: 10px;
+}
+
+div.blockUI {
+	color: 'white';
+	border: 'none';
+	backgroundColor: 'transparent';
+	width: '60%';
+	left: '20%';
+	font-family: 'FlamaCondensed';
+}
 
 /************End Registry********************/
 
@@ -400,7 +415,7 @@ a#Noticias {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
-	background-size: 80%;
+	background-size: 90%;
 	border: none;
 }
 
@@ -409,7 +424,7 @@ a#Eventos {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
-	background-size: 80%;
+	background-size: 90%;
 	border: none;
 }
 
@@ -418,7 +433,7 @@ a#Fotos {
 	background-repeat: no-repeat;
 	height: 3em;
 	background-position: center;
-	background-size: 80%;
+	background-size: 90%;
 	border: none;
 }
 

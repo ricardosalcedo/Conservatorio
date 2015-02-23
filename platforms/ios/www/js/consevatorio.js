@@ -13,27 +13,38 @@ $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).on("pageinit","#page1",function(){
     $("#page1").on("swipeleft",function(){ 
-        $.blockUI({message: 'Cargando...', css: { color: 'white', border: 'none', backgroundColor: 'transparent' }}); 
-        setTimeout($.unblockUI, 2000);
         $.mobile.navigate( "#page2", { transition : "slide"} );
     });
 });
  
 
 $(document).on("pageinit","#page2",function(){
-    $("#facebook").click(function () {    
-        FB.login(function(response) {
-            if (response.authResponse) {
-              alert("Ingreso a FB!");
+    $("#facebook").click(function () {  
+        $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+        setTimeout($.unblockUI, 3000);
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              console.log('Logged in.');
+              $.blockUI({message: 'BIENVENIDO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
               $.mobile.navigate( "#page3", { transition : "slide"} );
-              console.log('Welcome!  Fetching your information.... ');
-              FB.api('/me', function(response) {
-                console.log('Good to see you, ' + response.name + '.');
-              });
-            } else {
-              console.log('User cancelled login or did not fully authorize.');
+            }
+            else {
+                FB.login(function(response) {
+                    if (response.authResponse) {
+                      $.blockUI({message: 'BIENVENIDO '+ response.name, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+                      $.mobile.navigate( "#page3", { transition : "slide"} );
+                      console.log('Welcome!  Fetching your information.... ');
+                      FB.api('/me', function(response) {
+                        console.log('Good to see you, ' + response.name + '.');
+                      });
+                    } else {
+                      $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+                      console.log('User cancelled login or did not fully authorize.');
+                    }
+                  });
             }
           });
+        
     });
 });
 
@@ -56,13 +67,12 @@ $(document).on("pageinit","#page2",function(){
         var emailVal = $("#EMAIL").val();
         var passwordVal = $("#PASS").val();
         if (emailVal == '') {
-            $("#popuptitlel").text("INGRESE EMAIL");
-            $("#popupDialogl").popup("open", { y: $("#EMAIL").offset().top - 10 });
+            $.blockUI({message: 'INGRESE EMAIL...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         }else if (passwordVal == '') {      
-            $("#popuptitlel").text("INGRESE CLAVE");
-            $("#popupDialogl").height(50);
-            $("#popupDialogl").popup("open", { y: $("#PASS").offset().top - 0 });
+            $.blockUI({message: 'INGRESE CLAVE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25  }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         }
         if(hasError == true) {
@@ -79,10 +89,11 @@ $(document).on("pageinit","#page2",function(){
                     success: function(data, status){
                         $.each(data, function(i,item){
                             if (item == "empty"){
-                                $("#popuptitlel").text("USUARIO O CLAVE INVALIDA");
-                                $("#popupDialogl").width(204);
-                                $("#popupDialogl").popup("open");
+                                $.blockUI({message: 'Usuario o Clave Invalida...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 25 }});
+                                setTimeout($.unblockUI, 1000);
                             } else {
+                                $.blockUI({message: null, css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 25 }});
+                                setTimeout($.unblockUI, 1000);
                                 $("#register")[0].reset();
                                 $.mobile.navigate( "#page3", { transition : "slide"} );
                             }                             
@@ -102,7 +113,7 @@ $(document).on("pageinit","#page2",function(){
 });
 
 $(document).on("pageinit","#page10",function(){
-    
+
     $("#loginbtnreg").click(function(){
         var hasError = false;
         var userVal = $("#NOMBREREG").val();
@@ -110,33 +121,31 @@ $(document).on("pageinit","#page10",function(){
         var passwordVal = $("#PASSREG").val();
         var checkVal = $("#PASSCREG").val();
         if (userVal == '') {
-            $("#popuptitle").text("INGRESE NOMBRE");
-            $("#popupDialog").popup("open", { y: $("#NOMBREREG").offset().top - 10 });
+            $.blockUI({message: 'INGRESE NOMBRE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         }else if (emailVal == '') {
-            $("#popuptitle").text("INGRESE EMAIL");
-            $("#popupDialog").popup("open", { y: $("#EMAILREG").offset().top - 10 });
+            $.blockUI({message: 'INGRESE EMAIL...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
-        }else if (passwordVal == '') {      
-            $("#popuptitle").text("INGRESE CLAVE");
-            $("#popupDialog").height(50);
-            $("#popupDialog").popup("open", { y: $("#PASSREG").offset().top - 0 });
+        }else if (passwordVal == '') {   
+            $.blockUI({message: 'INGRESE CLAVE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         } else if (checkVal == '') {
-            $("#popuptitle").text("CONFIRME CLAVE");
-            $("#popupDialog").height(50);
-            $("#popupDialog").popup("open", { y: $("#PASSCREG").offset().top - 10 });
+            $.blockUI({message: 'CONFIRME CLAVE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         } else if (passwordVal != checkVal) {
-            $("#popuptitle").text("CLAVE NO CONCUERDA");
-            $("#popupDialog").height(50);
-            $("#popupDialog").popup("open", { y: $("#PASSCREG").offset().top - 10 });
+            $.blockUI({message: 'CLAVE NO CONCUERDA...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
+            setTimeout($.unblockUI, 1000);
             hasError = true;
         }
         if(hasError == true) {
             $("#regform")[0].checkValidity(); 
             return false;
             } else {
+                $.blockUI({message: 'REGISTRANDO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25  }});
                 $.ajax({
                     url: 'http://smdevelopers.co/smdev/Conservatorio/register.php',
                     //url: 'http://localhost:8888/Conservatorio/register.php',
@@ -145,20 +154,19 @@ $(document).on("pageinit","#page10",function(){
                     jsonp: 'jsoncallback',
                     timeout: 5000,
                     success: function(data, status){
-                        $("#popuptitle").text("GRACIAS! USUARIO CREADO");
-                        $("#popupDialog").width(204);
-                        $("#popupDialog").popup("open");
+                        $.blockUI({message: 'USUARIO REGISTRADO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25  }});
+                        setTimeout($.unblockUI, 1000);
                     },
                     error: function(){
-                        $("#popuptitle").text("ERROR AL CREAR USUARIO");
-                        $("#popupDialog").width(204);
-                        $("#popupDialog").popup("open");
+                        $.blockUI({message: 'ERROR CREANDO USUARIO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25  }});
+                        setTimeout($.unblockUI, 1000);
                     }
                 });
                 return false;
             }
         
     });
+    
 });
 
 $(document).on("pageinit","#page5",function(){
