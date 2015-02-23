@@ -23,6 +23,7 @@ $(document).on("pageinit","#page2",function(){
         $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
         setTimeout($.unblockUI, 3000);
         FB.getLoginStatus(function(response) {
+            $.blockUI({message: response.status, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
             if (response.status === 'connected') {
               console.log('Logged in.');
               $.blockUI({message: 'BIENVENIDO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 25 }});
@@ -101,9 +102,8 @@ $(document).on("pageinit","#page2",function(){
                         
                     },
                     error: function(){
-                        $("#popuptitlel").text("ERROR DE CONEXION");
-                        $("#popupDialogl").width(204);
-                        $("#popupDialogl").popup("open");
+                        $.blockUI({message: 'ERROR DE CONEXION...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 25 }});
+                        setTimeout($.unblockUI, 1000);
                     }
                 });
                 return false;
