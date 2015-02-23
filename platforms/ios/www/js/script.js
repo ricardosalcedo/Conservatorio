@@ -1,3 +1,4 @@
+
 function init_oauthio() {
 	OAuth.initialize(credentials.app_key);
 }
@@ -23,7 +24,6 @@ function retrieve_user_info(result, callback) {
 			callback(error);
 		});
 }
-
 $(document).on("pageinit","#page2",function(){
 $('#login_button').click(function() {
 
