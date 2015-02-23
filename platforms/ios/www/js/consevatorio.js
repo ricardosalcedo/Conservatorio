@@ -23,7 +23,6 @@ $(document).on("pageinit","#page2",function(){
         $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
         setTimeout($.unblockUI, 3000);
         FB.getLoginStatus(function(response) {
-            $.blockUI({message: response.status, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
             if (response.status === 'connected') {
               console.log('Logged in.');
               $.blockUI({message: 'BIENVENIDO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
@@ -31,11 +30,11 @@ $(document).on("pageinit","#page2",function(){
             }
             else {
                 FB.login(function(response) {
-                    if (response.authResponse) {
-                      $.blockUI({message: 'BIENVENIDO '+ response.name, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-                      $.mobile.navigate( "#page3", { transition : "slide"} );
+                    if (response.authResponse) {                      
                       console.log('Welcome!  Fetching your information.... ');
                       FB.api('/me', function(response) {
+                        $.blockUI({message: 'BIENVENIDO '+ response.name, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                        $.mobile.navigate( "#page3", { transition : "slide"} );
                         console.log('Good to see you, ' + response.name + '.');
                       });
                     } else {
