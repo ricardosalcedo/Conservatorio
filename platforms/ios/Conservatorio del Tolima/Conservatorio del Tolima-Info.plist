@@ -182,5 +182,18 @@
         <string>{768, 1024}</string>
       </dict>
     </array>
+    <key>FacebookAppID</key>
+    <string>707742835999981</string>
+    <key>FacebookDisplayName</key>
+    <string>Conservatorio del Tolima</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>fb707742835999981</string>
+        </array>
+      </dict>
+    </array>
   </dict>
 </plist>

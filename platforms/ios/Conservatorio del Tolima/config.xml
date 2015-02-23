@@ -23,6 +23,20 @@
         <param name="ios-package" value="NativeTransitions" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="FacebookConnectPlugin">
+        <param name="ios-package" value="FacebookConnectPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
+    <access origin="https://m.facebook.com" />
+    <access origin="https://graph.facebook.com" />
+    <access origin="https://api.facebook.com" />
+    <access origin="https://*.fbcdn.net" />
+    <access origin="https://*.akamaihd.net" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <access origin="https://oauth.io" />
     <splash height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
     <splash height="1136" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
     <splash height="320" src="www/res/screen/ios/screen-iphone-landscape.png" width="480" />
@@ -39,9 +53,22 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="Fullscreen" value="true" />
-    <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
     <icon src="www/res/icon/icon.png" />
     <gap:splash src="splash.png" />
 </widget>

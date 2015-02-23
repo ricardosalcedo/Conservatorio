@@ -20,21 +20,6 @@ $(document).on("pageinit","#page1",function(){
 
 $(document).on("pageinit","#page2",function(){    
     $("#facebook").click(function () {  
-        
-        /*
-        var isMobile = false;
-        try {
-            isMobile = (window.location.href == top.location.href && window.location.href.indexOf("/mobile/") != -1);
-        } catch (e) {}
-        if (!isMobile) {
-            FB.login();
-        } else {
-            var permissionUrl = "https://m.facebook.com/dialog/oauth?client_id=" + appId + "&response_type=code&redirect_uri=" + redirectPage + "&scope=" + permissions;
-            window.location = permissionUrl;
-            return;
-        }*/
-        
-         
         $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
         setTimeout($.unblockUI, 3000);
         FB.getLoginStatus(function(response) {
