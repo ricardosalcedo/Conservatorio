@@ -297,16 +297,16 @@ padding-top: 1em;
 
 a#regpanel {
 border-radius: 0px;
-margin-top: 7px;
+margin-top: 15px;
 border: none;
 padding-top: 11px;
-height: 1.5em;
 font-family: FlamaCondensed;
-font-size: 8pt;
+font-size: 80%;
 background-color: #084d0e;
 color: white;
 letter-spacing: 4pt;
 font-weight: 100;
+
 }
 
 p#popuptitle {
@@ -442,7 +442,7 @@ div#page5 {
 
 a#notpanel {
 border-radius: 0px;
-margin-top: 7px;
+margin-top: 15px;
 border: none;
 padding-top: 11px;
 font-family: FlamaCondensed;
@@ -621,12 +621,11 @@ div#page6 {
 
 a#evpanel {
 border-radius: 0px;
-margin-top: 7px;
+margin-top: 15px;
 border: none;
 padding-top: 11px;
-height: 1.5em;
 font-family: FlamaCondensed;
-font-size: 8pt;
+font-size: 80%;
 background-color: #524976;
 color: white;
 letter-spacing: 4pt;
@@ -684,12 +683,11 @@ div#page7 {
 
 a#fotpanel {
 border-radius: 0px;
-margin-top: 7px;
+margin-top: 15px;
 border: none;
 padding-top: 11px;
-height: 1.5em;
 font-family: FlamaCondensed;
-font-size: 8pt;
+font-size: 80%;
 background-color: #78323F;
 color: white;
 letter-spacing: 4pt;
