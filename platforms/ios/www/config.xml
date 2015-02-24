@@ -9,7 +9,8 @@
     <content src="index.html" />
     <access origin="*" />
 	<preference name="DisallowOverscroll" value="true"/>
-	 <preference name="permissions"                value="none"/>
+	<preference name="permissions"               value="none"/>
+	<access origin="*" />
 
     <!-- Customize your app and platform with the preference element. -->
     <!-- <preference name="phonegap-version"      value="3.4.0" /> -->      <!-- all: current version of PhoneGap -->
@@ -29,7 +30,6 @@
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 	
     <icon src="www/res/icon/icon.png" />
-    <gap:splash src="splash.png" />
 <platform name="ios">
     <!-- images are determined by width and height. The following are supported -->
     <splash src="www/res/screen/ios/screen-iphone-portrait.png" width="320" height="480"/>
