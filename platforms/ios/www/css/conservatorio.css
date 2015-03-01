@@ -107,12 +107,10 @@ a#facebook {
 background-image: url(../img/facebook.png) !important;
 background-repeat: no-repeat;
 background-position: center;
-background-size: 101%;
-box-sizing: border-box;
 border: none;
-width: 100%;
-height: 37px;
-border-radius: 12px;
+border-radius: 1.5em;
+background-size: 100%;
+height: 3em;
 }
 
 .container {
@@ -128,7 +126,6 @@ border-radius: 12px;
 float: left;
 font-weight: 100;
 width: 100%;
-font-size: 90%;
 letter-spacing: 2pt;
 box-sizing: border-box;
 padding-right: 10px;
@@ -138,27 +135,36 @@ color: white;
 
 #sepa {
 font-weight: 100;
-width: 100%;
-font-size: 13px;
+font-size: 100%;
 letter-spacing: 2pt;
-box-sizing: border-box;
-padding-right: 10px;
 text-align: -webkit-center;
 color: white;
-margin: auto;
-margin-top: 7em;
+margin: 0 auto;
+margin-top: 5em;
+padding-top: 5em;
 
 }
 
 #login #register {
-  float:right;
-  padding: 3px;
-  width: 100%;
-  box-sizing: border-box;
-  font-weight: 300;
-  font-size: 90%;
-  text-align: -webkit-center;
-  text-decoration: blink;
+box-sizing: border-box;
+font-weight: 300;
+text-decoration: blink;
+}
+
+#registerpass  {
+font-weight: 300;
+text-decoration: blink;
+text-shadow: none;
+}
+
+#registerlink {
+font-weight: 300;
+text-decoration: blink;
+text-shadow: none;
+}
+
+div#reglinks {
+text-align: center;
 }
 
 #login br {
@@ -177,13 +183,13 @@ float: right;
 input#EMAIL {
 text-align: center;
 padding-top: 1em;
-padding-left: 10%;
+height: 4em;
 }
 
 input#PASS {
 text-align: center;
 padding-top: 1em;
-padding-left: 10%;
+height: 4em;
 }
 
 a#register {
@@ -192,7 +198,7 @@ text-shadow: none;
 
 .ui-field-contain {
 width: 100%;
-height: 3em;
+height: 5em;
 }
 
 .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
@@ -204,7 +210,10 @@ margin-top: 1.5em;
 background-color: #A71835;
 color: white;
 text-shadow: none;
+font-size: 19px;
 border: none;
+text-align: center;
+border-radius: 1em;
 }
 
 div#popupDialogl 
@@ -486,6 +495,7 @@ list-style-type: none;
 background-color: white;
 margin-bottom: 2em;
 text-align: center;
+height: 26em;
 }
 
 hr#shad {
