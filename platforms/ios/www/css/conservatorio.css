@@ -115,7 +115,7 @@ height: 3em;
 
 .container {
       margin: auto;
-      max-width: 800px;
+      max-width: 100%;
 }
 
 #login {
@@ -392,17 +392,28 @@ text-align: center;
 margin-top: 15%;
 }
 
+img#hola {
+width: 70%;
+}
+
+img#lorem {
+width: 100%;
+}
+
+img#homebottom {
+width: 30%;
+}
+
 a#notpanelhome {
 border-radius: 0px;
 margin-top: 7px;
 border: none;
 padding-top: 11px;
-height: 1.5em;
+font-size: 1em;
 font-family: FlamaCondensed;
-font-size: 8pt;
 color: white;
 background-color: #084d0e;
-letter-spacing: 4pt;
+letter-spacing: 0.5em;
 font-weight: 100;
 width: 90%;
 }
@@ -413,26 +424,29 @@ margin: auto;
 
 a#Noticias {
 	background-image: url(../img/Noticiasbutton.png) !important;
-	background-repeat: no-repeat;
-	height: 3em;
-	background-position: center;
-	border: none;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 100%;
+height: 7em;
+border: none;
 }
 
 a#Eventos {
 	background-image: url(../img/Eventosbutton.png) !important;
-	background-repeat: no-repeat;
-	height: 3em;
-	background-position: center;
-	border: none;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 100%;
+height: 7em;
+border: none;
 }
 
 a#Fotos {
 	background-image: url(../img/FotosButton.png) !important;
-	background-repeat: no-repeat;
-	height: 3em;
-	background-position: center;
-	border: none;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 100%;
+height: 7em;
+border: none;
 }
 
 .bottom {
