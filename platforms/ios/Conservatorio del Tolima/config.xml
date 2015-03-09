@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.conservatorio" version="1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value=".25" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <access origin="https://oauth.io" />
+    <splash height="480" src="www/res/screen/ios/screen-iphone-portrait.png" width="320" />
+    <splash height="1136" src="www/res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <splash height="320" src="www/res/screen/ios/screen-iphone-landscape.png" width="480" />
+    <splash height="640" src="www/res/screen/ios/screen-iphone-landscape-2x.png" width="960" />
+    <splash height="1004" src="www/res/screen/ios/screen-ipad-portrait.png" width="768" />
+    <splash height="2008" src="www/res/screen/ios/screen-ipad-portrait-2x.png" width="1536" />
+    <splash height="783" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
+    <splash height="1536" src="www/res/screen/ios/screen-ipad-landscape-2x.png" width="2008" />
+    <name>Conservatorio del Tolima</name>
+    <description>
+        Aplicacion mobil para el conservatorio del tolima
+    </description>
+    <author email="ricardo.salcedo@gmail.com" href="http://cordova.io">
+    </author>
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="permissions" value="none" />
+    <access origin="*" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="detect-data-types" value="true" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="show-splash-screen-spinner" value="true" />
+    <preference name="auto-hide-splash-screen" value="true" />
+    <preference name="disable-cursor" value="false" />
+    <preference name="android-minSdkVersion" value="7" />
+    <preference name="android-installLocation" value="auto" />
+    <icon src="www/res/icon/icon.png" />
+</widget>

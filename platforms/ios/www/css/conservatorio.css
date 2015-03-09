@@ -1,0 +1,899 @@
+@font-face {
+    font-family: FlamaCondensed;
+    src: url(../Fonts/FlamaCondensed-Light.otf);
+}
+
+@font-face {
+    font-family: BrandonGrotesque;
+    src: url(../Fonts/Brandon_thin.otf);
+}
+
+@font-face {
+    font-family: BrandonGrotesqueBold;
+    src: url(../Fonts/Brandon_bld.otf);
+}
+
+@font-face {
+    font-family: GothamHTF Black;
+    src: url(../Fonts/Gotham-Black.otf);
+}
+
+@font-face {
+    font-family: GothamHTF Book;
+    src: url(../Fonts/Gotham-Book.ttf);
+}
+
+
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+background-color: transparent;
+}
+
+div.ui-focus {
+-moz-box-shadow: none !important;
+ -webkit-box-shadow: none !important;
+ box-shadow: none !important;
+ background-color: white;
+}
+
+input#EMAIL:focus {
+	background: white;
+}
+
+/************Landing Screen********************/
+
+div#page1 {
+	background-image: url(../img/ui-conservatorio-tolima-01.jpg) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+}
+
+
+div#loginbar {
+height: 39pt;
+border: none;
+}
+
+a#login-text {
+font-size: 15pt;
+color: white;
+font-weight: 100;
+letter-spacing: 1pt;
+float: left;
+width: 50%;
+margin-bottom: 100%;
+}
+
+a#sign-text {
+font-size: 15pt;
+color: white;
+font-weight: 100;
+letter-spacing: 1pt;
+float: right;
+width: 50%;
+margin-bottom: 100%;
+}
+
+table {
+width: 100%;
+}
+td {
+width: 50%;
+}
+
+/**************End Landing**********************/
+
+
+/************Login Screen********************/
+
+div#page2 {
+	background-image: url(../img/login.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+}
+
+img#logo {
+width: 50%;
+}
+
+
+header {
+text-align: center;
+}
+
+a#facebook {
+background-image: url(../img/facebook.png) !important;
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+border-radius: 1.5em;
+background-size: 100%;
+height: 68px;
+}
+
+a#facebook:hover {
+	background-color: transparent;
+}
+
+.container {
+      margin: auto;
+      max-width: 100%;
+}
+
+#login {
+      padding: 0px 5%;
+    }
+
+#login #blurb {
+float: left;
+font-weight: 100;
+width: 100%;
+letter-spacing: 2pt;
+box-sizing: border-box;
+padding-right: 10px;
+text-align: -webkit-center;
+color: white;
+}
+
+#sepa {
+font-weight: 100;
+font-size: 100%;
+letter-spacing: 2pt;
+text-align: -webkit-center;
+color: white;
+margin: 0 auto;
+margin-top: 5em;
+padding-top: 5em;
+
+}
+
+#login #register {
+box-sizing: border-box;
+font-weight: 300;
+text-decoration: blink;
+}
+
+#registerpass  {
+font-weight: 300;
+text-decoration: blink;
+text-shadow: none;
+}
+
+#registerlink {
+font-weight: 300;
+text-decoration: blink;
+text-shadow: none;
+}
+
+div#reglinks {
+text-align: center;
+}
+
+#login br {
+      clear: both;
+    }
+    
+hr#logindash1 {
+width: 45%;
+float: left;
+}
+hr#logindash2 {
+width: 45%;
+float: right;
+}
+
+input#EMAIL {
+text-align: center;
+padding-top: 1em;
+height: 4em;
+}
+
+input#PASS {
+text-align: center;
+padding-top: 1em;
+height: 4em;
+}
+
+a#register {
+text-shadow: none;
+}
+
+.ui-field-contain {
+width: 100%;
+height: 5em;
+}
+
+.ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
+border-radius: 12px;
+}
+
+.ui-btn.ui-input-btn.ui-corner-all.ui-shadow {
+margin-top: 1.5em;
+background-color: #A71835;
+color: white;
+text-shadow: none;
+font-size: 19px;
+border: none;
+text-align: center;
+border-radius: 1em;
+}
+
+div#popupDialogl 
+{
+position: relative;
+width: 175px;
+height: 46px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: #7F7F7F solid 6px;
+text-align: center;
+}
+
+div#popupDialogl:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 18px 13px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -13px;
+bottom: -18px;
+left: 19%;
+}
+
+div#popupDialogl:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 23px 18px 0;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -18px;
+bottom: -29px;
+left: 19%;
+}
+
+p#popuptitlel {
+font-family: FlamaCondensed;
+font-size: 16pt;
+margin-top: -8px;
+color: #E6A726;
+}
+
+
+/************End Login********************/
+
+/************Regitry Screen********************/
+
+div#page10 {
+	background-image: url(../img/home.jpg) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+form#regform {
+width: 17em;
+margin: 5em auto;
+text-align: -webkit-center;
+}
+
+input#NOMBREREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#EMAILREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#PASSREG {
+text-align: center;
+padding-top: 1em;
+}
+
+input#PASSCREG {
+text-align: center;
+padding-top: 1em;
+}
+
+a#regpanel {
+border-radius: 0px;
+margin-top: 15px;
+border: none;
+padding-top: 11px;
+font-family: FlamaCondensed;
+font-size: 80%;
+background-color: #084d0e;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+
+}
+
+p#popuptitle {
+font-family: FlamaCondensed;
+font-size: 16pt;
+margin-top: -8px;
+color: #E6A726;
+}
+
+div#popupDialog 
+{
+position: relative;
+width: 175px;
+height: 46px;
+padding: 0px;
+background: #FFFFFF;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: #7F7F7F solid 6px;
+text-align: center;
+}
+
+div#popupDialog:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 18px 13px 0;
+border-color: #FFFFFF transparent;
+display: block;
+width: 0;
+z-index: 1;
+margin-left: -13px;
+bottom: -18px;
+left: 19%;
+}
+
+div#popupDialog:before 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 23px 18px 0;
+border-color: #7F7F7F transparent;
+display: block;
+width: 0;
+z-index: 0;
+margin-left: -18px;
+bottom: -29px;
+left: 19%;
+}
+
+div.growlUI h1, div.growlUI h2 {
+    color: white; 
+    padding: 5px 5px 5px 75px; 
+    text-align: center;
+    left: 10px;
+}
+
+
+/************End Registry********************/
+
+/************Home Screen********************/
+
+div#page3 {
+	background-image: url(../img/home.jpg) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.homer {
+text-align: center;
+margin-top: 15%;
+}
+
+img#hola {
+width: 60%;
+}
+
+img#lorem {
+width: 80%;
+}
+
+img#homebottom {
+width: 30%;
+}
+
+a#notpanelhome {
+border-radius: 0px;
+margin-top: 7px;
+border: none;
+padding-top: 11px;
+font-size: 1em;
+font-family: FlamaCondensed;
+color: white;
+background-color: #084d0e;
+letter-spacing: 0.5em;
+font-weight: 100;
+width: 90%;
+}
+
+div#homebuttons {
+margin: auto;
+}
+
+a#Noticias {
+	background-image: url(../img/Noticiasbutton.png) !important;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 90%;
+height: 7em;
+border: none;
+}
+
+a#Noticias:hover {
+background-color: transparent;
+}
+
+a#Eventos {
+	background-image: url(../img/Eventosbutton.png) !important;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 90%;
+height: 7em;
+border: none;
+}
+
+a#Eventos:hover {
+background-color: transparent;
+}
+
+a#Fotos {
+	background-image: url(../img/FotosButton.png) !important;
+background-repeat: no-repeat;
+background-position: center;
+background-size: 90%;
+height: 7em;
+border: none;
+}
+
+a#Fotos:hover {
+background-color: transparent;
+}
+
+.bottom {
+text-align: center;
+}
+
+/************End Home********************/
+
+/************Noticias Screen********************/
+
+div#page5 {
+	background-image: url(../img/back-noticias.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a#notpanel {
+border-radius: 0px;
+margin-top: 15px;
+border: none;
+padding-top: 11px;
+font-family: FlamaCondensed;
+font-size: 80%;
+background-color: #C9AA69;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+}
+
+div#notitle {
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+
+img#notitle {
+  width: 23%;
+  margin: auto;
+  position: relative;
+}
+
+div#titlediv {
+text-align: center;
+}
+
+hr#hline {
+height: 6px;
+border: 0;
+box-shadow: inset 0 6px 6px -6px black;
+z-index: 1;
+position: relative;
+}
+
+.info {
+margin-top: 10px;
+margin-left: 14px;
+}
+
+li#contents {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+text-align: center;
+height: 26em;
+overflow: scroll;
+}
+
+hr#shad {
+position: relative;
+height: 12px;
+border: 0;
+box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}
+
+a#not-but {
+ width: 50%;
+ height: 25%;
+ padding: 0px;
+ background: #E6A726;
+ -moz-border-radius: 10px;
+ border-bottom-right-radius: 40px;
+ border-top-right-radius: 40px;
+}
+
+
+a#not-but::after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 15px 15px 15px 0;
+border-color: #E6A726;
+display: block;
+width: 0;
+z-index: 1;
+left: -15px;
+top: 45px;
+}
+
+
+label.date {
+font-family: BrandonGrotesqueBold;
+color: rgb(154,106,10);
+font-size: 0.7em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+div#imgcontainer {
+  height: 100%;
+  width: 50%;
+  right: 0;
+  border-radius: 0 10px 10px 0;
+  background-repeat: no-repeat;
+  bottom: 0;
+  -webkit-clip-path: polygon(60% 0, 0% 100%, 100% 100%, 100% 0);
+  border-image-width: 10px;
+  border-style: solid;
+  position: absolute;
+}
+
+img#imgnot {
+  width: 102%;
+  height: 103%;
+}
+
+span.ttl {
+color: white;
+font-size: 0.8em;
+letter-spacing: 0px;
+display: inline-block;
+text-shadow: none;
+text-align: left;
+float: left;
+font-weight: 100;
+white-space: normal;
+width: 106px;
+height: 50px;
+}
+
+
+
+/************End Noticias Screen********************/
+
+/************Noticias Detail Screen********************/
+
+div#page8 {
+	background-image: url(../img/back-noticias.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+div#notcontainer {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+}
+
+img#imgnotdet {
+padding-top: 47px;
+height: 11em;
+}
+
+div#blueimp-image-carousel {
+  background: transparent;
+}
+
+button#backbtn {
+position: absolute;
+margin: 57px auto;
+height: 27%;
+background: transparent;
+border: none;
+}
+
+button#nextbtn {
+position: absolute;
+margin: 57px auto;
+right: 5%;
+height: 27%;
+background: transparent;
+border: none;
+}
+
+h4.detitle {
+font-family: GothamHTF Black;
+font-size: 10pt;
+text-align: center;
+color: #9A6A0A;
+}
+
+p.notdetails {
+font-family: BrandonGrotesque;
+font-size: 7pt;
+text-align: justify;
+width: 90%;
+margin: auto;
+color: #939598;
+font-weight: bolder;
+height: 4em;
+}
+
+div#imgdetail {
+  text-align: center;
+}
+
+/************End Noticias Details Screen********************/
+
+
+/************Eventos Screen********************/
+
+div#page6 {
+	background-image: url(../img/back-eventos.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a#evpanel {
+border-radius: 0px;
+margin-top: 15px;
+border: none;
+padding-top: 11px;
+font-family: FlamaCondensed;
+font-size: 80%;
+background-color: #524976;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+
+}
+
+div#evtitle {
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+label.datev {
+font-family: BrandonGrotesqueBold;
+color: #39204E;
+font-size: 0.7em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+a#ev-but {
+/*
+background-image: url(../img/ev-cloud.png);
+background-repeat: no-repeat;
+height: 52px;
+width: 245px;
+border: none;
+background-color: transparent;
+margin-left: 4px;
+*/
+width: 75%;
+ height: 25%;
+ padding: 0px;
+ background: #534298;
+ -moz-border-radius: 10px;
+ border-bottom-right-radius: 40px;
+ border-top-right-radius: 40px;
+}
+
+li#evcontents {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+text-align: center;
+height: 26em;
+}
+
+
+/************End Eventos Screen********************/
+
+/************Fotos Screen********************/
+
+div#page7 {
+	background-image: url(../img/back-fotos.png) !important;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+a#fotpanel {
+border-radius: 0px;
+margin-top: 15px;
+border: none;
+padding-top: 11px;
+font-family: FlamaCondensed;
+font-size: 80%;
+background-color: #78323F;
+color: white;
+letter-spacing: 4pt;
+font-weight: 100;
+}
+
+label.datef {
+font-family: BrandonGrotesqueBold;
+color: #5B0615;
+font-size: 0.7em;
+letter-spacing: 2px;
+width: 0px;
+text-shadow: none;
+}
+
+div#fotitle {
+background-repeat: no-repeat;
+height: 40px;
+width: 147px;
+margin: 0px auto;
+margin-top: -8px;
+position: relative;
+}
+
+a#fot-but {
+background-image: url(../img/fot-cloud.png);
+background-repeat: no-repeat;
+height: 52px;
+width: 245px;
+border: none;
+background-color: transparent;
+margin-left: 4px;
+}
+
+li#fotcontents {
+width: 100%;
+height: 100%;
+border-radius: 20px;
+margin-top: -46px;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+}
+
+span.ttlf {
+color: #A71835;
+font-size: 0.8em;
+letter-spacing: 0px;
+display: inline-block;
+text-shadow: none;
+text-align: left;
+float: left;
+font-weight: 100;
+white-space: normal;
+width: 106px;
+height: 50px;
+}
+
+/************End Fotos Screen********************/
+
+/************Bottom Menu********************/
+
+.ui-icon-icon-main {
+background-image: url(../img/nota.png);
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+.ui-icon-icon-not {
+background-image: url(../img/trompeta.png);
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+.ui-icon-icon-event {
+background-image: url(../img/violin.png);
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+.ui-icon-icon-foto {
+background-image: url(../img/piano.png);
+background-repeat: no-repeat;
+background-color: transparent;
+}
+
+div#tabbar {
+background-color: transparent;
+}
+
+ul {
+list-style-type: none;
+}
+
+div#foot {
+background-color: transparent;
+bottom: 0;
+position: absolute !important;
+top: auto !important;
+width: 100%;
+}
+
+a.ui-link.ui-btn {
+background-color: transparent;
+}
+
+.ui-btn-icon-top:after {
+background-color: transparent;
+}
+
+.ui-btn-icon-left:after {
+background-color: transparent;
+}
+
+.ui-header .ui-navbar .ui-btn, .ui-footer .ui-navbar .ui-btn {
+background-position: center;
+}
+
+/************End Bottom Menu********************/
+
+
