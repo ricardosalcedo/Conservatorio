@@ -196,14 +196,6 @@ $(document).on("pageinit","#page5",function(){
  
 });
 
-blueimp.Gallery(
-        document.getElementById('links').getElementsByTagName('a'),
-        {
-            container: '#blueimp-gallery-carousel',
-            carousel: true
-        }
-    );
-
 function notClick(value){ 
         var output = $('#links');
         $.ajax({
