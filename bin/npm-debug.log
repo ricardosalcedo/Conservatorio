@@ -1,0 +1,82 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'condova' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'condova', null ]
+5 verbose cache add name=undefined spec="condova" args=["condova",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'condova',
+6 verbose parsed url   path: 'condova',
+6 verbose parsed url   href: 'condova' }
+7 silly lockFile b77a6a55-condova condova
+8 verbose lock condova /Users/Ricardo/.npm/b77a6a55-condova.lock
+9 silly lockFile b77a6a55-condova condova
+10 silly lockFile b77a6a55-condova condova
+11 verbose addNamed [ 'condova', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 8e50699a-condova condova@
+14 verbose lock condova@ /Users/Ricardo/.npm/8e50699a-condova.lock
+15 silly addNameRange { name: 'condova', range: '*', hasData: false }
+16 verbose request where is /condova
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 9396b1f1de90cf30
+19 verbose url raw /condova
+20 verbose url resolving [ 'https://registry.npmjs.org/', './condova' ]
+21 verbose url resolved https://registry.npmjs.org/condova
+22 verbose request where is https://registry.npmjs.org/condova
+23 info trying registry request attempt 1 at 22:25:05
+24 http GET https://registry.npmjs.org/condova
+25 http 404 https://registry.npmjs.org/condova
+26 verbose headers { date: 'Tue, 27 Jan 2015 03:24:45 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '52',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   age: '0',
+26 verbose headers   'x-served-by': 'cache-iad2129-IAD',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1422329085.736657,VS0,VE62',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Tue, 27 Jan 2015 03:24:45 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '52',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-iad2129-IAD',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1422329085.736657,VS0,VE62',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile 8e50699a-condova condova@
+29 silly lockFile 8e50699a-condova condova@
+30 error 404 404 Not Found: condova
+30 error 404
+30 error 404 'condova' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Darwin 14.0.0
+32 error command "node" "/usr/local/bin/npm" "install" "-g" "condova"
+33 error cwd /Applications/MAMP/htdocs/Conservatorio_mob
+34 error node -v v0.10.35
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]

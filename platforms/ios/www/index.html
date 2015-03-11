@@ -19,14 +19,13 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script src="js/consevatorio.js"></script>
-  <script src="js/phonegap.js"></script>
+  <!--script src="js/phonegap.js"></script-->
   <script src="js/load-json.js"></script>
   <script src="js/fastclick.js"></script>
   <script src="js/jquery.finger.min.js"></script>
   <script src="js/jquery.liquid-slider.min.js"></script>
   <script src="js/jquery.blockUI.js"></script>
   <script src="js/cordova.js"></script>
-  <script src="config/credentials.js"></script>
   <script src="js/index.js"></script>
   <script src="js/script.js"></script>
 </head>
@@ -42,6 +41,7 @@
       	  <p>INGRESA CON</p>
       	   <!--a data-role="button" id="facebook" href="#page3" data-transition="slide"></a-->
       	   <a data-role="button" id="facebook" data-transition="slide"></a>
+      	   <button id="fb-connect">Connect to facebook</button>
       	   <!--a data-role="button" id="login_button" data-transition="slide"></a-->
       	 </div> 
       	 <div id="sepa">
@@ -424,18 +424,31 @@
 <div id="links" class="links"></div>
 
 <script>
-      $.ajaxSetup({ cache: true });
-      $.getScript('http://connect.facebook.net/en_US/all.js', function () {
-          FB.init({
-              appId: '707742835999981',
-              cookie     : true,  // enable cookies to allow the server to access 
-              // the session
-  xfbml      : true,  // parse social plugins on this page
-  version    : 'v2.1' // use version 2.1
-          });
-          $('#facebook,#feedbutton').removeAttr('disabled');
-      });
 
+      $(document).on('deviceready', function() {
+          OAuth.initialize("3df72cb0e9b408b0f7debb2a1bd911e1");
+
+          $('#fb-connect').on('touchstart', function() {
+              $('#result').html("");
+
+              OAuth.popup('facebook')
+                  .done(function (r) {
+                      // the access_token is available via r.access_token
+                      // but the http functions automagically wrap the jquery calls
+                      r.get('/me')
+                      .done(function(data) {
+                          $('#result').html("facebook: Hello, " + data.name + " !");
+                      })
+                      .fail(function( jqXHR, textStatus, errorThrown) {
+                          $('#result').html("req error: " + textStatus);
+                      });
+                  })
+                  .fail(function (e) {
+                      $('#result').html('error: ' + e.message);
+                  });
+          });
+      });
+      
 </script>
 <script src="js/blueimp-helper.js"></script>
 <script src="js/blueimp-gallery.js"></script>
@@ -463,6 +476,8 @@ blueimp.Gallery(
             carousel: true
         }
     );
+    
+    
 </script>
 
     
