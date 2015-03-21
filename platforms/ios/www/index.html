@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Consevatorio</title>
-  <!--meta name="viewport" content="user-scalable=no ,width=device-width, height=device-height, initial-scale=1, target-densitydpi=device-dpi"-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+  <!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" /-->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -16,18 +16,6 @@
   <link rel="stylesheet" href="css/blueimp-gallery-indicator.css">
   <link rel="stylesheet" href="css/blueimp-gallery.min.css">
   
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/consevatorio.js"></script>
-  <!--script src="js/phonegap.js"></script-->
-  <script src="js/load-json.js"></script>
-  <script src="js/fastclick.js"></script>
-  <script src="js/jquery.finger.min.js"></script>
-  <script src="js/jquery.liquid-slider.min.js"></script>
-  <script src="js/jquery.blockUI.js"></script>
-  <script src="js/cordova.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/script.js"></script>
 </head>
 <body>
 <div data-role="page" data-control-title="landing" id="page1"></div>
@@ -40,7 +28,7 @@
       	 <div id="blurb">
       	  <p>INGRESA CON</p>
       	   <!--a data-role="button" id="facebook" href="#page3" data-transition="slide"></a-->
-      	   <a data-role="button" id="facebook" onclick="login()" data-transition="slide"></a>
+      	   <a data-role="button" id="facebook" onclick="login();" data-transition="slide"></a>
       	   <!--a data-role="button" id="login_button" data-transition="slide"></a-->
       	 </div> 
       	 <div id="sepa">
@@ -422,99 +410,92 @@
 
 <div id="links" class="links"></div>
 
-<script src="js/blueimp-helper.js"></script>
-<script src="js/blueimp-gallery.js"></script>
-<script src="js/blueimp-gallery-fullscreen.js"></script>
-<script src="js/blueimp-gallery-indicator.js"></script>
-<script src="js/blueimp-gallery-video.js"></script>
-<script src="js/blueimp-gallery-vimeo.js"></script>
-<script src="js/blueimp-gallery-youtube.js"></script>
-<script src="js/jquery.blueimp-gallery.js"></script>
-<script src="js/blueimp-gallery.min.js"></script>
-<script src="js/openfb.js"></script>
-<script>
-document.getElementById('links').onclick = function (event) {
-    event = event || window.event;
-    var target = event.target || event.srcElement,
-        link = target.src ? target.parentNode : target,
-        options = {index: link, event: event},
-        links = this.getElementsByTagName('a');
-    blueimp.Gallery(links, options);
-};
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="js/consevatorio.js"></script>
+	<script src="js/load-json.js"></script>
+	<script src="js/fastclick.js"></script>
+	<script src="js/jquery.finger.min.js"></script>
+	<script src="js/jquery.liquid-slider.min.js"></script>
+	<script src="js/jquery.blockUI.js"></script>
+	<script src="js/cordova.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/blueimp-helper.js"></script>
+	<script src="js/blueimp-gallery.js"></script>
+	<script src="js/blueimp-gallery-fullscreen.js"></script>
+	<script src="js/blueimp-gallery-indicator.js"></script>
+	<script src="js/blueimp-gallery-video.js"></script>
+	<script src="js/blueimp-gallery-vimeo.js"></script>
+	<script src="js/blueimp-gallery-youtube.js"></script>
+	<script src="js/jquery.blueimp-gallery.js"></script>
+	<script src="js/blueimp-gallery.min.js"></script>
+	<script src="js/openfb.js"></script>
+	<script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
+    <script type="text/javascript">
+            var login = function () {
+                if (!window.cordova) {
+                    var appId = prompt("Enter FB Application ID", "");
+                    facebookConnectPlugin.browserInit(appId);
+                }
+                facebookConnectPlugin.login( ["email"], 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            var showDialog = function () { 
+                facebookConnectPlugin.showDialog( { method: "feed" }, 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            
+            var apiTest = function () { 
+                facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) }); 
+            }
+            var logPurchase = function () {
+                facebookConnectPlugin.logPurchase(1.99, "USD",
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
 
-blueimp.Gallery(
-        document.getElementById('links').getElementsByTagName('a'),
-        {
-            container: '#blueimp-gallery-carousel',
-            carousel: true
-        }
-    );
-
-// Defaults to sessionStorage for storing the Facebook token
-openFB.init({appId: '707742835999981'});
-//  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
-//  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
-function login() {
-   $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-   setTimeout($.unblockUI, 3000);
-   openFB.login(
-           function(response) {
-               if(response.status === 'connected') {
-                   console.log(response.name);
-                   //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
-                   $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-                   $.mobile.navigate( "#page3", { transition : "slide"} );
-               } else {
-                   $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-                   //alert('Facebook login failed: ' + response.error);
-               }
-           }, {scope: 'email,read_stream,publish_stream'});
-}
-function getInfo() {
-   openFB.api({
-       path: '/me',
-       success: function(data) {
-           console.log(JSON.stringify(data));
-           document.getElementById("userName").innerHTML = data.name;
-           document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
-       },
-       error: errorHandler});
-}
-function share() {
-   openFB.api({
-       method: 'POST',
-       path: '/me/feed',
-       params: {
-           message: document.getElementById('Message').value || 'Testing Facebook APIs'
-       },
-       success: function() {
-           alert('the item was posted on Facebook');
-       },
-       error: errorHandler});
-}
-function revoke() {
-   openFB.revokePermissions(
-           function() {
-               alert('Permissions revoked');
-           },
-           errorHandler);
-}
-
-function logOut() {
-   openFB.logout(       
-           function() {
-               $.mobile.navigate( "#page2", { transition : "slide"} );
-               alert('Logout successful');
-           },
-           errorHandler);
-}
-function errorHandler(error) {
-   alert(error.message);
-}
-    
-</script>
-
-    
+            var getAccessToken = function () { 
+                facebookConnectPlugin.getAccessToken( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            
+            var getStatus = function () { 
+                facebookConnectPlugin.getLoginStatus( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+            var logout = function () { 
+                facebookConnectPlugin.logout( 
+                    function (response) { alert(JSON.stringify(response)) },
+                    function (response) { alert(JSON.stringify(response)) });
+            }
+    </script>
+	<script>
+	document.getElementById('links').onclick = function (event) {
+	    event = event || window.event;
+	    var target = event.target || event.srcElement,
+	        link = target.src ? target.parentNode : target,
+	        options = {index: link, event: event},
+	        links = this.getElementsByTagName('a');
+	    blueimp.Gallery(links, options);
+	};
+	
+	blueimp.Gallery(
+	        document.getElementById('links').getElementsByTagName('a'),
+	        {
+	            container: '#blueimp-gallery-carousel',
+	            carousel: true
+	        }
+	    );
+	
+	    
+	</script>    
 </body>
 
 </html>
