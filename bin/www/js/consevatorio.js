@@ -19,36 +19,11 @@ $(document).on("pageinit","#page1",function(){
  
 
 $(document).on("pageinit","#page2",function(){    
-    $("#facebook").click(function () {  
-        $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-        setTimeout($.unblockUI, 3000);
-        FB.getLoginStatus(function(response) {
-            if (response.status === 'connected') {
-              console.log('Logged in.');
-              //$.blockUI({message: 'BIENVENIDO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-              $.mobile.navigate( "#page3", { transition : "slide"} );
-            }
-            else {
-                FB.login(function(response) {
-                    if (response.authResponse) {                      
-                      console.log('Welcome!  Fetching your information.... ');
-                      FB.api('/me', function(response) {
-                        $.blockUI({message: 'BIENVENIDO '+ response.name, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-                        $.mobile.navigate( "#page3", { transition : "slide"} );
-                        console.log('Good to see you, ' + response.name + '.');
-                        setTimeout($.unblockUI, 2000);
-                      });
-                    } else {
-                      $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-                      console.log('User cancelled login or did not fully authorize.');
-                    }
-                  });
-            }
-          });
-    });
+    
+
 });
 
-function logOut(){
+/*function logOut(){
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected'){
             console.log("Desconectando Usuario");
@@ -58,7 +33,7 @@ function logOut(){
     
     $.mobile.navigate( "#page2" );
     
-}
+}*/
 
 
 $(document).on("pageinit","#page2",function(){

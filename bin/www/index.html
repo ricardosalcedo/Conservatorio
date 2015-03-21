@@ -40,8 +40,7 @@
       	 <div id="blurb">
       	  <p>INGRESA CON</p>
       	   <!--a data-role="button" id="facebook" href="#page3" data-transition="slide"></a-->
-      	   <a data-role="button" id="facebook" data-transition="slide"></a>
-      	   <button id="fb-connect">Connect to facebook</button>
+      	   <a data-role="button" id="facebook" onclick="login()" data-transition="slide"></a>
       	   <!--a data-role="button" id="login_button" data-transition="slide"></a-->
       	 </div> 
       	 <div id="sepa">
@@ -70,7 +69,7 @@
 </div>
   
 <div data-role="page" data-control-title="main" id="page3" class="back">
-	<div data-role="content" class="container">
+	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
 	          <ul data-role="listview" data-divider-theme="b" data-inset="false">
 	              <li data-theme="b">
@@ -423,33 +422,6 @@
 
 <div id="links" class="links"></div>
 
-<script>
-
-      $(document).on('deviceready', function() {
-          OAuth.initialize("3df72cb0e9b408b0f7debb2a1bd911e1");
-
-          $('#fb-connect').on('touchstart', function() {
-              $('#result').html("");
-
-              OAuth.popup('facebook')
-                  .done(function (r) {
-                      // the access_token is available via r.access_token
-                      // but the http functions automagically wrap the jquery calls
-                      r.get('/me')
-                      .done(function(data) {
-                          $('#result').html("facebook: Hello, " + data.name + " !");
-                      })
-                      .fail(function( jqXHR, textStatus, errorThrown) {
-                          $('#result').html("req error: " + textStatus);
-                      });
-                  })
-                  .fail(function (e) {
-                      $('#result').html('error: ' + e.message);
-                  });
-          });
-      });
-      
-</script>
 <script src="js/blueimp-helper.js"></script>
 <script src="js/blueimp-gallery.js"></script>
 <script src="js/blueimp-gallery-fullscreen.js"></script>
@@ -459,6 +431,7 @@
 <script src="js/blueimp-gallery-youtube.js"></script>
 <script src="js/jquery.blueimp-gallery.js"></script>
 <script src="js/blueimp-gallery.min.js"></script>
+<script src="js/openfb.js"></script>
 <script>
 document.getElementById('links').onclick = function (event) {
     event = event || window.event;
@@ -476,7 +449,68 @@ blueimp.Gallery(
             carousel: true
         }
     );
-    
+
+// Defaults to sessionStorage for storing the Facebook token
+openFB.init({appId: '707742835999981'});
+//  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+//  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+function login() {
+   $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+   setTimeout($.unblockUI, 3000);
+   openFB.login(
+           function(response) {
+               if(response.status === 'connected') {
+                   console.log(response.name);
+                   //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+                   $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                   $.mobile.navigate( "#page3", { transition : "slide"} );
+               } else {
+                   $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                   //alert('Facebook login failed: ' + response.error);
+               }
+           }, {scope: 'email,read_stream,publish_stream'});
+}
+function getInfo() {
+   openFB.api({
+       path: '/me',
+       success: function(data) {
+           console.log(JSON.stringify(data));
+           document.getElementById("userName").innerHTML = data.name;
+           document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
+       },
+       error: errorHandler});
+}
+function share() {
+   openFB.api({
+       method: 'POST',
+       path: '/me/feed',
+       params: {
+           message: document.getElementById('Message').value || 'Testing Facebook APIs'
+       },
+       success: function() {
+           alert('the item was posted on Facebook');
+       },
+       error: errorHandler});
+}
+function revoke() {
+   openFB.revokePermissions(
+           function() {
+               alert('Permissions revoked');
+           },
+           errorHandler);
+}
+
+function logOut() {
+   openFB.logout(       
+           function() {
+               $.mobile.navigate( "#page2", { transition : "slide"} );
+               alert('Logout successful');
+           },
+           errorHandler);
+}
+function errorHandler(error) {
+   alert(error.message);
+}
     
 </script>
 

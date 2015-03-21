@@ -69,7 +69,7 @@
 </div>
   
 <div data-role="page" data-control-title="main" id="page3" class="back">
-	<div data-role="content" class="container">
+	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
 	          <ul data-role="listview" data-divider-theme="b" data-inset="false">
 	              <li data-theme="b">
@@ -431,7 +431,7 @@
 <script src="js/blueimp-gallery-youtube.js"></script>
 <script src="js/jquery.blueimp-gallery.js"></script>
 <script src="js/blueimp-gallery.min.js"></script>
-<script src="openfb.js"></script>
+<script src="js/openfb.js"></script>
 <script>
 document.getElementById('links').onclick = function (event) {
     event = event || window.event;
@@ -455,12 +455,18 @@ openFB.init({appId: '707742835999981'});
 //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
 //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
 function login() {
+   $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+   setTimeout($.unblockUI, 3000);
    openFB.login(
            function(response) {
                if(response.status === 'connected') {
-                   alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+                   console.log(response.name);
+                   //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+                   $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                   $.mobile.navigate( "#page3", { transition : "slide"} );
                } else {
-                   alert('Facebook login failed: ' + response.error);
+                   $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                   //alert('Facebook login failed: ' + response.error);
                }
            }, {scope: 'email,read_stream,publish_stream'});
 }
@@ -493,9 +499,11 @@ function revoke() {
            },
            errorHandler);
 }
-function logout() {
-   openFB.logout(
+
+function logOut() {
+   openFB.logout(       
            function() {
+               $.mobile.navigate( "#page2", { transition : "slide"} );
                alert('Logout successful');
            },
            errorHandler);
