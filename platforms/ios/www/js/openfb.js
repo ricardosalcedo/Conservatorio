@@ -19,11 +19,13 @@ var openFB = (function () {
 
         context = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2)),
 
-        baseURL = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + context,
+        //baseURL = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + context,
 
-        oauthRedirectURL = baseURL + '/oauthcallback.html',
+        baseURL = "",
+        
+        oauthRedirectURL = baseURL + 'http://localhost:8888/Conservatorio_m/www/oauthcallback.html',
 
-        logoutRedirectURL = baseURL + '/logoutcallback.html',
+        logoutRedirectURL = baseURL + 'http://localhost:8888/Conservatorio_m/www/logoutcallback.html',
 
         // Because the OAuth login spans multiple processes, we need to keep the login callback function as a variable
         // inside the module instead of keeping it local within the login function.
