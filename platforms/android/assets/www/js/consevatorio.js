@@ -1,3 +1,4 @@
+
 $('body').on('tap', 'a', function(e) {
     window.location = $(this).attr('href');
     e.preventDefault();
@@ -17,11 +18,6 @@ $(document).on("pageinit","#page1",function(){
     });
 });
  
-
-$(document).on("pageinit","#page2",function(){    
-    
-
-});
 
 /*function logOut(){
     FB.getLoginStatus(function(response) {

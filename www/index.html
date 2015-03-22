@@ -28,7 +28,7 @@
       	 <div id="blurb">
       	  <p>INGRESA CON</p>
       	   <!--a data-role="button" id="facebook" href="#page3" data-transition="slide"></a-->
-      	   <a data-role="button" id="facebook" onclick="login();" data-transition="slide"></a>
+      	   <button id="facebook" onclick="login();"></button>
       	   <!--a data-role="button" id="login_button" data-transition="slide"></a-->
       	 </div> 
       	 <div id="sepa">
@@ -421,6 +421,7 @@
 	<script src="js/jquery.blockUI.js"></script>
 	<script src="js/cordova.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/index.js"></script>
 	<script src="js/blueimp-helper.js"></script>
 	<script src="js/blueimp-gallery.js"></script>
 	<script src="js/blueimp-gallery-fullscreen.js"></script>
@@ -433,48 +434,70 @@
 	<script src="js/openfb.js"></script>
 	<script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
     <script type="text/javascript">
-            var login = function () {
-                if (!window.cordova) {
-                    var appId = prompt("Enter FB Application ID", "");
-                    facebookConnectPlugin.browserInit(appId);
-                }
-                facebookConnectPlugin.login( ["email"], 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            var showDialog = function () { 
-                facebookConnectPlugin.showDialog( { method: "feed" }, 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            
-            var apiTest = function () { 
-                facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"],
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) }); 
-            }
-            var logPurchase = function () {
-                facebookConnectPlugin.logPurchase(1.99, "USD",
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
+    
+	    $( document ).ready(function() { });
+	    // Defaults to sessionStorage for storing the Facebook token
+	    openFB.init({appId: '707742835999981'});
+	    //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
+	    //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
+	    function login() {
+	        $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+	        setTimeout($.unblockUI, 3000);
+	        openFB.login(
+	                     function(response) {
+	                     if(response.status === 'connected') {
+	                     console.log(response.name);
+	                     //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+	                     $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+	                     $.mobile.navigate( "#page3", { transition : "slide"} );
+	                     } else {
+	                     $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+	                     //alert('Facebook login failed: ' + response.error);
+	                     }
+	                     }, {scope: 'email,read_stream,publish_stream'});
+	    }
+	function getInfo() {
+	    openFB.api({
+	               path: '/me',
+	               success: function(data) {
+	               console.log(JSON.stringify(data));
+	               document.getElementById("userName").innerHTML = data.name;
+	               document.getElementById("userPic").src = 'http://graph.facebook.com/' + data.id + '/picture?type=small';
+	               },
+	               error: errorHandler});
+	}
+	function share() {
+	    openFB.api({
+	               method: 'POST',
+	               path: '/me/feed',
+	               params: {
+	               message: document.getElementById('Message').value || 'Testing Facebook APIs'
+	               },
+	               success: function() {
+	               alert('the item was posted on Facebook');
+	               },
+	               error: errorHandler});
+	}
+	function revoke() {
+	    openFB.revokePermissions(
+	                             function() {
+	                             alert('Permissions revoked');
+	                             },
+	                             errorHandler);
+	}
+	
+	function logOut() {
+	    openFB.logout(       
+	                  function() {
+	                  $.mobile.navigate( "#page2", { transition : "slide"} );
+	                  alert('Logout successful');
+	                  },
+	                  errorHandler);
+	}
+	function errorHandler(error) {
+	    alert(error.message);
+	}
 
-            var getAccessToken = function () { 
-                facebookConnectPlugin.getAccessToken( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            
-            var getStatus = function () { 
-                facebookConnectPlugin.getLoginStatus( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
-            var logout = function () { 
-                facebookConnectPlugin.logout( 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
     </script>
 	<script>
 	document.getElementById('links').onclick = function (event) {

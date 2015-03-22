@@ -9,25 +9,31 @@
                 "parents": {
                     "libsqlite3.dylib": [
                         {
-                            "xml": "false",
+                            "xml": false,
                             "count": 1
                         }
                     ],
                     "Social.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "Accounts.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
                             "count": 1
                         }
                     ],
                     "Security.framework": [
                         {
-                            "xml": "true",
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
                             "count": 1
                         }
                     ]
@@ -63,6 +69,10 @@
                         {
                             "xml": "<access origin=\"https://*.akamaihd.net\" />",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -95,6 +105,9 @@
         "com.phonegap.plugins.facebookconnect": {
             "APP_ID": "707742835999981",
             "APP_NAME": "Conservatorio",
+            "PACKAGE_NAME": "com.phonegap.conservatorio"
+        },
+        "org.apache.cordova.inappbrowser": {
             "PACKAGE_NAME": "com.phonegap.conservatorio"
         }
     },
