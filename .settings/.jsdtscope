@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="plugins/org.apache.cordova.inappbrowser/www/|js/" kind="src" path="platforms/android/assets/www"/>
+	<classpathentry kind="src" path="platforms/android/assets/www/js"/>
+	<classpathentry kind="src" path="platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www"/>
+	<classpathentry kind="src" path="platforms/android/cordova/lib"/>
+	<classpathentry excluding="benchmark/" kind="src" path="platforms/android/cordova/node_modules/q"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/q/benchmark"/>
+	<classpathentry excluding="scripts/|src/" kind="src" path="platforms/android/cordova/node_modules/shelljs"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/shelljs/scripts"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/shelljs/src"/>
+	<classpathentry kind="src" path="platforms/android/cordova/node_modules/which"/>
+	<classpathentry kind="src" path="platforms/android/platform_www"/>
+	<classpathentry kind="src" path="platforms/ios/cordova/lib"/>
+	<classpathentry kind="src" path="platforms/ios/cordova/node_modules/nopt/lib"/>
+	<classpathentry kind="src" path="platforms/ios/cordova/node_modules/nopt/node_modules/abbrev"/>
+	<classpathentry kind="src" path="platforms/ios/cordova/node_modules/q"/>
+	<classpathentry kind="src" path="platforms/ios/cordova/node_modules/shelljs"/>
+	<classpathentry kind="src" path="platforms/ios/CordovaLib"/>
+	<classpathentry kind="src" path="platforms/ios/platform_www"/>
+	<classpathentry excluding="js/|plugins/org.apache.cordova.inappbrowser/www/" kind="src" path="platforms/ios/www"/>
+	<classpathentry kind="src" path="platforms/ios/www/js"/>
+	<classpathentry kind="src" path="platforms/ios/www/plugins/org.apache.cordova.inappbrowser/www"/>
+	<classpathentry kind="src" path="plugins/org.apache.cordova.inappbrowser/src/firefoxos"/>
+	<classpathentry kind="src" path="plugins/org.apache.cordova.inappbrowser/src/ubuntu"/>
+	<classpathentry kind="src" path="plugins/org.apache.cordova.inappbrowser/src/windows"/>
+	<classpathentry excluding="resources/" kind="src" path="plugins/org.apache.cordova.inappbrowser/tests"/>
+	<classpathentry kind="src" path="plugins/org.apache.cordova.inappbrowser/tests/resources"/>
+	<classpathentry excluding="windows8/" kind="src" path="plugins/org.apache.cordova.inappbrowser/www"/>
+	<classpathentry kind="src" path="plugins/org.apache.cordova.inappbrowser/www/windows8"/>
+	<classpathentry kind="src" path="www/js"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
