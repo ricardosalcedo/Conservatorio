@@ -1,8 +1,9 @@
 {
     "org.apache.cordova.inappbrowser": {
         "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.inappbrowser"
+            "type": "git",
+            "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
+            "subdir": "."
         }
     }
 }
