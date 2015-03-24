@@ -206,6 +206,7 @@ static NSString *stripFragment(NSString* url)
 
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    
     BOOL shouldLoad = YES;
 
     if ([_delegate respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {

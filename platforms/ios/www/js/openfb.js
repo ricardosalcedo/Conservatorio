@@ -139,13 +139,13 @@ var openFB = (function () {
 
         startTime = new Date().getTime();
         loginWindow = window.open(FB_LOGIN_URL + '?client_id=' + fbAppId + '&redirect_uri=' + oauthRedirectURL +
-            '&response_type=token&scope=' + scope, '_blank', 'location=no');
+            '&response_type=token&scope=' + scope, '_blank', 'location=yes');
 
         // If the app is running in Cordova, listen to URL changes in the InAppBrowser until we get a URL with an access_token or an error
-        if (runningInCordova) {
+        //if (runningInCordova) {
             loginWindow.addEventListener('loadstart', loginWindow_loadStartHandler);
             loginWindow.addEventListener('exit', loginWindow_exitHandler);
-        }
+        //}
         // Note: if the app is running in the browser the loginWindow dialog will call back by invoking the
         // oauthCallback() function. See oauthcallback.html for details.
 

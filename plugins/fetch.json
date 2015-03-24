@@ -1,14 +1,9 @@
 {
-    "com.phonegap.plugins.facebookconnect": {
-        "source": {
-            "type": "local",
-            "path": "/Users/Ricardo/Documents/phonegap-facebook-plugin"
-        }
-    },
     "org.apache.cordova.inappbrowser": {
         "source": {
-            "type": "registry",
-            "id": "org.apache.cordova.inappbrowser"
+            "type": "git",
+            "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
+            "subdir": "."
         }
     }
 }
