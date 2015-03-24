@@ -445,7 +445,7 @@
 	        openFB.login(
 	                     function(response) {
 	                     if(response.status === 'connected') {
-	                     console.log(response.name);
+                         console.log(response.status);
 	                     //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
 	                     $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
 	                     $.mobile.navigate( "#page3", { transition : "slide"} );
