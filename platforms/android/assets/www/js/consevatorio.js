@@ -249,8 +249,9 @@ $(document).on("pageinit","#page7",function(){
         timeout: 5000,
         success: function(data, status){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><ul data-role="listview" id="fotolist"><li><a href="#page11" class="ui-btn ui-btn-inline" id="fot-but"><div class="info"><label class="datef">'+item.Fecha+'</label><span class="ttlf">'
-                    +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></li></ul>';
+                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="fot-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttlf">'
+                    +item.Nombre+'</span><div id="imgcontainer"><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
+                    
                     
                     output.append(landmark);
                 });
