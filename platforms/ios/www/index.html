@@ -432,6 +432,15 @@
 	<script src="js/blueimp-gallery-youtube.js"></script>
 	<script src="js/jquery.blueimp-gallery.js"></script>
 	<script src="js/blueimp-gallery.min.js"></script>
+    <script src="progressive-image.js"></script>
+    <script>
+        $(function(){
+          $('.progressive-image').progressiveImage();
+          });
+          $(window).on('resize', function(){
+                       $('.progressive-image').progressiveImage();
+                       });
+        </script>
     <script type="text/javascript">
     
     

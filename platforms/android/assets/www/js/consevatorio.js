@@ -155,7 +155,7 @@ $(document).on("pageinit","#page5",function(){
             //if(data != undefined && data.post != undefined){            
                 $.each(data, function(i,item){
                     var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
-                    +item.Nombre+'</span><div id="imgcontainer"><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
+                    +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
                 });
@@ -226,7 +226,7 @@ $(document).on("pageinit","#page6",function(){
             //if(data != undefined && data.post != undefined){
                 $.each(data, function(i,item){
                     var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
-                    +item.Nombre+'</span><div id="imgcontainer"><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
+                    +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image"id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
                 });
@@ -250,7 +250,7 @@ $(document).on("pageinit","#page7",function(){
         success: function(data, status){
                 $.each(data, function(i,item){
                     var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="fot-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttlf">'
-                    +item.Nombre+'</span><div id="imgcontainer"><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
+                    +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     
                     output.append(landmark);
