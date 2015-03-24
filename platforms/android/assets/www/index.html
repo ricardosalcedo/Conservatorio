@@ -421,7 +421,7 @@
 	<script src="js/jquery.finger.min.js"></script>
 	<script src="js/jquery.liquid-slider.min.js"></script>
 	<script src="js/jquery.blockUI.js"></script>
-
+    <script src="js/script.js"></script>
 	<script src="js/blueimp-helper.js"></script>
 	<script src="js/blueimp-gallery.js"></script>
 	<script src="js/blueimp-gallery-fullscreen.js"></script>
@@ -432,6 +432,7 @@
 	<script src="js/jquery.blueimp-gallery.js"></script>
 	<script src="js/blueimp-gallery.min.js"></script>
     <script type="text/javascript">
+    
     
 	    // Defaults to sessionStorage for storing the Facebook token
 	    openFB.init({appId: '707742835999981'});
@@ -487,7 +488,6 @@
 	    openFB.logout(       
 	                  function() {
 	                  $.mobile.navigate( "#page2", { transition : "slide"} );
-	                  alert('Logout successful');
 	                  },
 	                  errorHandler);
 	}

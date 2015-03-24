@@ -103,14 +103,15 @@ header {
 text-align: center;
 }
 
-a#facebook {
+button#facebook {
 background-image: url(../img/facebook.png) !important;
 background-repeat: no-repeat;
 background-position: center;
 border: none;
-border-radius: 1.5em;
-background-size: 100%;
-height: 2em;
+  border-radius: 12px;
+  height: 3em;
+  background-size: cover;
+  background-color: transparent;
 }
 
 a#facebook:hover {
@@ -210,6 +211,10 @@ width: 100%;
 
 .ui-input-text.ui-body-inherit.ui-corner-all.ui-shadow-inset {
 border-radius: 12px;
+}
+.ui-input-text, .ui-input-search {
+  margin: 0 0;
+ 
 }
 
 .ui-btn.ui-input-btn.ui-corner-all.ui-shadow {
@@ -433,8 +438,10 @@ a#Noticias {
 	background-image: url(../img/Noticiasbutton.png) !important;
 background-repeat: no-repeat;
 background-position: center;
-background-size: 90%;
-height: 7em;
+  background-size: cover;
+  height: 4em;
+    width: 80%;
+    margin: 1em auto;
 border: none;
 }
 
@@ -446,8 +453,10 @@ a#Eventos {
 	background-image: url(../img/Eventosbutton.png) !important;
 background-repeat: no-repeat;
 background-position: center;
-background-size: 90%;
-height: 7em;
+  background-size: cover;
+  height: 4em;
+    width: 80%;
+    margin: 1em auto;
 border: none;
 }
 
@@ -459,8 +468,10 @@ a#Fotos {
 	background-image: url(../img/FotosButton.png) !important;
 background-repeat: no-repeat;
 background-position: center;
-background-size: 90%;
-height: 7em;
+  background-size: cover;
+  height: 4em;
+    width: 80%;
+    margin: 1em auto;
 border: none;
 }
 
@@ -549,7 +560,7 @@ box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
 }
 
 a#not-but {
- width: 50%;
+ width: 75%;
  height: 25%;
  padding: 0px;
  background: #E6A726;
@@ -711,13 +722,10 @@ font-weight: 100;
 
 }
 
-div#evtitle {
-background-repeat: no-repeat;
-height: 40px;
-width: 147px;
-margin: 0px auto;
-margin-top: -8px;
-position: relative;
+img#evtitle {
+  width: 23%;
+  margin: auto;
+  position: relative;
 }
 label.datev {
 font-family: BrandonGrotesqueBold;

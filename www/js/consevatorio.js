@@ -225,8 +225,8 @@ $(document).on("pageinit","#page6",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page9" class="ui-btn ui-btn-inline" id="ev-but"><div class="info"><label class="datev">'+item.Fecha+'</label><span class="ttl">'
-                    +item.Nombre+'</span></div><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img>';
+                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    +item.Nombre+'</span><div id="imgcontainer"><img id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
                 });
