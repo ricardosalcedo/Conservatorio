@@ -515,11 +515,11 @@ margin-top: -8px;
 position: relative;
 }
 
-img#notitle {
-  width: 23%;
-  margin: auto;
-  position: relative;
-}
+	img#notitle {
+	  width: 23%;
+	  margin: auto;
+	  position: relative;
+	}
 
 div#titlediv {
 text-align: center;
@@ -810,6 +810,12 @@ margin-top: -8px;
 position: relative;
 }
 
+img#fotitle {
+  width: 23%;
+  margin: auto;
+  position: relative;
+}
+
 a#fot-but {
 background-image: url(../img/fot-cloud.png);
 background-repeat: no-repeat;
@@ -829,6 +835,8 @@ background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
 margin-bottom: 2em;
+text-align: center;
+height: 26em;
 }
 
 span.ttlf {
