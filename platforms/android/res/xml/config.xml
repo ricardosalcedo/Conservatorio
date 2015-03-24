@@ -14,4 +14,7 @@
         <param name="APP_ID" value="707742835999981" />
         <param name="APP_NAME" value="Conservatorio" />
     </gap:plugin>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
 </widget>

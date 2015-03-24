@@ -19,7 +19,8 @@ $(document).on("pageinit","#page1",function(){
 });
  
 
-/*function logOut(){
+
+function logOut(){
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected'){
             console.log("Desconectando Usuario");
@@ -29,7 +30,7 @@ $(document).on("pageinit","#page1",function(){
     
     $.mobile.navigate( "#page2" );
     
-}*/
+}
 
 
 $(document).on("pageinit","#page2",function(){

@@ -27,4 +27,7 @@
         <param name="APP_ID" value="707742835999981" />
         <param name="APP_NAME" value="Conservatorio" />
     </gap:plugin>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
 </widget>
