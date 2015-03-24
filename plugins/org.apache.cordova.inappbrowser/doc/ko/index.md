@@ -19,51 +19,23 @@
 
 # org.apache.cordova.inappbrowser
 
-이 플러그인 `코르도바를 호출할 때 표시 하는 웹 브라우저 보기를 제공 합니다.InAppBrowser.open()`.
+이 플러그인은를 호출할 때 표시 하는 웹 브라우저 보기를 제공 합니다.`window.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     
 
-`코르도바입니다.InAppBrowser.open()` 함수 `window.open ()` 함수에 대 한 대체품 정의 됩니다. 기존의 `window.open ()` 호출 window.open을 대체 하 여 InAppBrowser 윈도우를 사용할 수 있습니다.
-
-    window.open = cordova.InAppBrowser.open;
-    
-
-InAppBrowser 창 표준 웹 브라우저 처럼 동작 및 코르도바 Api에 액세스할 수 없습니다. 이 이유는 InAppBrowser는 것이 좋습니다는 주요 코르도바 webview로 로드 하는 대신 제 3 자 (신뢰할 수 없는) 콘텐츠를 로드 해야 할 경우. InAppBrowser는 허용 될 수도 시스템 브라우저에서 링크를 여는.
-
-사용자에 대 한 자체 GUI 컨트롤에서 기본적으로 제공 된 InAppBrowser (뒤로, 앞으로, 완료).
-
-대 한 뒤 호환성,이 플러그인도 `window.open` 후크. 그러나, `window.open`의 플러그인 설치 후크를 가질 수 있습니다 의도 하지 않은 부작용 (특히 경우이 플러그인이 다른 플러그인 종속성 으로만 포함). `window.open` 후크 주요 릴리스에서 제거 됩니다. 후크 플러그인에서 제거 될 때까지 애플 리 케이 션 수 있습니다 수동으로 기본 동작을 복원 하 게 됩니다.
-
-    delete window.open // Reverts the call back to it's prototype's default
-    
-
-`window.open` 전역 범위에 있지만 InAppBrowser 제공 되지 않습니다 때까지 `deviceready` 이벤트 후.
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("window.open works well");
-    }
-    
+**참고**: 동작 하는 창에 InAppBrowser 표준 웹 브라우저를 좋아하고 코르도바 Api에 액세스할 수 없습니다.
 
 ## 설치
 
     cordova plugin add org.apache.cordova.inappbrowser
     
 
-InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페이지를 로드 하려는 경우 초기화 하는 동안 `window.open` 간단 하 게 연결할 수 있습니다. 예를 들어:
+## window.open
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        window.open = cordova.InAppBrowser.open;
-    }
-    
+새 URL을 엽니다 `InAppBrowser` 인스턴스, 현재 브라우저 인스턴스 또는 시스템 브라우저.
 
-## cordova.InAppBrowser.open
-
-새 `InAppBrowser` 인스턴스, 현재 브라우저 인스턴스 또는 시스템 브라우저에서 URL을 엽니다.
-
-    var ref = cordova.InAppBrowser.open(url, target, options);
+    var ref = window.open(url, target, options);
     
 
 *   **심판**:에 대 한 참조는 `InAppBrowser` 창. *(InAppBrowser)*
@@ -84,6 +56,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
     
     안 드 로이드만:
     
+    *   **closebuttoncaption**: **수행** 하는 단추의 캡션으로 사용할 문자열을 설정 합니다.
     *   **숨겨진**: 설정 `yes` 브라우저를 만들 페이지를 로드 하면, 하지만 그것을 보여주지. Loadstop 이벤트는 로드가 완료 되 면 발생 합니다. 생략 하거나 설정 `no` (기본값) 브라우저 열고 정상적으로 로드 해야 합니다.
     *   **clearcache**: 설정 `yes` 브라우저를 쿠키 캐시 삭제 하기 전에 새 창이 열립니다
     *   **clearsessioncache**: 설정 `yes` 세션 쿠키 캐시를 삭제 하기 전에 새 창이 열립니다
@@ -124,13 +97,13 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 예를 들어
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### 파이어 폭스 OS 단점
 
-플러그인 어떤 디자인을 적용 하지 않는 경우 열 일부 CSS의 규칙을 추가할 필요가 있다 `target='_blank'`. 이 같이 규칙
+플러그인 어떤 디자인을 적용 하지 않는 경우 열 일부 CSS의 규칙을 추가할 필요가 있다 `target='_blank'` . 이 같이 규칙
 
      css
     .inAppBrowserWrap {
@@ -160,7 +133,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ## InAppBrowser
 
-`Cordova에 대 한 호출에서 반환 하는 개체.InAppBrowser.open`.
+호출에서 반환 하는 개체`window.open`.
 
 ### 메서드
 
@@ -209,7 +182,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -241,7 +214,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -267,7 +240,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -289,7 +262,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = window.open('http://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -321,7 +294,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -351,7 +324,7 @@ InAppBrowser를 통해가 서 당신의 애플 리 케이 션에서 모든 페�
 
 ### 빠른 예제
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

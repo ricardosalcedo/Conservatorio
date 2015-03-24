@@ -19,51 +19,23 @@
 
 # org.apache.cordova.inappbrowser
 
-このプラグインは `コルドバを呼び出すときに表示される web ブラウザーのビューを提供します。InAppBrowser.open()`.
+このプラグインを呼び出すときに表示される web ブラウザーのビューを提供します`window.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     
 
-`コルドバ。InAppBrowser.open()` `window.open()` 関数との交換を定義する関数。 既存の `window.open()` 呼び出しは、window.open を置き換えることによって InAppBrowser ウィンドウを使用できます。
-
-    window.open = cordova.InAppBrowser.open;
-    
-
-InAppBrowser ウィンドウは標準的な web ブラウザーのように動作し、コルドバ Api にアクセスできません。 この理由から、InAppBrowser お勧めする場合はメインのコルドバの webview を読み込むのではなくサード パーティ (信頼されていない) コンテンツをロードする必要があります。 InAppBrowser、ホワイト リストの対象ではないも、システムのブラウザーでリンクを開くです。
-
-InAppBrowser を提供しますデフォルトで GUI コントロール (戻る、進む、行う)。
-
-後方互換性、このプラグインは、また `window.open` をフックのため。 ただし、`window.open` のプラグイン インストール フックを持つことができます意図しない副作用 （特に場合は、このプラグインは別のプラグインの依存関係としてのみ含まれています)。 `window.open` のフックは、将来のメジャー リリースで削除されます。 プラグインから、フックが削除されるまでアプリはデフォルトの動作を手動で復元できます。
-
-    delete window.open // Reverts the call back to it's prototype's default
-    
-
-`window.open` はグローバル スコープでは、InAppBrowser は、`deviceready` イベントの後まで利用できません。
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("window.open works well");
-    }
-    
+**注**: ウィンドウの動作、InAppBrowser 標準的な web ブラウザーのようとコルドバの Api にアクセスできません。
 
 ## インストール
 
     cordova plugin add org.apache.cordova.inappbrowser
     
 
-InAppBrowser を通過するアプリですべてのページの読み込みをする場合は初期化中に `window.open` を単にフックできます。たとえば。
+## window.open
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        window.open = cordova.InAppBrowser.open;
-    }
-    
+新しい URL を開き `InAppBrowser` インスタンス、現在のブラウザー インスタンスまたはシステムのブラウザー。
 
-## cordova.InAppBrowser.open
-
-新しい `InAppBrowser` インスタンスを現在のブラウザー インスタンスまたはシステムのブラウザーで URL を開きます。
-
-    var ref = cordova.InAppBrowser.open(url, target, options);
+    var ref = window.open(url, target, options);
     
 
 *   **ref**: への参照を `InAppBrowser` ウィンドウ。*(InAppBrowser)*
@@ -84,9 +56,10 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
     
     アンドロイドのみ：
     
-    *   **非表示**: 設定 `yes` ブラウザーを作成して、ページの読み込みが表示されません。 Loadstop イベントは、読み込みが完了すると発生します。 省略するか設定 `no` (既定値) を開くし、通常読み込みブラウザーを持っています。
+    *   **closebuttoncaption**: [**完了**] ボタンのキャプションとして使用する文字列に設定します。
+    *   **非表示**: 設定 `yes` ブラウザーを作成して、ページの読み込みが表示されません。 Loadstop イベントは、読み込みが完了すると発生します。 省略するか設定 `no` (既定値) を開くし、通常負荷ブラウザーを持っています。
     *   **clearcache**: に設定されている `yes` 、ブラウザーのクッキー キャッシュ クリア新しいウィンドウが開く前に
-    *   **clearsessioncache**： に設定されている `yes` はセッション cookie のキャッシュをオフにすると、新しいウィンドウが開く前に
+    *   **clearsessioncache**： に設定されている `yes` はセッション cookie のキャッシュをオフに新しいウィンドウを開く前に
     
     iOS のみ:
     
@@ -124,13 +97,13 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Firefox OS 癖
 
-開かれた場合にいくつかの CSS ルールを追加する必要があるプラグインは任意のデザインを適用しないと `target ='_blank'`。これらのような規則になります。
+開かれた場合にいくつかの CSS ルールを追加する必要があるプラグインは任意のデザインを適用しないよう `target='_blank'` 。これらのような規則になります。
 
      css
     .inAppBrowserWrap {
@@ -160,7 +133,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ## InAppBrowser
 
-`コルドバへの呼び出しから返されるオブジェクト。InAppBrowser.open`.
+呼び出しから返されるオブジェクト`window.open`.
 
 ### メソッド
 
@@ -209,7 +182,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -241,7 +214,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -267,7 +240,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -289,7 +262,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = window.open('http://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -321,7 +294,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -351,7 +324,7 @@ InAppBrowser を通過するアプリですべてのページの読み込みを�
 
 ### 簡単な例
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

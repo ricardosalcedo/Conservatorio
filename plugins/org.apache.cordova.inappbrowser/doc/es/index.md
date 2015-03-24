@@ -19,51 +19,23 @@
 
 # org.apache.cordova.inappbrowser
 
-Este plugin proporciona una vista de navegador web que se muestra cuando se llama a `cordova.InAppBrowser.open()`.
+Este plugin proporciona una vista de navegador web que se muestra cuando se llama a`window.open()`.
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     
 
-El `cordova.InAppBrowser.open()` función se define como un reemplazo de sobreponer para la función `window.Open ()`. Llamadas existentes `window.Open ()` pueden utilizar la ventana InAppBrowser, mediante la sustitución de window.open:
-
-    window.open = cordova.InAppBrowser.open;
-    
-
-La ventana de InAppBrowser se comporta como un navegador web estándar y no puede acceder a Cordova APIs. Por este motivo, se recomienda la InAppBrowser si necesita cargar contenido de terceros (confianza), en lugar de que cargar en el principal webview Cordova. El InAppBrowser no está sujeta a la lista blanca, ni va a abrir enlaces en el navegador del sistema.
-
-El InAppBrowser proporciona por defecto sus propios controles GUI para el usuario (atras, adelante, hacer).
-
-Para atrás compatibilidad, este plugin también ganchos `window.open`. Sin embargo, el gancho de `window.open` plugin instalado puede tener efectos secundarios no deseados (especialmente si este plugin está incluido únicamente como una dependencia de otro plugin). El gancho de `window.open` se quitará en una versión futura de principal. Hasta que el gancho se ha extraído el plugin, aplicaciones pueden restaurar manualmente el comportamiento por defecto:
-
-    delete window.open // Reverts the call back to it's prototype's default
-    
-
-Aunque `window.open` es en el ámbito global, InAppBrowser no está disponible hasta después del evento `deviceready`.
-
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        console.log("window.open works well");
-    }
-    
+**Nota**: InAppBrowser la ventana se comporta como un navegador web estándar y no pueden acceder a Cordova APIs.
 
 ## Instalación
 
     cordova plugin add org.apache.cordova.inappbrowser
     
 
-Si quieres todas las cargas de página en su aplicación para ir a través de la InAppBrowser, simplemente puedes conectar `window.open` durante la inicialización. Por ejemplo:
+## window.open
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        window.open = cordova.InAppBrowser.open;
-    }
-    
+Se abre una dirección URL en una nueva instancia de `InAppBrowser`, la instancia actual del navegador o el navegador del sistema.
 
-## cordova.InAppBrowser.open
-
-Se abre una dirección URL en una nueva instancia de `InAppBrowser`, en la instancia actual del navegador o el navegador del sistema.
-
-    var ref = cordova.InAppBrowser.open(url, target, options);
+    var ref = window.open(url, target, options);
     
 
 *   **ref**: referencia a la `InAppBrowser` ventana. *(InAppBrowser)*
@@ -84,7 +56,8 @@ Se abre una dirección URL en una nueva instancia de `InAppBrowser`, en la insta
     
     Sólo Android:
     
-    *   **oculta**: a `yes` para crear el navegador y cargar la página, pero no lo demuestra. El evento loadstop se desencadena cuando termine la carga. Omitir o establecer en `no` (por defecto) para que el navegador abra y carga normalmente.
+    *   **closebuttoncaption**: establecer una cadena para usar como título del botón **hecho** .
+    *   **oculta**: a `yes` para crear el navegador y cargar la página, pero no lo demuestra. El evento loadstop se desencadena cuando termine la carga. Omitir o a `no` (por defecto) para que el navegador abra y carga normalmente.
     *   **clearcache**: a `yes` para que el navegador es caché de galleta despejado antes de que se abra la nueva ventana
     *   **clearsessioncache**: a `yes` que la caché de cookie de sesión despejado antes de que se abra la nueva ventana
     
@@ -124,13 +97,13 @@ Se abre una dirección URL en una nueva instancia de `InAppBrowser`, en la insta
 
 ### Ejemplo
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
-    var ref2 = cordova.InAppBrowser.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
+    var ref2 = window.open(encodeURI('http://ja.m.wikipedia.org/wiki/ハングル'), '_blank', 'location=yes');
     
 
 ### Firefox OS rarezas
 
-Como plugin no cumplir cualquier diseño es necesario añadir algunas reglas CSS si abre con `target = '_blank'`. Las reglas pueden parecerse a estos
+Como plugin no cumplir cualquier diseño es necesario añadir algunas reglas CSS si abre con `target='_blank'` . Las reglas pueden parecerse a estos
 
      css
     .inAppBrowserWrap {
@@ -160,7 +133,7 @@ Como plugin no cumplir cualquier diseño es necesario añadir algunas reglas CSS
 
 ## InAppBrowser
 
-El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
+El objeto devuelto desde una llamada a `window.open`.
 
 ### Métodos
 
@@ -209,7 +182,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstart', function(event) { alert(event.url); });
     
 
@@ -241,7 +214,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     var myCallback = function(event) { alert(event.url); }
     ref.addEventListener('loadstart', myCallback);
     ref.removeEventListener('loadstart', myCallback);
@@ -267,7 +240,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.close();
     
 
@@ -289,7 +262,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'hidden=yes');
+    var ref = window.open('http://apache.org', '_blank', 'hidden=yes');
     // some time later...
     ref.show();
     
@@ -321,7 +294,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.executeScript({file: "myscript.js"});
     });
@@ -351,7 +324,7 @@ El objeto devuelto desde una llamada a `cordova.InAppBrowser.open`.
 
 ### Ejemplo rápido
 
-    var ref = cordova.InAppBrowser.open('http://apache.org', '_blank', 'location=yes');
+    var ref = window.open('http://apache.org', '_blank', 'location=yes');
     ref.addEventListener('loadstop', function() {
         ref.insertCSS({file: "mystyles.css"});
     });

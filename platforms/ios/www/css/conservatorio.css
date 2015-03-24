@@ -421,7 +421,7 @@ border-radius: 0px;
 margin-top: 7px;
 border: none;
 padding-top: 11px;
-font-size: 1em;
+font-size: 80%;
 font-family: FlamaCondensed;
 color: white;
 background-color: #084d0e;
@@ -515,11 +515,12 @@ margin-top: -8px;
 position: relative;
 }
 
-	img#notitle {
-	  width: 23%;
-	  margin: auto;
-	  position: relative;
-	}
+img#notitle {
+  width: 40%;
+  margin: auto;
+  max-width: 186px;
+  position: relative;
+}
 
 div#titlediv {
 text-align: center;
