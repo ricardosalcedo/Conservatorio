@@ -26,6 +26,5 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
-    <gap:plugin name="org.apache.cordova.InAppBrowser"/>
 </widget>
 
