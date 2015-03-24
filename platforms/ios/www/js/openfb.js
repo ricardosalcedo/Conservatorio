@@ -23,7 +23,9 @@ var openFB = (function () {
 
         baseURL = "",
         
-        oauthRedirectURL = baseURL + 'http://localhost:8888/Conservatorio_m/www/oauthcallback.html',
+        //oauthRedirectURL = baseURL + 'http://localhost:8888/Conservatorio_m/www/oauthcallback.html',
+              
+        oauthRedirectURL = baseURL + 'http://www.facebook.com/connect/login_success.html',
 
         logoutRedirectURL = baseURL + 'http://localhost:8888/Conservatorio_m/www/logoutcallback.html',
 
