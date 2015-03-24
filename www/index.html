@@ -439,7 +439,7 @@
 	    //  Uncomment the line below to store the Facebook token in localStorage instead of sessionStorage
 	    //  openFB.init({appId: 'YOUR_FB_APP_ID', tokenStore: window.localStorage});
 	    function login() {
-	        $.blockUI({message: 'INGRESANDO A FACEBOOK...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+	        $.blockUI({message: 'INGRESANDO A FACEBOOK', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
 	        setTimeout($.unblockUI, 3000);
 	        openFB.login(
 	                     function(response) {
@@ -449,7 +449,7 @@
 	                     $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
 	                     $.mobile.navigate( "#page3", { transition : "slide"} );
 	                     } else {
-	                     $.blockUI({message: 'USUARIO NO AUTORIZADO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+	                     $.blockUI({message: 'USUARIO NO AUTORIZADO', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
 	                     //alert('Facebook login failed: ' + response.error);
 	                     }
 	                     }, {scope: 'email,read_stream,publish_stream'});
