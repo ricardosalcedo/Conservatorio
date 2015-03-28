@@ -10,15 +10,15 @@
 
 
 
-  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" type="text/css"/>
   <link rel="stylesheet" href="css/conservatorio.css" type="text/css"/>
-  <link rel="stylesheet" href="css/liquid-slider.css">
-  <link rel="stylesheet" href="css/swipebox.css">
-
+  <link rel="stylesheet" href="css/liquid-slider.css" type="text/css">
+  
+  <link href="css/slideme.css" rel="stylesheet"/>
 
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
-  
+    <script src="js/jquery.slideme2.js"></script>
   
 </head>
 <body>
@@ -350,12 +350,15 @@
 	     <div id="titlediv">
 	     	<img alt="" id="notitle" src="img/top-title.png">
 	     </div>
-	     <hr id="hline">
-	     <div id="gallery">
-	     
-	     </div>
-		 		        
-	  </div>   
+	     <li id="contents">
+			<div id="foo">
+				<ul id="gallery" class="slideme" style="height: 100%;">
+
+				</ul>
+			</div>
+	     </li>
+	   	</div>
+	  </div>  
 	  <div data-role="footer" id="foot">  
 	  	  <div data-role="navbar" data-iconpos="top" data-theme="a" id="tabbar">
 	          <ul>
@@ -406,32 +409,28 @@
 
   </div>
 
-
 	<script src="js/index.js"></script>
 	<script src="cordova.js"></script>
 	<script src="js/openfb.js"></script>
-
 	<script src="js/consevatorio.js"></script>
 	<script src="js/load-json.js"></script>
 	<script src="js/jquery.finger.min.js"></script>
 	<script src="js/jquery.liquid-slider.min.js"></script>
 	<script src="js/jquery.blockUI.js"></script>
     <script src="js/script.js"></script>
-	<script src="js/jquery.swipebox.js"></script>
     <script src="js/progressive-image.js"></script>
     <script>
 		$(document).bind("mobileinit", function(){
 		  $.mobile.touchOverflowEnabled = true;
 		});
-	</script>
-    
+	</script>    
     <script>
         $(function(){
           $('.progressive-image').progressiveImage();
           });
           $(window).on('resize', function(){
                        $('.progressive-image').progressiveImage();
-                       });
+          });
     </script>
     <script type="text/javascript">
     
@@ -499,13 +498,6 @@
 
 
     </script>
-	<script type="text/javascript">
-	;( function( $ ) {
-	
-		$( '.swipebox' ).swipebox();
-	
-	} )( jQuery );
-	</script>   
 </body>
 
 </html>

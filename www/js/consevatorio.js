@@ -144,8 +144,19 @@ $(document).on("pageinit","#page5",function(){
  
 });
 
+
 function notClick(value){ 
-        var output = $('#notcontainer');
+    $('#foo').slideme({
+        arrows: true,
+        css3 : true,
+        loop : true,
+        nativeTouchScroll: true,
+        resizable: {
+        height: '100%',
+        }
+    });
+    
+    var output = $('#gallery');
         $.ajax({
             url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
             dataType: 'jsonp',
@@ -154,22 +165,17 @@ function notClick(value){
             jsonp: 'jsoncallback',
             timeout: 5000,
             success: function(data, status){
-                //console.log(status);
-                $( '#gallery' ).click( function( e ) {
-                    e.preventDefault();
-                    $.swipebox( [ 
-                           $.each(data, function(i,item){
-                               "{ href:'http://smdevelopers.co/smdev/Conservatorio/images/'"+item.Foto+"', title:item.Nombre },"
-                                 
-                           })
-                    ]);
+               $.each(data, function(i,item){
+                   var landmark = '<li><img class="notfoto" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></li>'
+                   output.append(landmark);
+               });
 
-                });
             },
             error: function(){
                 alert('Hubo un error al cargar los datos');
             }
         });
+
 };
 
 $(document).on("pageinit","#page6",function(){

@@ -123,6 +123,7 @@ border: none;
   height: 3em;
   background-size: cover;
   background-color: transparent;
+    margin-left: 5px;
 }
 
 a#facebook:hover {
@@ -648,6 +649,34 @@ div#page8 {
 	background-image: url(../img/back-noticias.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+div#foo {
+  margin-top: 3em;
+}
+
+.slideme {
+max-width: 320px;
+max-height: 250px;
+width: 50%;
+height: 100%;
+}
+
+
+.slideme_container .slideme-touch > * img {
+  display: block;
+  min-height: 1px;
+  min-width: 1px;
+  margin: 0 auto;
+}
+
+ul#gallery {
+  height: 100%;
+    margin: 0 auto;
+}
+
+button.arrow.next {
+  position: relative;
 }
 
 div#notcontainer {
