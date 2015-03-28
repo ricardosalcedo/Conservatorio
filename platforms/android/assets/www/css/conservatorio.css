@@ -40,6 +40,17 @@ input#EMAIL:focus {
 	background: white;
 }
 
+@media screen and (max-width: 400px) {
+    html { font-size: 85%; }
+}
+
+@media screen and (min-width: 401px) {
+    html { font-size: 120%; }
+}
+
+.ui-page { -webkit-backface-visibility: hidden; }
+
+
 /************Landing Screen********************/
 
 div#page1 {
@@ -401,7 +412,7 @@ div#page3 {
 
 .homer {
 text-align: center;
-margin-top: 15%;
+margin-top: 7%;
 }
 
 img#hola {
@@ -439,9 +450,9 @@ a#Noticias {
 background-repeat: no-repeat;
 background-position: center;
   background-size: cover;
-  height: 4em;
+  height: 3em;
     width: 80%;
-    margin: 1em auto;
+    margin: 0.5em auto;
 border: none;
 }
 
@@ -454,9 +465,9 @@ a#Eventos {
 background-repeat: no-repeat;
 background-position: center;
   background-size: cover;
-  height: 4em;
+  height: 3em;
     width: 80%;
-    margin: 1em auto;
+    margin: 0.5em auto;
 border: none;
 }
 
@@ -469,9 +480,9 @@ a#Fotos {
 background-repeat: no-repeat;
 background-position: center;
   background-size: cover;
-  height: 4em;
+  height: 3em;
     width: 80%;
-    margin: 1em auto;
+    margin: 0.5em auto;
 border: none;
 }
 

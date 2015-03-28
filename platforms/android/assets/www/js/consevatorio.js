@@ -1,15 +1,4 @@
 
-$('body').on('tap', 'a', function(e) {
-    window.location = $(this).attr('href');
-    e.preventDefault();
-});
-
-
-$(document).bind("mobileinit", function(){
-    $.mobile.defaultPageTransition = 'none'; 
-    $.mobile.pushStateEnabled = false;  
-  });
-
 $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).on("pageinit","#page1",function(){
@@ -18,19 +7,6 @@ $(document).on("pageinit","#page1",function(){
     });
 });
  
-
-
-function logOut(){
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected'){
-            console.log("Desconectando Usuario");
-            FB.logout();
-        }
-    });
-    
-    $.mobile.navigate( "#page2" );
-    
-}
 
 
 $(document).on("pageinit","#page2",function(){
@@ -154,7 +130,7 @@ $(document).on("pageinit","#page5",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){            
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
@@ -169,7 +145,7 @@ $(document).on("pageinit","#page5",function(){
 });
 
 function notClick(value){ 
-        var output = $('#links');
+        var output = $('#notcontainer');
         $.ajax({
             url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
             dataType: 'jsonp',
@@ -179,30 +155,15 @@ function notClick(value){
             timeout: 5000,
             success: function(data, status){
                 //console.log(status);
-                var carouselLinks = [],
-                linksContainer = $('#links'),
-                baseUrl;
-                $.each(data, function(i,item){
-                   baseUrl = "http://smdevelopers.co/smdev/Conservatorio/images/" + item.Foto;
-                   $('<a/>')
-                       .append($('<img>').prop('src', baseUrl))
-                       .prop('href', baseUrl)
-                       .prop('title', item.Nombre)
-                       .attr('data-gallery', '')
-                       .appendTo(linksContainer)
-                   carouselLinks.push({
-                       href: baseUrl,
-                       //title: item.Nombre
-                   });
-                   //var landmark = '<a id="imgnotdet" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'" class="slide-content"></a><hr id="hline"><h4 class="detitle">'+item.Nombre+'</h4><p class="notdetails">'+item.Descripcion+'</p>';
-                   //output.append(landmark);
-                });
-                // Initialize the Gallery as image carousel:
-                blueimp.Gallery(carouselLinks, {
-                    container: '#blueimp-image-carousel',
-                    carousel: true,
-                    continuous: true,
-                    startSlideshow: false
+                $( '#gallery' ).click( function( e ) {
+                    e.preventDefault();
+                    $.swipebox( [ 
+                           $.each(data, function(i,item){
+                               "{ href:'http://smdevelopers.co/smdev/Conservatorio/images/'"+item.Foto+"', title:item.Nombre },"
+                                 
+                           })
+                    ]);
+
                 });
             },
             error: function(){
@@ -225,7 +186,7 @@ $(document).on("pageinit","#page6",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image"id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
@@ -249,7 +210,7 @@ $(document).on("pageinit","#page7",function(){
         timeout: 5000,
         success: function(data, status){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" id="fot-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttlf">'
+                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="fot-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttlf">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     

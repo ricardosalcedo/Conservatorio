@@ -8,15 +8,16 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+
+  <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/conservatorio.css" type="text/css"/>
   <link rel="stylesheet" href="css/liquid-slider.css">
-  <link rel="stylesheet" href="css/blueimp-gallery.css">
-  <link rel="stylesheet" href="css/blueimp-gallery-indicator.css">
-  <link rel="stylesheet" href="css/blueimp-gallery.min.css">
+  <link rel="stylesheet" href="css/swipebox.css">
+
+
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
   
   
 </head>
@@ -118,7 +119,7 @@
 	</div>
 </div>
  
-<div data-role="page" data-control-title="main" id="page5" class="back">
+<div data-role="page" data-control-title="main" id="page5" class="back" data-transition="slide">
      <div class="container">
       <div data-role="panel" id="panel6" data-position="left" data-display="push"
       data-theme="b">
@@ -192,7 +193,7 @@
 	</div>
   </div>
   
-<div data-role="page" data-control-title="main" id="page6" class="back">
+<div data-role="page" data-control-title="main" id="page6" class="back" data-transition="slide">
      <div class="container">
       <div data-role="panel" id="panel7" data-position="left" data-display="reveal"
       data-theme="b">
@@ -350,14 +351,8 @@
 	     	<img alt="" id="notitle" src="img/top-title.png">
 	     </div>
 	     <hr id="hline">
-	     <div id="notcontainer">
-			<div id="blueimp-image-carousel" class="blueimp-gallery blueimp-gallery-carousel">
-			    <div class="slides"></div>
-			    <h3 class="title"></h3>
-			    <a class="prev">‹</a>
-			    <a class="next">›</a>
-			    <a class="play-pause"></a>
-			</div>
+	     <div id="gallery">
+	     
 	     </div>
 		 		        
 	  </div>   
@@ -411,7 +406,6 @@
 
   </div>
 
-<div id="links" class="links"></div>
 
 	<script src="js/index.js"></script>
 	<script src="cordova.js"></script>
@@ -423,16 +417,14 @@
 	<script src="js/jquery.liquid-slider.min.js"></script>
 	<script src="js/jquery.blockUI.js"></script>
     <script src="js/script.js"></script>
-	<script src="js/blueimp-helper.js"></script>
-	<script src="js/blueimp-gallery.js"></script>
-	<script src="js/blueimp-gallery-fullscreen.js"></script>
-	<script src="js/blueimp-gallery-indicator.js"></script>
-	<script src="js/blueimp-gallery-video.js"></script>
-	<script src="js/blueimp-gallery-vimeo.js"></script>
-	<script src="js/blueimp-gallery-youtube.js"></script>
-	<script src="js/jquery.blueimp-gallery.js"></script>
-	<script src="js/blueimp-gallery.min.js"></script>
-    <script src="progressive-image.js"></script>
+	<script src="js/jquery.swipebox.js"></script>
+    <script src="js/progressive-image.js"></script>
+    <script>
+		$(document).bind("mobileinit", function(){
+		  $.mobile.touchOverflowEnabled = true;
+		});
+	</script>
+    
     <script>
         $(function(){
           $('.progressive-image').progressiveImage();
@@ -440,7 +432,7 @@
           $(window).on('resize', function(){
                        $('.progressive-image').progressiveImage();
                        });
-        </script>
+    </script>
     <script type="text/javascript">
     
     
@@ -507,26 +499,13 @@
 
 
     </script>
-	<script>
-	document.getElementById('links').onclick = function (event) {
-	    event = event || window.event;
-	    var target = event.target || event.srcElement,
-	        link = target.src ? target.parentNode : target,
-	        options = {index: link, event: event},
-	        links = this.getElementsByTagName('a');
-	    blueimp.Gallery(links, options);
-	};
+	<script type="text/javascript">
+	;( function( $ ) {
 	
-	blueimp.Gallery(
-	        document.getElementById('links').getElementsByTagName('a'),
-	        {
-	            container: '#blueimp-gallery-carousel',
-	            carousel: true
-	        }
-	    );
+		$( '.swipebox' ).swipebox();
 	
-	    
-	</script>    
+	} )( jQuery );
+	</script>   
 </body>
 
 </html>
