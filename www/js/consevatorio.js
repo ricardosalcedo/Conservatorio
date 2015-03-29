@@ -8,6 +8,19 @@ $(document).on("pageinit","#page1",function(){
 });
  
 
+$(document).on("pageinit","#page1",function(){
+    openFB.login(
+            function(response) {
+            if(response.status === 'connected') {
+            console.log(response.status);
+            //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
+            $.mobile.navigate( "#page3", { transition : "slide"} );
+            } else {
+            $.mobile.navigate( "#page2", { transition : "slide"} );            
+            //alert('Facebook login failed: ' + response.error);
+            }
+            }, {scope: 'email,read_stream,publish_stream'});
+});
 
 $(document).on("pageinit","#page2",function(){
     $("#loginbtn").click(function(){
@@ -130,7 +143,7 @@ $(document).on("pageinit","#page5",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){            
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<br><br><a onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
@@ -169,6 +182,8 @@ function notClick(value){
                    var landmark = '<li><img class="notfoto" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></li>'
                    output.append(landmark);
                });
+               
+               $.mobile.navigate( "#page8", { transition : "slide"} );
 
             },
             error: function(){

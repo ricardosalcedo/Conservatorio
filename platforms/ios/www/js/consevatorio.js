@@ -130,7 +130,7 @@ $(document).on("pageinit","#page5",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){            
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page8" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<br><br><a onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
@@ -169,6 +169,8 @@ function notClick(value){
                    var landmark = '<li><img class="notfoto" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></li>'
                    output.append(landmark);
                });
+               
+               $.mobile.navigate( "#page8", { transition : "slide"} );
 
             },
             error: function(){
