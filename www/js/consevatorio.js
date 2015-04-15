@@ -282,8 +282,8 @@ function evClick(value){
                     
                    var date = month + day;  
                    
-                   var landmark = '<div class="center"><img class="evfoto" id="not'+i+'" style="';
-                   var landmark2 = '<div><h2 class="evtitle" id="title'+i+'" style="'; 
+                   var landmark = '<div class="center"><img class="evfoto" id="ev'+i+'" style="';
+                   var landmark2 = '<div><h2 class="evtitle" id="evtitle'+i+'" style="'; 
                    if(i == 0){
                        landmark = landmark + 'display: inline;';
                        landmark2 = landmark2 + 'display: inline;';
@@ -292,7 +292,7 @@ function evClick(value){
                        landmark2 = landmark2 + 'display: none;';
                    };
                    landmark = landmark + '" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></div>';
-                   landmark2 = landmark2 + '">'+item.Nombre+'</h2><div><p class="notdetails" id="details'+i+'" style="';
+                   landmark2 = landmark2 + '">'+item.Nombre+'</h2><div><p class="notdetails" id="evdetails'+i+'" style="';
                    if(i == 0){
                        landmark2 = landmark2 + 'display: inline;';
                    }else{
@@ -323,9 +323,9 @@ function evClick(value){
 
 function evChange(value){ 
        var item = $('.evfoto:visible').attr('id').substring(3, 4);
-       $("#not"+item).hide();
-       $("#title"+item).hide();
-       $("#details"+item).hide();
+       $("#ev"+item).hide();
+       $("#evtitle"+item).hide();
+       $("#evdetails"+item).hide();
        $("#table"+item).hide();
        if (value == 'back'){
            item--;
@@ -335,14 +335,14 @@ function evChange(value){
            } 
        } else {
            item++;
-           var valel = document.getElementById("not"+item);
+           var valel = document.getElementById("ev"+item);
            if(valel == null){
                item = 0;
            } 
        }   
-       $("#not"+item).show();
-       $("#title"+item).show();
-       $("#details"+item).show();
+       $("#ev"+item).show();
+       $("#evtitle"+item).show();
+       $("#evdetails"+item).show();
        $("#table"+item).show();
 };      
 
