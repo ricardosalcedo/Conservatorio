@@ -256,6 +256,7 @@ $(document).on("pageinit","#page6",function(){
 
 function evClick(value){ 
     $('.center').remove();
+    $('.evtitle').remove();
     $('.evtable').remove();
     $.mobile.navigate( "#page11", { transition : "slide"} );
     var output = $('.evphoto');
@@ -282,7 +283,7 @@ function evClick(value){
                     
                    var date = month + day;  
                    
-                   var landmark = '<div class="center"><img class="evfoto" id="ev'+i+'" style="';
+                   var landmark = '<div class="center"><img class="evfoto" id="evt'+i+'" style="';
                    var landmark2 = '<div><h2 class="evtitle" id="evtitle'+i+'" style="'; 
                    if(i == 0){
                        landmark = landmark + 'display: inline;';
@@ -323,7 +324,7 @@ function evClick(value){
 
 function evChange(value){ 
        var item = $('.evfoto:visible').attr('id').substring(3, 4);
-       $("#ev"+item).hide();
+       $("#evt"+item).hide();
        $("#evtitle"+item).hide();
        $("#evdetails"+item).hide();
        $("#table"+item).hide();
@@ -335,20 +336,22 @@ function evChange(value){
            } 
        } else {
            item++;
-           var valel = document.getElementById("ev"+item);
+           var valel = document.getElementById("evt"+item);
            if(valel == null){
                item = 0;
            } 
        }   
-       $("#ev"+item).show();
-       $("#evtitle"+item).show();
-       $("#evdetails"+item).show();
-       $("#table"+item).show();
+       $("#evt"+item).show().css( "display", "inline");
+       $("#evtitle"+item).show().css( "display", "inline");
+       $("#evdetails"+item).show().css( "display", "inline");
+       $("#table"+item).show().css( "display", "inline");
 };      
 
 
 function evBack(){
     $('.center').remove();
+    $('.evtitle').remove();
+    $('.evtable').remove();
 };
 
 
@@ -447,8 +450,8 @@ function fotChange(value){
                item = 0;
            } 
        }   
-       $("#fot"+item).show();
-       $("#fottitle"+item).show();
+       $("#fot"+item).show().css( "display", "inline");
+       $("#fottitle"+item).show().css( "display", "inline");
 };      
 
 
