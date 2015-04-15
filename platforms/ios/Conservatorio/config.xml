@@ -37,7 +37,7 @@
     <icon src="www/res/icon/icon.png" />
     <name>Conservatorio</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Aplicación movil del Conservatorio del Tolima
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
