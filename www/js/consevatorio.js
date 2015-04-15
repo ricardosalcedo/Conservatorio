@@ -143,7 +143,7 @@ $(document).on("pageinit","#page5",function(){
             //console.log(status);
             //if(data != undefined && data.post != undefined){            
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                    var landmark = '<li id="notlist"><br><a onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="not-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
                     +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
                     output.append(landmark);
@@ -159,17 +159,10 @@ $(document).on("pageinit","#page5",function(){
 
 
 function notClick(value){ 
-    $('#foo').slideme({
-        arrows: true,
-        css3 : true,
-        loop : true,
-        nativeTouchScroll: true,
-        resizable: {
-        height: '100%',
-        }
-    });
     
-    var output = $('#gallery');
+    $.mobile.navigate( "#page8", { transition : "slide"} );
+    var output = $('.notphoto');
+    var output2 = $('.ndivdetails');
         $.ajax({
             url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
             dataType: 'jsonp',
@@ -179,11 +172,28 @@ function notClick(value){
             timeout: 5000,
             success: function(data, status){
                $.each(data, function(i,item){
-                   var landmark = '<li><img class="notfoto" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></li>'
+                   var landmark = '<div class="center"><img class="notfoto" id="not'+i+'" style="';
+                   var landmark2 = '<div><h2 class="detitle" id="title'+i+'" style="'; 
+                   if(i == 0){
+                       landmark = landmark + 'display: inline;';
+                       landmark2 = landmark2 + 'display: inline;';
+                   }else{
+                       landmark = landmark + 'display: none;';
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   landmark = landmark + '" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></div>';
+                   landmark2 = landmark2 + '">'+item.Nombre+'</h2><div><p class="notdetails" id="details'+i+'" style="';
+                   if(i == 0){
+                       landmark2 = landmark2 + 'display: inline;';
+                   }else{
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   
+                   landmark2 = landmark2 + '">'+item.Descripcion+'</p>';
+                   
                    output.append(landmark);
-               });
-               
-               $.mobile.navigate( "#page8", { transition : "slide"} );
+                   output2.append(landmark2);
+               });              
 
             },
             error: function(){
@@ -193,7 +203,35 @@ function notClick(value){
 
 };
 
-$(document).on("pageinit","#page6",function(){
+function notChange(value){ 
+       var item = $('.notfoto:visible').attr('id').substring(3, 4);
+       $("#not"+item).hide();
+       $("#title"+item).hide();
+       $("#details"+item).hide();
+       if (value == 'back'){
+           item--;
+           if(item < 0){
+               item = $('.notfoto').length;
+               item--;
+           } 
+       } else {
+           item++;
+           var valel = document.getElementById("not"+item);
+           if(valel == null){
+               item = 0;
+           } 
+       }   
+       $("#not"+item).show();
+       $("#title"+item).show();
+       $("#details"+item).show();
+};      
+
+
+function notBack(){
+    $('.center').remove();
+};
+
+$(document).on("pageinit","#page6",function(){   
     var output = $('#evcontents');
 
     $.ajax({
@@ -204,21 +242,116 @@ $(document).on("pageinit","#page6",function(){
         data:  "tipo=evento",
         timeout: 5000,
         success: function(data, status){
-            //console.log(status);
-            //if(data != undefined && data.post != undefined){
-                $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
-                    +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image"id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
-                    
-                    output.append(landmark);
-                });
-            //}
+            $.each(data, function(i,item){
+                var landmark = '<li id="evlist"><br><a onclick="evClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="ev-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttl">'
+                +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
+                output.append(landmark);
+            });
         },
         error: function(){
             alert('Hubo un error al cargar los datos');
         }
     });
 });
+
+function evClick(value){ 
+    $('.center').remove();
+    $('.evtable').remove();
+    $.mobile.navigate( "#page11", { transition : "slide"} );
+    var output = $('.evphoto');
+    var output2 = $('.evdivdetails');
+        $.ajax({
+            url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+            dataType: 'jsonp',
+            data:  "tipo=evento",
+            type: 'POST',
+            jsonp: 'jsoncallback',
+            timeout: 5000,
+            success: function(data, status){
+               $.each(data, function(i,item){
+                   
+                  var monthNames = [
+                                     "", "En.", "Feb.", "Mar.",
+                                     "Abr.", "May.", "Jun.", "Jul.",
+                                     "Ago.", "Sep.", "Oct.",
+                                     "Nov.", "Dic."
+                                 ];
+
+                   var day = item.Fecha.substring(8 ,10);
+                   var month = monthNames[item.Fecha.substring(5 ,7)*1];
+                    
+                   var date = month + day;  
+                   
+                   var landmark = '<div class="center"><img class="evfoto" id="not'+i+'" style="';
+                   var landmark2 = '<div><h2 class="evtitle" id="title'+i+'" style="'; 
+                   if(i == 0){
+                       landmark = landmark + 'display: inline;';
+                       landmark2 = landmark2 + 'display: inline;';
+                   }else{
+                       landmark = landmark + 'display: none;';
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   landmark = landmark + '" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></div>';
+                   landmark2 = landmark2 + '">'+item.Nombre+'</h2><div><p class="notdetails" id="details'+i+'" style="';
+                   if(i == 0){
+                       landmark2 = landmark2 + 'display: inline;';
+                   }else{
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   
+                   landmark2 = landmark2 + '">'+item.Descripcion+'</p><table class="evtable" id="table'+i+'" style="';
+                   
+                   if(i == 0){
+                       landmark2 = landmark2 + 'display: grid;';
+                   }else{
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   
+                   landmark2 = landmark2 + '"><tr><th>FECHA</th><th>HORA</th><th>LUGAR</th><tr><td class="evdet">'+date+'</td><td class="evdet">'+item.Hora+'</td><td class="evdet">'+item.Lugar+'</td></table>';
+                   
+                   output.append(landmark);
+                   output2.append(landmark2);
+               });              
+
+            },
+            error: function(){
+                alert('Hubo un error al cargar los datos');
+            }
+        });
+
+};
+
+function evChange(value){ 
+       var item = $('.evfoto:visible').attr('id').substring(3, 4);
+       $("#not"+item).hide();
+       $("#title"+item).hide();
+       $("#details"+item).hide();
+       $("#table"+item).hide();
+       if (value == 'back'){
+           item--;
+           if(item < 0){
+               item = $('.evfoto').length;
+               item--;
+           } 
+       } else {
+           item++;
+           var valel = document.getElementById("not"+item);
+           if(valel == null){
+               item = 0;
+           } 
+       }   
+       $("#not"+item).show();
+       $("#title"+item).show();
+       $("#details"+item).show();
+       $("#table"+item).show();
+};      
+
+
+function evBack(){
+    $('.center').remove();
+};
+
+
 $(document).on("pageinit","#page7",function(){
     var output = $('#fotcontents');
 
@@ -231,9 +364,25 @@ $(document).on("pageinit","#page7",function(){
         timeout: 5000,
         success: function(data, status){
                 $.each(data, function(i,item){
-                    var landmark = '<br><br><a href="#page9" onclick="notClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="fot-but"><div class="info"><label class="date">'+item.Fecha+'</label><span class="ttlf">'
-                    +item.Nombre+'</span><div id="imgcontainer"><img class="progressive-image" id="imgnot" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img></div></div>';
                     
+                    var monthNames = [
+                                      "", "ENERO", "FEBRERO", "MARZO",
+                                      "ABRIL", "MAYO", "JUNIO", "JULIO",
+                                      "AGOSTO", "SEPTIEMBRE", "OCTUBRE",
+                                      "NOVIEMBRE", "DICIEMBRE"
+                                  ];
+
+                    var day = item.Fecha.substring(8,10);
+                    var month = monthNames[item.Fecha.substring(5 ,7)*1];
+                    var year = item.Fecha.substring(0,4);
+                    
+                    var date = month + " "+ day + " DE " + year; 
+                    
+                    var landmark = '<a href="#page12" onclick="fotClick('+item.ID+')" class="ui-btn ui-btn-inline" data-transition="slideup" id="fot-but"><div class="infot"><label class="datef">'+date+'</label><span class="ttlf">'
+                    +item.Nombre+'</span></div><div id="fotcontainer" class="bubble"><img class="foto" id="foto" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"></img><p class="fotplus">ver+</p></div></a>';
+                    if (i < data.length){
+                        landmark = landmark + '<hr id="hinline">';
+                    }
                     
                     output.append(landmark);
                 });
@@ -243,4 +392,68 @@ $(document).on("pageinit","#page7",function(){
         }
     });
 });
+
+function fotClick(value){ 
+    
+    var output = $('.fotphoto');
+    var output2 = $('.fotdivdetails');
+        $.ajax({
+            url: 'http://smdevelopers.co/smdev/Conservatorio/connect.php',
+            dataType: 'jsonp',
+            data:  "tipo=foto",
+            type: 'POST',
+            jsonp: 'jsoncallback',
+            timeout: 5000,
+            success: function(data, status){
+               $.each(data, function(i,item){
+                   var landmark = '<div class="fcenter"><img class="fotfoto" id="fot'+i+'" style="';
+                   var landmark2 = '<div><h2 class="fottitle" id="fottitle'+i+'" style="'; 
+                   if(i == 0){
+                       landmark = landmark + 'display: inline;';
+                       landmark2 = landmark2 + 'display: inline;';
+                   }else{
+                       landmark = landmark + 'display: none;';
+                       landmark2 = landmark2 + 'display: none;';
+                   };
+                   landmark = landmark + '" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></div>';
+                   landmark2 = landmark2 + '">'+item.Nombre+'</h2>';
+                                      
+                   output2.append(landmark2);
+                   output.append(landmark);
+               });              
+
+            },
+            error: function(){
+                alert('Hubo un error al cargar los datos');
+            }
+        });
+
+};
+
+function fotChange(value){ 
+       var item = $('.fotfoto:visible').attr('id').substring(3, 4);
+       $("#fot"+item).hide();
+       $("#fottitle"+item).hide();
+       if (value == 'back'){
+           item--;
+           if(item < 0){
+               item = $('.notfoto').length;
+               item--;
+           } 
+       } else {
+           item++;
+           var valel = document.getElementById("fot"+item);
+           if(valel == null){
+               item = 0;
+           } 
+       }   
+       $("#fot"+item).show();
+       $("#fottitle"+item).show();
+};      
+
+
+function fotBack(){
+    $('.fcenter').remove();
+    $('.fottitle').remove();
+};
 

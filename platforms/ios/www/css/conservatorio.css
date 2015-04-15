@@ -40,21 +40,18 @@ input#EMAIL:focus {
 	background: white;
 }
 
-@media screen and (max-width: 400px) {
-    html { font-size: 85%; }
-}
-
-@media screen and (min-width: 401px) {
-    html { font-size: 120%; }
-}
 
 .ui-page { -webkit-backface-visibility: hidden; }
 
+body {font-size: 0.9em;
+	min-height: 100%;}
+.ui-btn {font-size: 0.9em;}
+p {font-size: 0.6em;}
 
 /************Landing Screen********************/
 
 div#page1 {
-	background-image: url(../img/ui-conservatorio-tolima-01.jpg) !important;
+	background-image: url(../img/ui-conservatorio-tolima-01.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 	
@@ -105,10 +102,6 @@ div#page2 {
 	height: 100%;
 }
 
-img#logo {
-width: 50%;
-}
-
 
 header {
 text-align: center;
@@ -119,8 +112,7 @@ background-image: url(../img/facebook.png) !important;
 background-repeat: no-repeat;
 background-position: center;
 border: none;
-  border-radius: 12px;
-  height: 3em;
+  border-radius: 12px;  
   background-size: cover;
   background-color: transparent;
     margin-left: 5px;
@@ -158,7 +150,7 @@ color: white;
   color: white;
   margin: 0 auto;
   margin-top: 10%;
-  padding-top: 5em;
+  padding-top: 3em;
 
 }
 
@@ -209,10 +201,6 @@ padding-top: 1em;
 text-align: center;
 }
 
-p {
-  font-size: small;
-}
-
 a#register {
 text-shadow: none;
 }
@@ -230,11 +218,10 @@ border-radius: 12px;
 }
 
 .ui-btn.ui-input-btn.ui-corner-all.ui-shadow {
-margin-top: 1.5em;
+margin-top: 1em;
 background-color: #A71835;
 color: white;
 text-shadow: none;
-font-size: 19px;
 border: none;
 text-align: center;
 border-radius: 1em;
@@ -551,11 +538,11 @@ margin-top: 10px;
 margin-left: 14px;
 }
 
-li#contents {
+ul#contents, ul#notcontents {
 width: 100%;
 height: 100%;
 border-radius: 20px;
-margin-top: -46px;
+margin: -3em auto;
 background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
@@ -573,30 +560,16 @@ box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
 }
 
 a#not-but {
- width: 75%;
- height: 25%;
- padding: 0px;
- background: #E6A726;
- -moz-border-radius: 10px;
- border-bottom-right-radius: 40px;
- border-top-right-radius: 40px;
+  height: 25%;
+  width: 75%;
+  padding: 0px;
+  margin: 0px auto;
+  top: 36px;
+  background: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  background-image: url(../img/not-cloud.png);
 }
-
-
-a#not-but::after 
-{
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 15px 15px 15px 0;
-border-color: #E6A726;
-display: block;
-width: 0;
-z-index: 1;
-left: -15px;
-top: 45px;
-}
-
 
 label.date {
 font-family: BrandonGrotesqueBold;
@@ -609,20 +582,14 @@ text-shadow: none;
 
 div#imgcontainer {
   height: 100%;
-  width: 50%;
-  right: 0;
   border-radius: 0 10px 10px 0;
   background-repeat: no-repeat;
   bottom: 0;
-  -webkit-clip-path: polygon(60% 0, 0% 100%, 100% 100%, 100% 0);
-  border-image-width: 10px;
-  border-style: solid;
   position: absolute;
 }
 
 img#imgnot {
-  width: 102%;
-  height: 103%;
+  border-radius: 0 30px 30px 0;
 }
 
 span.ttl {
@@ -651,28 +618,23 @@ div#page8 {
 	background-size: cover;
 }
 
-div#foo {
-  margin-top: 3em;
+img.notfoto {margin-top: 3em;   width: 50%;}
+
+.left {
+  position: absolute;
+  width: 20%;
+  left: 5%;
 }
 
-.slideme {
-max-width: 320px;
-max-height: 250px;
-width: 50%;
-height: 100%;
-}
-
-
-.slideme_container .slideme-touch > * img {
-  display: block;
-  min-height: 1px;
-  min-width: 1px;
+.center {
+  width: 60%;
   margin: 0 auto;
 }
 
-ul#gallery {
-  height: 100%;
-    margin: 0 auto;
+.right {
+  position: absolute;
+  right: 5%;
+  width: 20%;
 }
 
 button.arrow.next {
@@ -695,28 +657,8 @@ padding-top: 47px;
 height: 11em;
 }
 
-div#blueimp-image-carousel {
-  background: transparent;
-}
 
-button#backbtn {
-position: absolute;
-margin: 57px auto;
-height: 27%;
-background: transparent;
-border: none;
-}
-
-button#nextbtn {
-position: absolute;
-margin: 57px auto;
-right: 5%;
-height: 27%;
-background: transparent;
-border: none;
-}
-
-h4.detitle {
+h2.detitle {
 font-family: GothamHTF Black;
 font-size: 10pt;
 text-align: center;
@@ -726,7 +668,7 @@ color: #9A6A0A;
 p.notdetails {
 font-family: BrandonGrotesque;
 font-size: 7pt;
-text-align: justify;
+text-align: center;
 width: 90%;
 margin: auto;
 color: #939598;
@@ -743,10 +685,23 @@ div#imgdetail {
 
 /************Eventos Screen********************/
 
-div#page6 {
+div#page6, div#page11 {
 	background-image: url(../img/back-eventos.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+ul#evcontents, ul#evdivdetails {
+width: 100%;
+height: 31em;
+border-radius: 20px;
+margin: -3em auto;
+background-repeat: no-repeat;
+list-style-type: none;
+background-color: white;
+margin-bottom: 2em;
+text-align: center;
+overflow: scroll;
 }
 
 a#evpanel {
@@ -760,61 +715,65 @@ background-color: #524976;
 color: white;
 letter-spacing: 4pt;
 font-weight: 100;
-
 }
 
-img#evtitle {
-  width: 23%;
-  margin: auto;
-  position: relative;
+
+a#ev-but {
+  height: 25%;
+  width: 75%;
+  padding: 0px;
+  margin: 0px auto;
+  top: 36px;
+  background: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  background-image: url(../img/ev-cloud.png);
 }
-label.datev {
+
+label.date {
 font-family: BrandonGrotesqueBold;
-color: #39204E;
+color: rgb(154,106,10);
 font-size: 0.7em;
 letter-spacing: 2px;
 width: 0px;
 text-shadow: none;
 }
 
-a#ev-but {
-/*
-background-image: url(../img/ev-cloud.png);
-background-repeat: no-repeat;
-height: 52px;
-width: 245px;
-border: none;
-background-color: transparent;
-margin-left: 4px;
-*/
-width: 75%;
- height: 25%;
- padding: 0px;
- background: #534298;
- -moz-border-radius: 10px;
- border-bottom-right-radius: 40px;
- border-top-right-radius: 40px;
-}
-
-li#evcontents {
-width: 100%;
-height: 100%;
-border-radius: 20px;
-margin-top: -46px;
-background-repeat: no-repeat;
-list-style-type: none;
-background-color: white;
-margin-bottom: 2em;
-text-align: center;
-height: 26em;
-}
-
-
 /************End Eventos Screen********************/
+
+/************Eventos Screen Details********************/
+
+h2.evtitle {
+font-family: GothamHTF Black;
+font-size: 10pt;
+text-align: center;
+color: #30294E;
+}
+
+img.evfoto {margin-top: 3em;}
+
+th {
+  font-family: BrandonGrotesque;
+  letter-spacing: 2pt;
+}
+
+td.evdet {
+  width: 33%;
+  text-align: center;
+  font-weight: 100;
+  background: url(../img/ev-buble.png);
+  background-repeat: no-repeat;
+  background-size: 7em;
+  background-position: center;
+  color: white;
+  height: 5em;
+  font-family: GothamHTF Book;
+}
+/************End Eventos Screen Details********************/
 
 /************Fotos Screen********************/
 
-div#page7 {
+div#page7, div#page12 {
 	background-image: url(../img/back-fotos.png) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -834,12 +793,26 @@ font-weight: 100;
 }
 
 label.datef {
-font-family: BrandonGrotesqueBold;
-color: #5B0615;
-font-size: 0.7em;
-letter-spacing: 2px;
-width: 0px;
-text-shadow: none;
+font-family: BrandonGrotesque;
+  color: #5B0615;
+  font-size: 0.2em;
+  letter-spacing: 2px;
+  width: 0px;
+  text-shadow: none;
+}
+
+span.ttlf {
+color: #A71835;
+  font-size: 0.8em;
+  letter-spacing: 0px;
+  display: inline-block;
+  text-shadow: none;
+  text-align: left;
+  float: left;
+  font-weight: BOLD;
+  white-space: normal;
+  width: 106px;
+  height: 50px;
 }
 
 div#fotitle {
@@ -858,43 +831,140 @@ img#fotitle {
 }
 
 a#fot-but {
- width: 75%;
- height: 25%;
- padding: 0px;
- background: white;
- -moz-border-radius: 10px;
- border-bottom-right-radius: 40px;
- border-top-right-radius: 40px;
+  width: 92%;
+  height: 15%;
+  background: white;
+  border: none;
+  margin: 2em auto;
+  left: -1em;
 }
 
-li#fotcontents {
-width: 100%;
-height: 100%;
+.bubble {
+  position: absolute;
+  width: 45%;
+  margin-top: 2%;
+}
+
+.bubble:before, .bubble:after {
+    content:'';
+    position:absolute;
+    width:0;
+    border-left:15px solid white; /*width of triangle*/
+    left:0;
+}
+.bubble:before {
+  height: 134px;
+  border-bottom: 15px solid transparent;
+}
+.bubble:after {
+  top: 2.5em;
+  bottom: 0;
+  border-top: 15px solid transparent;
+}
+.foto {
+    display:block;
+}
+
+.infot {
+  width: 30%;
+  margin-top: 1em;
+  position: absolute;
+}
+
+hr#hinline {
+  width: 96%;
+  color: lightgrey;
+  box-shadow: inset 0 6px 6px -6px lightgray;
+  height: 1px;
+  position: relative;
+  left: -1em;
+}	
+
+img#foto {
+  height: 5em;
+  width: 11em;
+  border-bottom-left-radius: 3em;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+}
+
+ul#fotcontents{
+height: 31em;
 border-radius: 20px;
-margin-top: -46px;
+margin: -3em auto;
 background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
 margin-bottom: 2em;
 text-align: center;
-height: 26em;
+overflow: scroll;
 }
 
-span.ttlf {
-color: #A71835;
-font-size: 0.8em;
-letter-spacing: 0px;
-display: inline-block;
-text-shadow: none;
-text-align: left;
-float: left;
-font-weight: 100;
-white-space: normal;
-width: 106px;
-height: 50px;
+p.fotplus {
+  position: absolute;
+  top: 0em;
+  left: 3em;
+  font-family: GothamHTF Book;
+  color: white;
+  font-weight: 100;
+  text-shadow: none;
+  font-size: 1.5em;
 }
+
+
 
 /************End Fotos Screen********************/
+
+/************Fotos Screen Details********************/
+
+h2.fottitle {
+font-family: GothamHTF Black;
+font-size: 10pt;
+text-align: center;
+color: #78323F;
+}
+
+img.fotfoto {
+  margin-top: 4em;
+  width: 140%;
+  }
+
+.fotdivdetails {
+  position: relative;
+  top: 3em;
+}
+
+th {
+  font-family: BrandonGrotesque;
+  letter-spacing: 2pt;
+}
+
+.fcenter {
+  width: 60%;
+  margin-left: 2em;
+}
+
+img.sliderleft, img.slideright  {
+  margin-top: 3.5em;
+}
+
+p.pshare {
+  position: absolute;
+  bottom: 10%;
+  left: 47%;
+  font-family: BrandonGrotesque;
+  font-size: 1em;
+}
+
+img.fbshare {
+  position: absolute;
+  width: 4%;
+  left: 40%;
+  bottom: 13%;
+}
+
+/************End Fotos Screen Details********************/
 
 /************Bottom Menu********************/
 
@@ -956,4 +1026,40 @@ background-position: center;
 
 /************End Bottom Menu********************/
 
+
+/*************Media Queries*********************/
+
+@media screen and (max-width: 400px) {
+	button#facebook {min-height: 2.5em;}
+    html { font-size: 85%; }
+    img#logo {width: 45%;}  
+    a#not-but, a#ev-but {width: 243px;
+    background-size: 21em;}
+    div#imgcontainer {-webkit-clip-path: polygon(56% 0, 0% 100%, 100% 100%, 100% 0);
+    right: 0px;}
+    img#imgnot{  height: 85%;
+    width: 100%;}  
+    .right {  margin-top: 22%; }
+    .left {  margin-top: 22%; }
+    .bubble:before {top: -11em;}
+    .bubble {right: 7%;}
+    a#fot-but {left: -2em;}
+}
+
+@media screen and (min-width: 401px) {
+	button#facebook {min-height: 3em;}
+    html { font-size: 120%; }
+    img#logo {width: 30%;}
+    a#not-but, a#ev-but {width: 305px;
+    background-size: 19em;}
+    div#imgcontainer {-webkit-clip-path: polygon(56% 0, 0% 100%, 100% 100%, 100% 0);
+    right: 18px;} 
+    img#imgnot{  height: 100%;
+    width: 110%;} 
+    .right {  margin-top: 20%; }
+    .left {  margin-top: 20%; }
+    .bubble:before {top: -7em;}
+    .bubble {right: 0%;}
+    a#fot-but {left: 0em;}
+}
 
