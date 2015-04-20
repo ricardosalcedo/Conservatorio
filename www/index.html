@@ -63,9 +63,11 @@
 <div data-role="page" data-control-title="main" id="page3" class="back">
 	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
-	          <ul data-role="listview" data-divider-theme="b" data-inset="false">
+	          <ul data-role="listview" data-divider-theme="b" data-inset="false" id="leftbar">
+	          	  <li>
+	          	  <li>
 	              <li data-theme="b">
-	                  <a href="#page2" onclick="logout();;" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
+	                  <a href="#page2" onclick="logout();" data-transition="slide" class="ui-btn ui-icon-lock ui-btn-icon-left">                  	
 	                      Salir
 	                  </a>
 	              </li>
@@ -93,11 +95,14 @@
 	                      Fotos
 	                  </a>
 	              </li>
+	              <li>
+	              <li>
+	              
 	          </ul>
 	      </div>
 		  <div data-role="content" id="homebuttons">
 		     <a data-controltype="panelbutton" id="notpanelhome" data-role="button" data-theme="a" href="#panel4"
-		          data-icon="bars" data-iconpos="left">
+		          data-icon="bars" data-iconpos="left" onclick="getPhoto();">
 		          CONSERVATORIO DEL TOLIMA
 		     </a>
 		  	 <div class="homer">
@@ -523,7 +528,9 @@
 	</script>    
 	<script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
         <script type="text/javascript">
+        	var uid = "";
             var login = function () {
+                $.blockUI({message: '<img src="loading.gif" />', css: { border: 'none', backgroundColor: 'transparent', width: '20%'}});
                 if (!window.cordova) {
                     var appId = prompt("Enter FB Application ID", "");
                     facebookConnectPlugin.browserInit(appId);
@@ -531,6 +538,7 @@
                 facebookConnectPlugin.login( ["email"],function (response){
                     if(response.status === 'connected') {
                         console.log(response.status);
+                        uid = response.authResponse.userID;
 	                     //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
 	                     $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
 	                     setTimeout($.unblockUI, 3000);
@@ -548,23 +556,14 @@
             var apiTest = function () { 
                 facebookConnectPlugin.api( "me/?fields=id,email", ["user_birthday"]); 
             }
+            
+            var getPhoto = function () {  
+                    $("#leftbar").append('<li><img id="profile" src="http://graph.facebook.com/'+uid+'/picture"></li>');                    
+            }
             var logPurchase = function () {
                 facebookConnectPlugin.logPurchase(1.99, "USD");
             }
-            var logEvent = function () {
-                // For more information on AppEvent param structure see
-                // https://developers.facebook.com/docs/ios/app-events
-                // https://developers.facebook.com/docs/android/app-events
-                facebookConnectPlugin.logEvent("Purchased",
-                    {
-                        NumItems: 1,
-                        Currency: "USD",
-                        ContentType: "shoes",
-                        ContentID: "HDFU-8452"
-                    }, null,
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
-            }
+
             var getAccessToken = function () { 
                 facebookConnectPlugin.getAccessToken( );
             }

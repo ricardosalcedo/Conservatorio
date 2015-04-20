@@ -48,6 +48,10 @@ body {font-size: 0.9em;
 .ui-btn {font-size: 0.9em;}
 p {font-size: 0.6em;}
 
+img#profile {
+  left: 2em;
+}
+
 /************Landing Screen********************/
 
 div#page1 {

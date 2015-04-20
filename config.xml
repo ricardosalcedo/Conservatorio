@@ -24,9 +24,6 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
-    </feature>
     <platform name="android">
         <!-- you can use any density that exists in the Android project -->
         <splash src="www/res/screen/android/splash-land-hdpi.png" density="land-hdpi"/>
