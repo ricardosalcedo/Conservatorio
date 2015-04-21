@@ -159,7 +159,8 @@ $(document).on("pageinit","#page5",function(){
 
 
 function notClick(value){ 
-    
+    $('.center').remove();
+    $('.detitle').remove();
     $.mobile.navigate( "#page8", { transition : "slide"} );
     var output = $('.notphoto');
     var output2 = $('.ndivdetails');
@@ -344,7 +345,7 @@ function evChange(value){
        $("#evt"+item).show().css( "display", "inline");
        $("#evtitle"+item).show().css( "display", "inline");
        $("#evdetails"+item).show().css( "display", "inline");
-       $("#table"+item).show().css( "display", "inline");
+       $("#table"+item).show();
 };      
 
 

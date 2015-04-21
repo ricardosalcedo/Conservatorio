@@ -1060,8 +1060,8 @@ background-position: center;
     right: 18px;} 
     img#imgnot{  height: 100%;
     width: 110%;} 
-    .right {  margin-top: 20%; }
-    .left {  margin-top: 20%; }
+    .right {  margin-top: 15%; }
+    .left {  margin-top: 15%; }
     .bubble:before {top: -7em;}
     .bubble {right: 0%;}
     a#fot-but {left: 0em;}
