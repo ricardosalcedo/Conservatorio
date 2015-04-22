@@ -530,7 +530,8 @@
         <script type="text/javascript">
         	var uid = "";
             var login = function () {
-                $.blockUI({message: '<img src="loading.gif" />', css: { border: 'none', backgroundColor: 'transparent', width: '20%'}});
+                $.blockUI({message: '<img src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent', width: '20%'}});
+                setTimeout($.unblockUI, 3000);
                 if (!window.cordova) {
                     var appId = prompt("Enter FB Application ID", "");
                     facebookConnectPlugin.browserInit(appId);

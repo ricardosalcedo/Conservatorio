@@ -44,5 +44,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="0.9.0">
+        <param name="APP_ID" value="707742835999981" />
+        <param name="APP_NAME" value="Conservatorio" />
+    </gap:plugin>
     <preference name="SplashScreenDelay" value="10000" />
 </widget>
