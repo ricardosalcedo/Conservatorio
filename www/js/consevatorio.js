@@ -398,7 +398,8 @@ $(document).on("pageinit","#page7",function(){
 });
 
 function fotClick(value){ 
-    
+    $('.fcenter').remove();
+    $('.fottitle').remove();
     var output = $('.fotphoto');
     var output2 = $('.fotdivdetails');
         $.ajax({
