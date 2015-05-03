@@ -1067,3 +1067,17 @@ background-position: center;
     a#fot-but {left: 0em;}
 }
 
+img#loading {
+  width: 3em;
+}
+
+.scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 84px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+

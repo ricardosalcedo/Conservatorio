@@ -530,7 +530,7 @@
         <script type="text/javascript">
         	var uid = "";
             var login = function () {
-                $.blockUI({message: '<img src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent', width: '20%'}});
+                $.blockUI({message: '<img id="loading" src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent'}});
                 setTimeout($.unblockUI, 3000);
                 if (!window.cordova) {
                     var appId = prompt("Enter FB Application ID", "");
@@ -541,7 +541,7 @@
                         console.log(response.status);
                         uid = response.authResponse.userID;
 	                     //alert('Facebook login succeeded, got access token: ' + response.authResponse.token);
-	                     $.blockUI({message: 'BIENVENIDO ', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+	                     $.blockUI({message: '<img id="loading" src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent'}});
 	                     setTimeout($.unblockUI, 3000);
 	                     $.mobile.navigate( "#page3", { transition : "slide"} );
 	                     } else {
@@ -573,7 +573,8 @@
                 facebookConnectPlugin.getLoginStatus();
             }
             var logout = function () { 
-                facebookConnectPlugin.logOut();
+                //facebookConnectPlugin.logout(Function success, Function failure);    
+                facebookConnectPlugin.logout();
             }
         </script>
 
