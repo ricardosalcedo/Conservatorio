@@ -7,7 +7,6 @@
         "files": {
             "framework": {
                 "parents": {
-                    "CoreGraphics.framework": [],
                     "libsqlite3.dylib": [
                         {
                             "xml": false,

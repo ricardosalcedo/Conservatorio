@@ -5,5 +5,11 @@
             "url": "https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git",
             "subdir": "."
         }
+    },
+    "com.phonegap.plugins.facebookconnect": {
+        "source": {
+            "type": "local",
+            "path": "/Applications/MAMP/htdocs/phonegap-facebook-plugin"
+        }
     }
 }
