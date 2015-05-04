@@ -52,6 +52,7 @@ $(document).on("pageinit","#page2",function(){
                         setTimeout($.unblockUI, 1000);
                     }
                 });
+                
                 return false;
             }
         
@@ -116,6 +117,7 @@ $(document).on("pageinit","#page10",function(){
 });
 
 $(document).on("pageinit","#page5",function(){
+    
     var output = $('#contents');
 
     $.ajax({
@@ -141,13 +143,14 @@ $(document).on("pageinit","#page5",function(){
         }
     }); 
  
+    
 });
 
 
 function notClick(value){ 
     $('.center').remove();
     $('.detitle').remove();
-    $.mobile.navigate( "#page8", { transition : "slide"} );
+    $.mobile.navigate( "#page8", { transition : "slideup"} );
     var output = $('.notphoto');
     var output2 = $('.ndivdetails');
         $.ajax({
@@ -218,7 +221,8 @@ function notBack(){
     $('.center').remove();
 };
 
-$(document).on("pageinit","#page6",function(){   
+$(document).on("pageinit","#page6",function(){  
+   
     var output = $('#evcontents');
 
     $.ajax({
@@ -239,13 +243,15 @@ $(document).on("pageinit","#page6",function(){
             alert('Hubo un error al cargar los datos');
         }
     });
+    
+   
 });
 
 function evClick(value){ 
     $('.center').remove();
     $('.evtitle').remove();
     $('.evtable').remove();
-    $.mobile.navigate( "#page11", { transition : "slide"} );
+    $.mobile.navigate( "#page11", { transition : "slideup"} );
     var output = $('.evphoto');
     var output2 = $('.evdivdetails');
         $.ajax({
@@ -306,6 +312,7 @@ function evClick(value){
                 alert('Hubo un error al cargar los datos');
             }
         });
+        
 
 };
 
@@ -343,6 +350,7 @@ function evBack(){
 
 
 $(document).on("pageinit","#page7",function(){
+   
     var output = $('#fotcontents');
 
     $.ajax({
@@ -381,6 +389,7 @@ $(document).on("pageinit","#page7",function(){
             alert('Hubo un error al cargar los datos');
         }
     });
+    
 });
 
 function fotClick(value){ 
@@ -418,7 +427,6 @@ function fotClick(value){
                 alert('Hubo un error al cargar los datos');
             }
         });
-
 };
 
 function fotChange(value){ 
@@ -446,5 +454,13 @@ function fotChange(value){
 function fotBack(){
     $('.fcenter').remove();
     $('.fottitle').remove();
+};
+
+function loading(){
+    $.blockUI({message: '<img id="loading" src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent'}});
+    //setTimeout($.unblockUI, 3000);
+    $( document ).ready(function() {
+        $.unblockUI();
+      });
 };
 
