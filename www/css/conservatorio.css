@@ -179,6 +179,7 @@ text-shadow: none;
 
 div#reglinks {
 text-align: center;
+font-size: 1.2em;
 }
 
 #login br {
@@ -204,6 +205,11 @@ input#PASS {
 padding-left: 2em;
 padding-top: 1em;
 text-align: center;
+}
+
+input#CODREG {
+  text-align: center;
+  padding-top: 1em;
 }
 
 a#register {
@@ -288,13 +294,13 @@ color: #E6A726;
 
 /************Regitry Screen********************/
 
-div#page10 {
+div#page10, div#page13  {
 	background-image: url(../img/home.jpg) !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-form#regform {
+form#regform, form#emailnot, form#changepass {
 width: 17em;
 margin: 5em auto;
 text-align: -webkit-center;
@@ -305,7 +311,7 @@ text-align: center;
 padding-top: 1em;
 }
 
-input#EMAILREG {
+input#EMAILREG, input#EMAILCONF {
 text-align: center;
 padding-top: 1em;
 }

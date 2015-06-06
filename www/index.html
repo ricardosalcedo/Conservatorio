@@ -49,7 +49,7 @@
           </form>
           <div id="reglinks">
           	<a href="#page10" id="registerlink" data-transition="slide">Regístrese</a><br>
-       		<a href="#" id="registerpass" data-transition="slide">Olvido su Contraseña?</a>
+       		<a href="#page13" id="registerpass" data-transition="slide">Olvido su Contraseña?</a>
           </div>
             
        	   	<div data-role="popup" id="popupDialogl" data-dismissible="false" data-overlay-theme="a" data-theme="c" class="ui-content">
@@ -61,6 +61,9 @@
 </div>
   
 <div data-role="page" data-control-title="main" id="page3" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+		<h1>Conservatorio del Tolima</h1> 
+	</div> 
 	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
 	          <ul data-role="listview" data-divider-theme="b" data-inset="false" id="leftbar">
@@ -507,7 +510,32 @@
    </div>
 </div>
 	
-	
+<div data-role="page" data-control-title="Register" id="page13" class="back">
+   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
+	          CONSERVATORIO DEL TOLIMA
+	  </a>
+      <div id="Register">
+      		<form action="" method="post" id="emailnot">
+	      		<div data-role="fieldcontain">
+	      			<input name="emailreg" id="EMAILCONF" placeholder="EMAIL" required autocomplete="email" maxlength="50" type="email">
+	      		</div>
+	      		<input id="recover" type="submit" value="Generar Código">
+	      	</form>
+	      	<form action="#page13" method="post" id="changepass">
+	      		<div data-role="fieldcontain">      			
+	      			<input name="code" id="CODREG" required placeholder="CODIGO" type="password" maxlength="4">
+	      		</div>
+	      		<div data-role="fieldcontain">      			
+	      			<input name="password" id="PASSREG" required placeholder="CLAVE" type="password" maxlength="32">
+	      		</div>
+	      		<div data-role="fieldcontain">
+	      			<input name="passwordconf" id="PASSCREG" class="regbutton" required placeholder="CONFIRMAR CLAVE" type="password" maxlength="32">
+	      		</div>
+	     		<input id="recover" type="submit" value="Cambiar Contraseña">
+      		</form>
+      </div>
+
+  </div>
 	<script src="js/index.js"></script>
 	<script src="cordova.js"></script>
 	<script src="js/consevatorio.js"></script>
@@ -523,6 +551,22 @@
 	</script>    
 	<script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
         <script type="text/javascript">
+        	$(document).ready(function () { 
+        	    FB.init({
+        	        appId      : '707742835999981',
+        	        status     : true,
+        	        xfbml      : true,
+        	        version    : 'v2.3' // or v2.0, v2.1, v2.0
+        	      });
+        	    
+	              FB.getLoginStatus(function (response){
+	                      		alert(response.status);
+	                          if (response.status === 'connected'){
+	                              $.mobile.navigate( "#page3", { transition : "slide"} );
+	                          }
+	                  });
+	              });
+        
         	var uid = "";
             var login = function () {
                 $.blockUI({message: '<img id="loading" src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent'}});
@@ -564,9 +608,6 @@
                 facebookConnectPlugin.getAccessToken( );
             }
             
-            var getStatus = function () { 
-                facebookConnectPlugin.getLoginStatus();
-            }
             var logout = function () { 
                 //facebookConnectPlugin.logout(Function success, Function failure);    
                 facebookConnectPlugin.logout();

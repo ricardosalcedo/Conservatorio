@@ -9,54 +9,54 @@ $(document).on("pageinit","#page1",function(){
  
 
 $(document).on("pageinit","#page2",function(){
-    $("#loginbtn").click(function(){
-        var hasError = false;
-        var emailVal = $("#EMAIL").val();
-        var passwordVal = $("#PASS").val();
-        if (emailVal == '') {
-            $.blockUI({message: 'INGRESE EMAIL...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
-            setTimeout($.unblockUI, 1000);
-            hasError = true;
-        }else if (passwordVal == '') {      
-            $.blockUI({message: 'INGRESE CLAVE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20  }});
-            setTimeout($.unblockUI, 1000);
-            hasError = true;
-        }
-        if(hasError == true) {
-            $("#register")[0].checkValidity(); 
-            return false;
-            } else {
-                $.ajax({
-                    url: 'http://smdevelopers.co/smdev/Conservatorio/valu.php',
-                    //url: 'http://localhost:8888/Conservatorio/valu.php',
-                    dataType: 'jsonp',
-                    data:  "email="+emailVal+"&password="+passwordVal,
-                    jsonp: 'jsoncallback',
-                    timeout: 5000,
-                    success: function(data, status){
-                        $.each(data, function(i,item){
-                            if (item == "empty"){
-                                $.blockUI({message: 'Usuario o Clave Invalida...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
-                                setTimeout($.unblockUI, 1000);
-                            } else {
-                                $.blockUI({message: null, css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
-                                setTimeout($.unblockUI, 1000);
-                                $("#register")[0].reset();
-                                $.mobile.navigate( "#page3", { transition : "slide"} );
-                            }                             
-                        });
-                        
-                    },
-                    error: function(){
-                        $.blockUI({message: 'ERROR DE CONEXION...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
-                        setTimeout($.unblockUI, 1000);
-                    }
-                });
-                
-                return false;
+        $("#loginbtn").click(function(){
+            var hasError = false;
+            var emailVal = $("#EMAIL").val();
+            var passwordVal = $("#PASS").val();
+            if (emailVal == '') {
+                $.blockUI({message: 'INGRESE EMAIL...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+                setTimeout($.unblockUI, 1000);
+                hasError = true;
+            }else if (passwordVal == '') {      
+                $.blockUI({message: 'INGRESE CLAVE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20  }});
+                setTimeout($.unblockUI, 1000);
+                hasError = true;
             }
-        
-    });
+            if(hasError == true) {
+                $("#register")[0].checkValidity(); 
+                return false;
+                } else {
+                    $.ajax({
+                        url: 'http://smdevelopers.co/smdev/Conservatorio/valu.php',
+                        //url: 'http://localhost:8888/Conservatorio/valu.php',
+                        dataType: 'jsonp',
+                        data:  "email="+emailVal+"&password="+passwordVal,
+                        jsonp: 'jsoncallback',
+                        timeout: 5000,
+                        success: function(data, status){
+                            $.each(data, function(i,item){
+                                if (item == "empty"){
+                                    $.blockUI({message: 'Usuario o Clave Invalida...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
+                                    setTimeout($.unblockUI, 1000);
+                                } else {
+                                    $.blockUI({message: null, css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
+                                    setTimeout($.unblockUI, 1000);
+                                    $("#register")[0].reset();
+                                    $.mobile.navigate( "#page3", { transition : "slide"} );
+                                }                             
+                            });
+                            
+                        },
+                        error: function(){
+                            $.blockUI({message: 'ERROR DE CONEXION...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
+                            setTimeout($.unblockUI, 1000);
+                        }
+                    });
+                    
+                    return false;
+                }
+            
+        });
 });
 
 $(document).on("pageinit","#page10",function(){
@@ -114,6 +114,26 @@ $(document).on("pageinit","#page10",function(){
         
     });
     
+});
+
+$(document).on("pageinit","#page13",function(){
+    $("#recover").click(function(){
+        $.ajax({
+            url: 'http://smdevelopers.co/smdev/Conservatorio/gencode.php',
+            dataType: 'jsonp',
+            data:  "email="+ $("#EMAILCONF").val(),
+            type: 'POST',
+            jsonp: 'jsoncallback',
+            timeout: 5000,
+            success: function(data, status){
+                $.blockUI({message: 'CODIGO ENVIADO', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                setTimeout($.unblockUI, 1000);
+            },
+            error: function(){
+                alert('Hubo un error al cargar los datos');
+            }
+        }); 
+    });
 });
 
 $(document).on("pageinit","#page5",function(){
