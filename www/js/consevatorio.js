@@ -32,15 +32,13 @@ $(document).on("pageinit","#page2",function(){
                 } else {
                     $.ajax({
                         url: 'http://smdevelopers.co/smdev/Conservatorio/valu.php',
-                        //url: 'http://localhost:8888/Conservatorio/valu.php',
                         dataType: 'jsonp',
                         data:  "email="+emailVal+"&password="+passwordVal,
                         jsonp: 'jsoncallback',
                         timeout: 5000,
                         success: function(data, status){
-                            $.each(data, function(i,item){
-                                if (item == "empty"){
-                                    $.blockUI({message: 'Usuario o Clave Invalida...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
+                                if (data != "true"){    
+                                    $.blockUI({message: data, css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
                                     setTimeout($.unblockUI, 1000);
                                 } else {
                                     $.blockUI({message: null, css: { color: 'white', border: 'none', backgroundColor: 'transparent', fontSize: 20 }});
@@ -48,7 +46,6 @@ $(document).on("pageinit","#page2",function(){
                                     $("#register")[0].reset();
                                     $.mobile.navigate( "#page3", { transition : "slide"} );
                                 }                             
-                            });
                             
                         },
                         error: function(){
