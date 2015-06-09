@@ -1,4 +1,7 @@
 
+var error1 = "ERROR EN CARGA DE DATOS";
+var error2 = "INGRESE NOMBRE...";
+
 $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).on("pageinit","#page1",function(){
@@ -69,7 +72,7 @@ $(document).on("pageinit","#page10",function(){
         var passwordVal = $("#myPassword").val();
         var checkVal = $("#PASSCREG").val();
         if (userVal == '') {
-            $.blockUI({message: 'INGRESE NOMBRE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
+            $.blockUI({message: error2, css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
             setTimeout($.unblockUI, 1000);
             hasError = true;
         }else if (emailVal == '') {
@@ -96,12 +99,15 @@ $(document).on("pageinit","#page10",function(){
                 $.blockUI({message: 'REGISTRANDO...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20  }});
                 $.ajax({
                     url: 'http://smdevelopers.co/smdev/Conservatorio/register.php',
-                    //url: 'http://localhost:8888/Conservatorio/register.php',
                     dataType: 'jsonp',
-                    data:  "nombre="+$("#NOMBREREG").val()+"&email="+$("#EMAILREG").val()+"&password="+$("#PASSREG").val(),
+                    data:  "nombre="+$("#NOMBREREG").val()+"&email="+$("#EMAILREG").val()+"&password="+$("#myPassword").val(),
                     jsonp: 'jsoncallback',
                     timeout: 5000,
                     success: function(data, status){
+                        $("#NOMBREREG").val("");
+                        $("#EMAILREG").val("");
+                        $("#myPassword").val("");
+                        $("#PASSCREG").val("");
                         $.blockUI({message: 'USUARIO REGISTRADO!', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20  }});
                         setTimeout($.unblockUI, 1000);
                     },
