@@ -53,6 +53,10 @@ img#profile {
   position: absolute;
 }
 
+.header.ui-header.ui-bar-inherit.ui-header-fixed.slidedown {
+  height: 2em;
+}
+
 /************Landing Screen********************/
 
 div#page1 {
@@ -306,25 +310,21 @@ margin: 5em auto;
 text-align: -webkit-center;
 }
 
-input#NOMBREREG {
+input#EMAILREG, input#EMAILCONF, input#CONFREG, input#NOMBREREG, input#PASREG, input#myPassword, input#PASSCREG  {
 text-align: center;
 padding-top: 1em;
 }
 
-input#EMAILREG, input#EMAILCONF {
-text-align: center;
-padding-top: 1em;
+.strength_meter {
+  color: white;
+  font-family: FlamaCondensed;
+  border: none;
 }
 
-input#PASSREG {
-text-align: center;
-padding-top: 1em;
+a.button_strength {
+  display: none;
 }
 
-input#PASSCREG {
-text-align: center;
-padding-top: 1em;
-}
 
 a#regpanel {
 border-radius: 0px;
@@ -396,6 +396,11 @@ div.growlUI h1, div.growlUI h2 {
     padding: 5px 5px 5px 75px; 
     text-align: center;
     left: 10px;
+}
+
+.forgot {
+  width: 22em;
+  margin: 0 auto;
 }
 
 

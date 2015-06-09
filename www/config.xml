@@ -12,6 +12,9 @@
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="orientation" value="portrait" />
+    <preference name="StatusBarOverlaysWebView" value="false"/>
+    <preference name="StatusBarBackgroundColor" value="#000000"/>
+	<preference name="StatusBarStyle" value="lightcontent" />
         <icon src="www/res/icon/icon.png" />
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />

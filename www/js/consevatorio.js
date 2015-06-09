@@ -2,9 +2,13 @@
 $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 
 $(document).on("pageinit","#page1",function(){
-    $("#page1").on("swipeleft",function(){ 
-        $.mobile.navigate( "#page2", { transition : "slide"} );
-    });
+                 
+      /*facebookConnectPlugin.getLoginStatus(function (response){
+      //FB.getLoginStatus(function (response){
+          if (response.status === 'connected'){
+              $.mobile.navigate( "#page3", { transition : "slide"} );
+          }
+      });*/   
 });
  
 
@@ -65,7 +69,7 @@ $(document).on("pageinit","#page10",function(){
         var hasError = false;
         var userVal = $("#NOMBREREG").val();
         var emailVal = $("#EMAILREG").val();
-        var passwordVal = $("#PASSREG").val();
+        var passwordVal = $("#myPassword").val();
         var checkVal = $("#PASSCREG").val();
         if (userVal == '') {
             $.blockUI({message: 'INGRESE NOMBRE...', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 20 }});
@@ -118,6 +122,7 @@ $(document).on("pageinit","#page10",function(){
 
 $(document).on("pageinit","#page13",function(){
     $("#recover").click(function(){
+        $.blockUI({message: 'ENVIANDO CORREO', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
         $.ajax({
             url: 'http://smdevelopers.co/smdev/Conservatorio/gencode.php',
             dataType: 'jsonp',
@@ -130,9 +135,67 @@ $(document).on("pageinit","#page13",function(){
                 setTimeout($.unblockUI, 1000);
             },
             error: function(){
-                alert('Hubo un error al cargar los datos');
-            }
+                $.blockUI({message: 'ERROR EN CARGA DE DATOS', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                setTimeout($.unblockUI, 1000);
+            },
         }); 
+    });
+    
+    $("#reset").click(function(){
+        $.blockUI({message: 'ACTUALIZANDO CONTRASE&Ntilde;A', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+        if ($("#CODREG").val() != ''){
+            if ($("#PASREG").val() != ''){
+                if ($("#CONFREG").val() != ''){
+                    if ($("#EMAILCONF").val() != ''){
+                        if ($("#PASREG").val() == $("#CONFREG").val()){
+                            $.ajax({
+                                url: 'http://smdevelopers.co/smdev/Conservatorio/changep.php',
+                                dataType: 'jsonp',
+                                data:  "pas="+ $("#PASREG").val() +"&email=" + $("#EMAILCONF").val()+"&code="+ $("#CODREG").val(),
+                                type: 'POST',
+                                jsonp: 'jsoncallback',
+                                timeout: 5000,
+                                success: function(data, status){
+                                    if (data == 'A1'){
+                                        $.blockUI({message: 'CODIGO INVALIDO', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                                        setTimeout($.unblockUI, 1000);
+                                    } else if (data == 'A2') {
+                                        $.blockUI({message: 'ERROR ACTUALIZANDO CONTRASE&Ntilde;A', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                                        setTimeout($.unblockUI, 1000);
+                                    } else {
+                                        $("#EMAILCONF").val("");
+                                        $("#CODREG").val("");
+                                        $("#PASREG").val("");
+                                        $("#CONFREG").val("");
+                                        $.blockUI({message: 'CONTRASE&Ntilde;A ACTUALIZADA', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                                        setTimeout($.unblockUI, 1000);
+                                    }
+                                },
+                                error: function(){
+                                    $.blockUI({message: 'ERROR EN CARGA DE DATOS', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                                    setTimeout($.unblockUI, 1000);
+                                },
+                            }); 
+                        } else {
+                            $.blockUI({message: 'CONTRASE&Ntilde;AS NO COINCIDEN', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                            setTimeout($.unblockUI, 1000);
+                        }
+                    } else {
+                        $.blockUI({message: 'INGRESE EMAIL', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                        setTimeout($.unblockUI, 1000);
+                    }
+                } else {
+                    $.blockUI({message: 'POR FAVOR CONFIRMAR CONTRASE&Ntilde;A', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                    setTimeout($.unblockUI, 1000);
+                }
+            } else {
+                $.blockUI({message: 'POR FAVOR DIGITAR CONTRASE&Ntilde;A', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+                setTimeout($.unblockUI, 1000);
+            }             
+         } else {
+             $.blockUI({message: 'POR FAVOR DIGITAR C&Oacute;DIGO', css: { color: 'white', border: 'none', backgroundColor: 'transparent', width: '60%', left: '20%', fontfamily: 'FlamaCondensed', fontSize: 15 }});
+             setTimeout($.unblockUI, 1000);
+         }
     });
 });
 

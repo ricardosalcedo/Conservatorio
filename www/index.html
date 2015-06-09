@@ -24,6 +24,8 @@
 <body>
 <!-- div data-role="page" data-control-title="landing" id="page1"></div-->
 <div data-role="page" data-control-title="Login" id="page2">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
       <div id="login">
       	<div class="container">
       	 <header>
@@ -62,7 +64,6 @@
   
 <div data-role="page" data-control-title="main" id="page3" class="back">
 	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-		<h1>Conservatorio del Tolima</h1> 
 	</div> 
 	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
@@ -123,6 +124,8 @@
 </div>
  
 <div data-role="page" data-control-title="main" id="page5" class="back" data-transition="slide">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
      <div class="container">
       <div data-role="panel" id="panel6" data-position="left" data-display="push"
       data-theme="b">
@@ -197,6 +200,8 @@
   </div>
   
 <div data-role="page" data-control-title="main" id="page6" class="back" data-transition="slide">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
      <div class="container">
       <div data-role="panel" id="panel7" data-position="left" data-display="reveal"
       data-theme="b">
@@ -271,6 +276,8 @@
 </div>
 	  
 <div data-role="page" data-control-title="main" id="page7" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
      <div class="container">
       <div data-role="panel" id="panel8" data-position="left" data-display="reveal"
       data-theme="b">
@@ -346,6 +353,8 @@
   </div>
 
 <div data-role="page" data-control-title="main" id="page8" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
      <div class="container">
       <div data-role="content" id="not-content">
 	   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slidedown" id="notpanel" onclick="notBack();" href="#page5">
@@ -393,6 +402,8 @@
 
 	  
 <div data-role="page" data-control-title="Register" id="page10" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
    	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
 	          CONSERVATORIO DEL TOLIMA
 	  </a>
@@ -405,7 +416,7 @@
       			<input name="emailreg" id="EMAILREG" placeholder="EMAIL" required autocomplete="email" maxlength="50" type="email">
       		</div>
       		<div data-role="fieldcontain">      			
-      			<input name="password" id="PASSREG" required placeholder="CLAVE" type="password" maxlength="32">
+      			<input name="password" id="myPassword" required placeholder="CLAVE" type="password" maxlength="32">
       		</div>
       		<div data-role="fieldcontain">
       			<input name="passwordconf" id="PASSCREG" class="regbutton" required placeholder="CONFIRMAR CLAVE" type="password" maxlength="32">
@@ -461,6 +472,8 @@
 </div>
 
 <div data-role="page" data-control-title="main" id="page12" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
      <div class="container">
       <div data-role="content" id="fot-content">
 	   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slidedown" id="fotpanel" onclick="fotBack();" href="#page7">
@@ -511,28 +524,30 @@
 </div>
 	
 <div data-role="page" data-control-title="Register" id="page13" class="back">
+	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
+	</div> 
    	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
 	          CONSERVATORIO DEL TOLIMA
 	  </a>
       <div id="Register">
-      		<form action="" method="post" id="emailnot">
+      		<div class="forgot">
 	      		<div data-role="fieldcontain">
 	      			<input name="emailreg" id="EMAILCONF" placeholder="EMAIL" required autocomplete="email" maxlength="50" type="email">
 	      		</div>
 	      		<input id="recover" type="submit" value="Generar Código">
-	      	</form>
-	      	<form action="#page13" method="post" id="changepass">
+	      	</div>	
+	      	<div class="forgot">
 	      		<div data-role="fieldcontain">      			
 	      			<input name="code" id="CODREG" required placeholder="CODIGO" type="password" maxlength="4">
 	      		</div>
 	      		<div data-role="fieldcontain">      			
-	      			<input name="password" id="PASSREG" required placeholder="CLAVE" type="password" maxlength="32">
+	      			<input name="password" id="PASREG" required placeholder="CONTRASEÑA" type="password" maxlength="32">
 	      		</div>
 	      		<div data-role="fieldcontain">
-	      			<input name="passwordconf" id="PASSCREG" class="regbutton" required placeholder="CONFIRMAR CLAVE" type="password" maxlength="32">
+	      			<input name="passwordconf" id="CONFREG" class="regbutton" required placeholder="CONFIRMAR CONTRASEÑA" type="password" maxlength="32">
 	      		</div>
-	     		<input id="recover" type="submit" value="Cambiar Contraseña">
-      		</form>
+	     		<input id="reset" type="submit" value="Cambiar Contraseña">
+	     	</div>
       </div>
 
   </div>
@@ -544,6 +559,7 @@
 	<script src="js/jquery.liquid-slider.min.js"></script>
 	<script src="js/jquery.blockUI.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/strength.js"></script>
     <script>
 		$(document).bind("mobileinit", function(){
 		  $.mobile.touchOverflowEnabled = true;
@@ -552,22 +568,19 @@
 	<script type="text/javascript" src="js/facebookConnectPlugin.js"></script>
         <script type="text/javascript">
         	$(document).ready(function () { 
-        	    FB.init({
-        	        appId      : '707742835999981',
-        	        status     : true,
-        	        xfbml      : true,
-        	        version    : 'v2.3' // or v2.0, v2.1, v2.0
-        	      });
+        	    $("#myPassword").strength();
+            	facebookConnectPlugin.getLoginStatus(function (response){
+        	    	alert(response);
+        	          if (response.status === 'connected'){
+        	              $.mobile.navigate( "#page3", { transition : "slide"} );
+        	          }
+        	      });  
         	    
-	              FB.getLoginStatus(function (response){
-	                      		alert(response.status);
-	                          if (response.status === 'connected'){
-	                              $.mobile.navigate( "#page3", { transition : "slide"} );
-	                          }
-	                  });
-	              });
+	         });
         
         	var uid = "";
+        	        	
+        	
             var login = function () {
                 $.blockUI({message: '<img id="loading" src="img/loading.gif" />', css: { border: 'none', backgroundColor: 'transparent'}});
                 setTimeout($.unblockUI, 2000);
