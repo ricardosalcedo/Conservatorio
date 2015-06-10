@@ -89,7 +89,7 @@
         <splash src="www/res/screen/ios/Default-Landscape@2x~ipad_2048x1496.png" width="2048" height="1496"/>
         <splash src="www/res/screen/ios/Default-667h.png" width="750" height="1334"/>
         <splash src="www/res/screen/ios/Default-750@2x~iphone6-landscape.png" width="1334" height="750"/>
-        <splash src="www/res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="www/res/screen/ios/Default-568h@2x.png" width="640" height="1136"/>
     </platform>
     
     <preference name="SplashScreenDelay" value="10000" />
