@@ -502,6 +502,10 @@ background-color: transparent;
 text-align: center;
 }
 
+.share {
+  bottom: 3em;
+}
+
 /************End Home********************/
 
 /************Noticias Screen********************/
@@ -566,7 +570,7 @@ margin: -3em auto;
 background-repeat: no-repeat;
 list-style-type: none;
 background-color: white;
-margin-bottom: 2em;
+margin-bottom: 3em;
 text-align: center;
 height: 26em;
 overflow: scroll;
@@ -642,8 +646,7 @@ img.notfoto {margin-top: 3em;   width: 50%;}
 
 .left {
   position: absolute;
-  width: 20%;
-  left: 5%;
+  left: 20%;
 }
 
 .center {
@@ -653,8 +656,7 @@ img.notfoto {margin-top: 3em;   width: 50%;}
 
 .right {
   position: absolute;
-  right: 5%;
-  width: 20%;
+  right: 20%;
 }
 
 button.arrow.next {
@@ -938,17 +940,31 @@ p.fotplus {
 
 /************Fotos Screen Details********************/
 
-h2.fottitle {
+h2.fottitle  {
 font-family: GothamHTF Black;
 font-size: 10pt;
 text-align: center;
 color: #78323F;
 }
 
+div.fottitle {
+font-family: GothamHTF Book;
+font-size: 0.7em;
+text-align: center;
+color: #78323F;
+  width: 60%;
+  margin: 0 auto;
+}
+
 img.fotfoto {
   margin-top: 4em;
-  width: 140%;
+  width: 70%; 
   }
+
+a.notbutton.ui-link.ui-btn.ui-shadow.ui-corner-all {
+  border: none;
+  margin-top: 3.5em;
+}
 
 .fotdivdetails {
   position: relative;
@@ -961,12 +977,17 @@ th {
 }
 
 .fcenter {
-  width: 60%;
-  margin-left: 2em;
+  width: 90%;
+  margin: 0 auto;
 }
 
-img.sliderleft, img.slideright  {
-  margin-top: 3.5em;
+a.notbutton.ui-link.ui-btn.ui-corner-all:hover {
+  background: transparent;
+}
+
+a.notbutton.ui-link.ui-btn.ui-corner-all {
+  border: none;
+  margin-top: 6em;
 }
 
 p.pshare {
@@ -977,11 +998,14 @@ p.pshare {
   font-size: 1em;
 }
 
-img.fbshare {
-  position: absolute;
-  width: 7%;
-  margin: 0 auto;
-  bottom: 13%;
+a.fbshare.ui-link.ui-btn.ui-btn-inline.ui-shadow.ui-corner-all {
+  background-image: url(../img/share.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 1.1em;
+  height: 1.7em;
+  bottom: 0em;
+  border: none;
 }
 
 /************End Fotos Screen Details********************/
@@ -1026,6 +1050,7 @@ bottom: 0;
 position: absolute !important;
 top: auto !important;
 width: 100%;
+border: none;
 }
 
 a.ui-link.ui-btn {
@@ -1042,6 +1067,7 @@ background-color: transparent;
 
 .ui-header .ui-navbar .ui-btn, .ui-footer .ui-navbar .ui-btn {
 background-position: center;
+border: none;
 }
 
 /************End Bottom Menu********************/
@@ -1059,8 +1085,8 @@ background-position: center;
     right: 0px;}
     img#imgnot{  height: 85%;
     width: 100%;}  
-    .right {  margin-top: 22%; }
-    .left {  margin-top: 22%; }
+    .right {  margin-top: 6em; }
+    .left {  margin-top: 6em; }
     .bubble:before {top: -11em;}
     .bubble {right: 7%;}
     a#fot-but {left: -2em;}
@@ -1076,8 +1102,8 @@ background-position: center;
     right: 18px;} 
     img#imgnot{  height: 100%;
     width: 110%;} 
-    .right {  margin-top: 15%; }
-    .left {  margin-top: 15%; }
+    .right {  margin-top: 6em; }
+    .left {  margin-top: 6em; }
     .bubble:before {top: -7em;}
     .bubble {right: 0%;}
     a#fot-but {left: 0em;}

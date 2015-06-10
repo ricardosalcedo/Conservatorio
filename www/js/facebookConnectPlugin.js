@@ -216,6 +216,7 @@ if (cordova.platformId == "browser") {
         },
 
         logout: function (s, f) {
+            alert("Logout");
             exec(s, f, "FacebookConnectPlugin", "logout", []);
         },
 

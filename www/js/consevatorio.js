@@ -496,18 +496,23 @@ function fotClick(value){
                $.each(data, function(i,item){
                    var landmark = '<div class="fcenter"><img class="fotfoto" id="fot'+i+'" style="';
                    var landmark2 = '<div><h2 class="fottitle" id="fottitle'+i+'" style="'; 
+                   var landmark3 = '<div class="fottitle"><h3 id="fotdesc'+i+'" style="';
                    if(i == 0){
                        landmark = landmark + 'display: inline;';
                        landmark2 = landmark2 + 'display: inline;';
+                       landmark3 = landmark3 + 'display: inline;';
                    }else{
                        landmark = landmark + 'display: none;';
                        landmark2 = landmark2 + 'display: none;';
+                       landmark3 = landmark3 + 'display: none;';
                    };
                    landmark = landmark + '" src="http://smdevelopers.co/smdev/Conservatorio/images/'+item.Foto+'"/></div>';
                    landmark2 = landmark2 + '">'+item.Nombre+'</h2>';
+                   landmark3 = landmark3 + '">'+item.Descripcion+'</h3>';
                                       
                    output2.append(landmark2);
                    output.append(landmark);
+                   output.append(landmark3);
                });              
 
             },
@@ -519,8 +524,9 @@ function fotClick(value){
 
 function fotChange(value){ 
        var item = $('.fotfoto:visible').attr('id').substring(3, 4);
-       $("#fot"+item).hide();
-       $("#fottitle"+item).hide();
+       $("#fot"+item).hide("slow");
+       $("#fottitle"+item).hide("slow");
+       $("#fotdesc"+item).hide("slow");
        if (value == 'back'){
            item--;
            if(item < 0){
@@ -534,8 +540,9 @@ function fotChange(value){
                item = 0;
            } 
        }   
-       $("#fot"+item).show().css( "display", "inline");
-       $("#fottitle"+item).show().css( "display", "inline");
+       $("#fot"+item).show("slow").css( "display", "inline");
+       $("#fottitle"+item).show("slow").css( "display", "inline");
+       $("#fotdesc"+item).show("slow").css( "display", "inline");
 };      
 
 

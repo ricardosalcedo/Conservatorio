@@ -24,8 +24,6 @@
 <body>
 <!-- div data-role="page" data-control-title="landing" id="page1"></div-->
 <div data-role="page" data-control-title="Login" id="page2">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
       <div id="login">
       	<div class="container">
       	 <header>
@@ -63,8 +61,6 @@
 </div>
   
 <div data-role="page" data-control-title="main" id="page3" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
 	<div class="container">
 	     <div data-role="panel" id="panel4" data-position="left" data-display="push" data-theme="b">
 	          <ul data-role="listview" data-divider-theme="b" data-inset="false" id="leftbar">
@@ -124,8 +120,6 @@
 </div>
  
 <div data-role="page" data-control-title="main" id="page5" class="back" data-transition="slide">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
      <div class="container">
       <div data-role="panel" id="panel6" data-position="left" data-display="push"
       data-theme="b">
@@ -200,8 +194,6 @@
   </div>
   
 <div data-role="page" data-control-title="main" id="page6" class="back" data-transition="slide">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
      <div class="container">
       <div data-role="panel" id="panel7" data-position="left" data-display="reveal"
       data-theme="b">
@@ -276,8 +268,6 @@
 </div>
 	  
 <div data-role="page" data-control-title="main" id="page7" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
      <div class="container">
       <div data-role="panel" id="panel8" data-position="left" data-display="reveal"
       data-theme="b">
@@ -353,8 +343,6 @@
   </div>
 
 <div data-role="page" data-control-title="main" id="page8" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
      <div class="container">
       <div data-role="content" id="not-content">
 	   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slidedown" id="notpanel" onclick="notBack();" href="#page5">
@@ -402,8 +390,6 @@
 
 	  
 <div data-role="page" data-control-title="Register" id="page10" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
    	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
 	          CONSERVATORIO DEL TOLIMA
 	  </a>
@@ -472,8 +458,6 @@
 </div>
 
 <div data-role="page" data-control-title="main" id="page12" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
      <div class="container">
       <div data-role="content" id="fot-content">
 	   	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slidedown" id="fotpanel" onclick="fotBack();" href="#page7">
@@ -483,18 +467,18 @@
 	     	<img alt="" id="notitle" src="img/top-titlefot.png">
 	     </div>
 	     <hr id="hline">
-	     <ul id="notcontents" data-role="listview">	 
+	     <ul id="notcontents" data-role="listview">	
+	     	<div class="loading" style="display: none;">Loading...</div> 
     		<div class="fotdivdetails">
 			</div>	    	
 			<div class="fotphoto">
-				<div class="left"><a class="notbutton" onclick="fotChange('back');"><img class="sliderleft" src="img/sliderleftfot.png"></a></div>
-				<div class="right"><a class="notbutton" onclick="fotChange('forward');"><img class="slideright" src="img/sliderightfot.png"></a></div>
-			</div>	
+				<div class="left"><a data-role="button" data-shadow="false" class="notbutton" onclick="fotChange('back');"><img class="sliderleft" src="img/sliderleftfot.png"></a></div>
+				<div class="right"><a data-role="button" data-shadow="false" class="notbutton" onclick="fotChange('forward');"><img class="slideright" src="img/sliderightfot.png"></a></div>
+			</div>
 			<div class="share">
-				<a>
-				<img class="fbshare" onclick="showDialog();" src="img/share.png"/>
+				<a class="fbshare" data-role="button" data-inline="true" onclick="showDialog();">
 				</a>
-			</div>	     
+			</div>		     
 	   	</ul>
 	  </div>  
 	  <div data-role="footer" id="foot">  
@@ -523,8 +507,6 @@
 </div>
 	
 <div data-role="page" data-control-title="Register" id="page13" class="back">
-	<div data-role="header" data-position="fixed" class="header" data-icon="bars" data-iconpos="left" onclick="getPhoto();"> 
-	</div> 
    	  <a class="ui-btn ui-icon-carat-l ui-btn-icon-left" data-transition="slide" id="regpanel" href="#page2">
 	          CONSERVATORIO DEL TOLIMA
 	  </a>
@@ -622,7 +604,7 @@
             
             var logout = function () { 
                 //facebookConnectPlugin.logout(Function success, Function failure);    
-                facebookConnectPlugin.logout();
+                facebookConnectPlugin.logout(function(response){alert(response);});
             }
         </script>
 
